@@ -21,6 +21,22 @@
   position: relative;
   z-index: 3;
   /* background-color: green; */
-  padding: 0.4rem 1.1rem;
+  padding: 0.2rem 1.1rem;
   font-family: "Special Gothic Expanded One", sans-serif;
+  color: var(--footer);
+}
+
+.containerNavDrop {
+  background-color: var(--footer);
+  transform: translateY(-100%) translateX(-100%);
+}
+
+.containerHam {
+  height: 5rem;
+  aspect-ratio: 1/1;
+  background-color: cyan;
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  margin: 0.5rem 5%;
 }
