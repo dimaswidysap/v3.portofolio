@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
+
+.lists {
+  position: relative;
+  margin: 0.8rem 0;
+}
+
+.lists div {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--accen-first);
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--accen-second) -2px 4px 4px 0px;
+}
+
+.lists a {
+  position: relative;
+  z-index: 3;
+  /* background-color: green; */
+  padding: 0.4rem 1.1rem;
+  font-family: "Special Gothic Expanded One", sans-serif;
+}
