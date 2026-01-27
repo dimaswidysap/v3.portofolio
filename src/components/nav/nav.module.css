@@ -20,23 +20,38 @@
 .lists a {
   position: relative;
   z-index: 3;
-  /* background-color: green; */
   padding: 0.2rem 1.1rem;
   font-family: "Special Gothic Expanded One", sans-serif;
+}
+
+.linkActive {
   color: var(--footer);
+}
+
+.linkNonActive {
+  color: var(--font);
 }
 
 .containerNavDrop {
   background-color: var(--footer);
-  transform: translateY(-100%) translateX(-100%);
 }
 
 .containerHam {
-  height: 5rem;
-  aspect-ratio: 1/1;
-  background-color: cyan;
   position: fixed;
   z-index: 100;
   right: 0;
   margin: 0.5rem 5%;
+  border-radius: 50%;
+}
+.containerHam button {
+  cursor: pointer;
+  background-color: var(--accen-first);
+  border: 5px solid var(--font);
+}
+
+.hamLine {
+  height: 8%;
+  width: 60%;
+  background-color: var(--footer);
+  border-radius: 5px;
 }

@@ -1,10 +1,7 @@
-import Navbar from "@/components/nav/nav";
-
 const AboutPage = () => {
   return (
     <div>
-      <Navbar />
-      <div>
+      <div className="h-screen w-full bg-slate-500">
         <h1>about Page</h1>
       </div>
     </div>
