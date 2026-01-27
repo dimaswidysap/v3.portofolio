@@ -33,9 +33,14 @@ const Navbar = () => {
       <section
         className={`
           ${style.containerHam} 
-          z-[60] h-16 md:h-20 aspect-square relative 
-          transition-all ease-in-out duration-500 overflow-hidden
-          ${scrolled || isOpen ? "translate-x-0" : "translate-x-[200%]"}
+          z-50 h-16 md:h-20 aspect-square relative 
+          transition-all ease-in-out duration-500 overflow-hidden 
+          
+          /* --- PERUBAHAN DI SINI --- */
+          /* Logika: Jika discroll atau open, muncul (translate-x-0). */
+          /* Jika TIDAK (else): Tetap muncul di mobile (translate-x-0), tapi sembunyi di desktop (md:translate-x-[200%]) */
+          
+          ${scrolled || isOpen ? "opacity-100 scale-100" : "translate-x-0 scale-100 md:scale-0 md:opacity-0"}
         `}
       >
         <button
@@ -45,7 +50,6 @@ const Navbar = () => {
           <div
             className={` ${isOpen ? "-translate-y-full -translate-x-full" : "translate-y-0 translate-x-0"}
               absolute flex flex-col gap-2 justify-center items-center h-full w-full inset-0 transition-all ease-in-out duration-300 
-              
             `}
           >
             <span className={`${style.hamLine} rotate-45`}></span>
@@ -54,7 +58,6 @@ const Navbar = () => {
           <div
             className={` ${isOpen ? "translate-y-0 translate-x-0" : "translate-y-full translate-x-full"}
               absolute flex flex-col gap-2 justify-center items-center h-full w-full inset-0 transition-all ease-in-out duration-300 
-              
             `}
           >
             <span
@@ -66,9 +69,10 @@ const Navbar = () => {
           </div>
         </button>
       </section>
-      {/* hamburger menu end */}
 
+      {/* hamburger menu end */}
       <section className="w-full max-width-custom">
+        {/* Menu Teks (Hanya tampil di MD ke atas) */}
         <ul className="justify-center gap-2 hidden md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -106,7 +110,6 @@ const Navbar = () => {
         `}
       >
         <ul className="flex flex-col justify-center gap-6">
-          {/* Perhatikan penambahan 'index' di sini */}
           {navItems.map((item, index) => {
             const isActive = pathname === item.href;
 
@@ -121,8 +124,8 @@ const Navbar = () => {
                   transition-all duration-500 ease-in-out
                   ${
                     isOpen
-                      ? "translate-x-0 translate-y-0 opacity-100 blur-none" // Posisi Normal
-                      : "-translate-x-10 translate-y-10 opacity-0 blur-sm" // Posisi Miring & Hilang
+                      ? "translate-x-0 translate-y-0 opacity-100 blur-none"
+                      : "-translate-x-10 translate-y-10 opacity-0 blur-sm"
                   }
                 `}
               >

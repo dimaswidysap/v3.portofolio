@@ -1,11 +1,12 @@
-const heroSection = () => {
+import HerosectionComponent from "./Herosection/page";
+import style from "../my-css.module.css";
+
+const IndexPage = () => {
   return (
-    <main>
-      <section className="w-full h-screen">
-        <section className="m-auto w-ful h-full max-width-custom bg-slate-600"></section>
-      </section>
+    <main className={`${style.backgroundBody}`}>
+      <HerosectionComponent />
     </main>
   );
 };
 
-export default heroSection;
+export default IndexPage;

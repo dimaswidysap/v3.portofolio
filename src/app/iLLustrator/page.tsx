@@ -1,13 +1,11 @@
-import Navbar from "@/components/nav/nav";
+import style from "../my-css.module.css";
+import HerosectionComponent from "./herosection/page";
 
 const iLLustratorPage = () => {
   return (
-    <div>
-      <Navbar />
-      <div>
-        <h1>iLLustrator Page</h1>
-      </div>
-    </div>
+    <main className={`${style.backgroundBody}`}>
+      <HerosectionComponent />
+    </main>
   );
 };
 

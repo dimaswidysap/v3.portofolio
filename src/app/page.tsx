@@ -6,7 +6,6 @@ export default function Home() {
     <div>
       <Navbar />
       <HeroSection />
-      <h1 className="font-bold">Hallow dimas widy saputra</h1>
     </div>
   );
 }
