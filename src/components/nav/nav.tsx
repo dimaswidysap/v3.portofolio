@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import style from "./nav.module.css";
+import Magnet from "@/components/Magnet/Magnet";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,16 +31,12 @@ const Navbar = () => {
   return (
     <nav className="absolute w-full flex justify-center z-40 overflow-hidden">
       {/* hamburger menu start */}
+
       <section
         className={`
           ${style.containerHam} 
           z-50 h-16 md:h-20 aspect-square relative 
           transition-all ease-in-out duration-500 overflow-hidden 
-          
-          /* --- PERUBAHAN DI SINI --- */
-          /* Logika: Jika discroll atau open, muncul (translate-x-0). */
-          /* Jika TIDAK (else): Tetap muncul di mobile (translate-x-0), tapi sembunyi di desktop (md:translate-x-[200%]) */
-          
           ${scrolled || isOpen ? "opacity-100 scale-100" : "translate-x-0 scale-100 md:scale-0 md:opacity-0"}
         `}
       >
@@ -72,7 +69,6 @@ const Navbar = () => {
 
       {/* hamburger menu end */}
       <section className="w-full max-width-custom">
-        {/* Menu Teks (Hanya tampil di MD ke atas) */}
         <ul className="justify-center gap-2 hidden md:flex">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
@@ -114,40 +110,47 @@ const Navbar = () => {
             const isActive = pathname === item.href;
 
             return (
-              <li
+              /* PERBAIKAN: key dipindahkan ke komponen paling luar (Magnet) */
+              <Magnet
                 key={item.href}
-                style={{
-                  transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
-                }}
-                className={`
-                  ${style.lists} lists group relative flex justify-center
-                  transition-all duration-500 ease-in-out
-                  ${
-                    isOpen
-                      ? "translate-x-0 translate-y-0 opacity-100 blur-none"
-                      : "-translate-x-10 translate-y-10 opacity-0 blur-sm"
-                  }
-                `}
+                padding={50}
+                disabled={false}
+                magnetStrength={10}
               >
-                <div
+                <li
+                  style={{
+                    transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
+                  }}
                   className={`
+                    ${style.lists} lists group relative flex justify-center
+                    transition-all duration-500 ease-in-out
+                    ${
+                      isOpen
+                        ? "translate-x-0 translate-y-0 opacity-100 blur-none"
+                        : "-translate-x-10 translate-y-10 opacity-0 blur-sm"
+                    }
+                  `}
+                >
+                  <div
+                    className={`
                     absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
                     ${item.extraClass || ""} 
                     ${isActive ? "blur-none" : "blur-lg group-hover:blur-none"}
                   `}
-                ></div>
+                  ></div>
 
-                <Link
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`
                     relative z-10 block lg:text-2xl sm:text-xl transition-colors duration-300
                     ${isActive ? "text-black font-bold" : "text-white"}
                   `}
-                >
-                  {item.label}
-                </Link>
-              </li>
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              </Magnet>
             );
           })}
         </ul>

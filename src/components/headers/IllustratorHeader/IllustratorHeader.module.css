@@ -1,3 +1,7 @@
 .font {
   color: var(--font);
 }
+
+.font span:nth-child(2) {
+  color: var(--accen-color);
+}

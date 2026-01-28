@@ -26,10 +26,10 @@ const HerosectionComponent = () => {
         <motion.p
           style={{ opacity }}
           className={`${style.montserrat} ${hero.font} mt-[30%] lg:mt-[20%]
-          flex flex-col items-center text-4xl font-black`}
+          flex flex-col items-center text-[2.5em] md:text-[3em] font-black  h-max relative`}
         >
           <span>PROJECT</span>
-          <span>ILLUSTRATOR</span>
+          <span className="absolute top-[60%]">ILLUSTRATOR</span>
         </motion.p>
       </section>
 

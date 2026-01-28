@@ -1,11 +1,11 @@
-import Navbar from "@/components/nav/nav";
-import HeroSection from "./index/page";
+import HomeHeader from "@/components/headers/HomeHeader/HomeHeader";
+import HomeHeroSection from "@/components/HomeHeroSection/HomeHeroSection";
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
-      <HeroSection />
+      <HomeHeader />
+      <HomeHeroSection />
     </div>
   );
 }
