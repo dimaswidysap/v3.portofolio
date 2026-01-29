@@ -10,3 +10,104 @@
     rgba(255, 255, 0, 0)
   );
 }
+
+.sayapKiri {
+  animation: sayapKiriHempas 1s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+.sayapKanan {
+  animation: sayapKananHempas 1s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+.ekor {
+  animation: rotateDepan 0.5s ease-in-out infinite alternate;
+}
+.objectRandom {
+  animation: wiggle 5s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes sayapKiriHempas {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-20deg); /* Arah turun ke bawah */
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes sayapKananHempas {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(20deg); /* Lawan dari kiri: arah turun ke bawah */
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes rotateDepan {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(50deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(0.99, 0.99);
+  }
+
+  10% {
+    transform: translateY(-4px) rotate(-2deg) scale(0.95, 0.95);
+  }
+
+  20% {
+    transform: translateY(-6px) rotate(2deg) scale(0.98, 0.95);
+  }
+
+  35% {
+    transform: translateY(-3px) rotate(-1deg) scale(0.95, 0.94);
+  }
+
+  50% {
+    transform: translateY(0) rotate(1deg) scale(1, 1);
+  }
+
+  65% {
+    transform: translateY(-5px) rotate(-2deg) scale(0.95, 0.96);
+  }
+
+  80% {
+    transform: translateY(-2px) rotate(2deg) scale(0.99, 0.95);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(0.99, 0.99);
+  }
+}
+
+.fontBold span {
+  font-weight: 900;
+  font-size: 1.6em !important;
+  color: var(--font);
+}
+.sbhas::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 5rem;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--secondary-background) 20%,
+    rgba(255, 255, 0, 0)
+  );
+}

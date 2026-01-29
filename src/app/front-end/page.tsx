@@ -1,13 +1,10 @@
-import Navbar from "@/components/nav/nav";
+import FrontEndHeaderComponent from "@/components/headers/FrontEndHeader/FrontEndHeaderComponent";
 
 const FrontEndPage = () => {
   return (
-    <div>
-      <Navbar />
-      <div>
-        <h1>front end Page</h1>
-      </div>
-    </div>
+    <main>
+      <FrontEndHeaderComponent />
+    </main>
   );
 };
 

@@ -31,7 +31,6 @@ const Navbar = () => {
   return (
     <nav className="absolute w-full flex justify-center z-40 overflow-hidden">
       {/* hamburger menu start */}
-
       <section
         className={`
           ${style.containerHam} 
@@ -66,8 +65,8 @@ const Navbar = () => {
           </div>
         </button>
       </section>
-
       {/* hamburger menu end */}
+      {/* nav header start */}
       <section className="w-full max-width-custom">
         <ul className="justify-center gap-2 hidden md:flex">
           {navItems.map((item) => {
@@ -95,6 +94,7 @@ const Navbar = () => {
           })}
         </ul>
       </section>
+      {/* nav header end */}
 
       {/* MOBILE MENU CONTAINER */}
       <section

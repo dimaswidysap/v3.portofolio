@@ -4,6 +4,10 @@
   max-width: 80rem;
 }
 
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
 :root {
   --accen-first: #ff9b00;
   --accen-second: #c10000;
@@ -12,12 +16,18 @@
   --primary-background: #222831;
   --secondary-background: #181c23;
 }
+.main-font {
+  color: var(--font);
+}
 
 .bg-primary {
   background-color: var(--primary-background);
 }
 .bg-secondary {
   background-color: var(--secondary-background);
+}
+.bg-accen-first {
+  background-color: var(--accen-first);
 }
 
 html.lenis {
