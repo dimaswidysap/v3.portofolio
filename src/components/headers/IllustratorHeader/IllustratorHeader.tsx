@@ -34,7 +34,7 @@ const HerosectionComponent = () => {
       </section>
 
       {/* BACKGROUND */}
-      <section className="absolute inset-0 h-full lg:w-full aspect-video flex justify-center items-center">
+      <section className="absolute inset-0 h-full xl:w-full aspect-video flex justify-center items-center">
         {/* Background */}
         <Image
           className="absolute inset-0 h-full aspect-video drop-shadow-2xl shrink"

@@ -5,7 +5,7 @@ const ProjectGrid = () => {
     <section className="h-280 w-full">
       {/* background */}
       <section className="relative h-full overflow-hidden">
-        <figure className="h-screen lg:w-full aspect-video relative">
+        <figure className="h-screen xl:w-full aspect-video relative">
           <Image
             className=" rotate-180 inset-0 h-full aspect-video  shrink"
             src="/asset/pageIllustrator/bgapi.webp"

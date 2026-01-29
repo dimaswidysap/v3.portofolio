@@ -40,7 +40,7 @@ const HomeHeader = () => {
         {/* container layar 2 */}
         <section className="absolute w-full h-screen ">
           <div className="w-full h-screen fixed inset-0 ">
-            <figure className="absolute h-full aspect-video -translate-x-[50%] md:-translate-x-[45%] lg:translate-x-0">
+            <figure className="absolute h-full aspect-video -translate-x-[55%] md:-translate-x-[45%] lg:translate-x-0">
               <Image
                 className="h-full aspect-video drop-shadow-2xl"
                 src="/asset/pageIndex/person.png"
