@@ -1,9 +1,32 @@
+import React from "react"; // Tambahkan ini
 import style from "./HomeHeroSection.module.css";
 import Image from "next/image";
 import ScrollFloat from "@/components/ScrollFloat/ScrollFloat";
 import RotatingText from "@/components/RotatingText/RotatingText";
 
 const HomeHeroSection = () => {
+  function createCard(linkIcon: string) {
+    return (
+      // Tambahkan "relative" di sini
+      <section className="relative h-16 aspect-square shrink-0">
+        <Image
+          className="object-contain drop-shadow-2xl" // 'object-contain' agar icon tidak gepeng
+          src={linkIcon} // Tidak perlu `${}` jika hanya string tunggal
+          alt="icon"
+          fill
+          unoptimized
+        />
+      </section>
+    );
+  }
+  const techIcons = [
+    "https://cdn.simpleicons.org/html5",
+    "https://cdn.simpleicons.org/css",
+    "https://cdn.simpleicons.org/javascript",
+    "https://cdn.simpleicons.org/tailwindcss",
+    "https://cdn.simpleicons.org/nextdotjs",
+  ];
+
   return (
     <section
       className={`${style.gradient}  relative z-20 bg-secondary h-200 w-full`}
@@ -88,11 +111,37 @@ const HomeHeroSection = () => {
 
             {/* container techscroll */}
             <div
-              className={`${style.sbhas} w-600 h-[5rem]  absolute  rotate-12 -left-[20%] bottom-[5%] md:bottom-[20%]`}
+              className={`${style.sbhas} overflow-hidden w-600 absolute flex  py-2 rotate-12 -left-[20%] bottom-[5%] md:bottom-[20%] `}
             >
-              {/* container items */}
-              <div className="flex"></div>
+              <div className="flex">
+                {/* 1. Div Item Asli */}
+                <div className="flex gap-4 ml-4 shrink-0">
+                  {[...Array(6)].map((_, groupIndex) => (
+                    <React.Fragment key={`orig-${groupIndex}`}>
+                      {techIcons.map((url, i) => (
+                        <React.Fragment key={`icon-orig-${groupIndex}-${i}`}>
+                          {createCard(url)}
+                        </React.Fragment>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </div>
+
+                {/* 2. Div Item Kloning (Copy) */}
+                <div className="flex gap-4 ml-4 shrink-0" aria-hidden="true">
+                  {[...Array(6)].map((_, groupIndex) => (
+                    <React.Fragment key={`clone-${groupIndex}`}>
+                      {techIcons.map((url, i) => (
+                        <React.Fragment key={`icon-clone-${groupIndex}-${i}`}>
+                          {createCard(url)}
+                        </React.Fragment>
+                      ))}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
             </div>
+            {/* container techscroll end*/}
           </section>
         </section>
       </section>

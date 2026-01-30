@@ -99,9 +99,19 @@
   font-size: 1.6em !important;
   color: var(--font);
 }
+
+.sbhas {
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.159);
+}
+
+.sbhas div {
+  animation: scroll 20s linear infinite;
+}
 .sbhas::before {
   content: "";
   position: absolute;
+  z-index: 20;
   height: 100%;
   width: 5rem;
   inset: 0;
@@ -110,4 +120,13 @@
     var(--secondary-background) 20%,
     rgba(255, 255, 0, 0)
   );
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

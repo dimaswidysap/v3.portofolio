@@ -14,7 +14,7 @@ const HomeHeader = () => {
         {/* container layar 1 */}
         <section className="relative z-20 w-full h-full flex justify-center items-center">
           <div className={`${style.glass} mt-[10%]`}></div>
-          <div className="absolute flex items-center w-max h-screen inset-0 left-[40%] translate-x-[-50%]">
+          <div className="absolute flex flex-col justify-center w-max h-screen inset-0 left-[40%] translate-x-[-50%]">
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <p className="flex">
                 <span
@@ -34,6 +34,15 @@ const HomeHeader = () => {
                   </span>
                 </span>
               </p>
+            </Magnet>
+            <Magnet padding={50} disabled={false} magnetStrength={5}>
+              <span className="inline-flex mt-[40%]">
+                <button
+                  className={`${style.downloadCV} md:text-[1.2em] lg:text-[1.3em]`}
+                >
+                  Download CV
+                </button>
+              </span>
             </Magnet>
           </div>
         </section>
