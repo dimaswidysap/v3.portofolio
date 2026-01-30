@@ -11,16 +11,16 @@ const HerosectionComponent = () => {
   const { scrollYProgress } = useScroll();
 
   // Hellcat bergerak ke kanan
-  const xHellcat = useTransform(scrollYProgress, [0, 1], [0, -300]);
+  const xHellcat = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
 
   // Moonknight bergerak ke kiri
-  const xMoon = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  const xMoon = useTransform(scrollYProgress, [0, 0.5], [0, 300]);
 
   // Optional: efek cinematic fade
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
-    <header className="w-full h-screen relative overflow-hidden">
+    <header className="w-full h-screen relative">
       {/* TEXT */}
       <section className="relative z-20 m-auto max-width-custom h-screen flex justify-center">
         <motion.p
@@ -34,53 +34,53 @@ const HerosectionComponent = () => {
       </section>
 
       {/* BACKGROUND */}
-      <section className="absolute inset-0 h-full xl:w-full aspect-video flex justify-center items-center">
-        {/* Background */}
-        <Image
-          className="absolute inset-0 h-full aspect-video drop-shadow-2xl shrink"
-          src="/asset/pageIllustrator/background.webp"
-          alt="background"
-          fill
-          unoptimized
-        />
-
-        <Image
-          className="absolute inset-0 h-full aspect-video shrink"
-          src="/asset/pageIllustrator/bgapi.webp"
-          alt="fire"
-          fill
-          unoptimized
-        />
-
-        {/* FIGURE CHARACTERS */}
-        <figure className="absolute bottom-0 h-[80%] w-full flex justify-between px-10">
-          {/* Hellcat Mobil */}
-          <motion.div
+      <section className="h-screen w-full absolute inset-0">
+        {/* container karakter */}
+        <section className="w-full h-[80%]  absolute z-40 bottom-0 flex justify-between overflow-hidden">
+          <motion.figure
             style={{ x: xHellcat }}
-            className="relative h-full aspect-square"
+            className="h-full aspect-square  relative"
           >
             <Image
-              className="object-cover drop-shadow-2xl"
+              className="drop-shadow-2xl  object-fill"
               src="/asset/pageIllustrator/hellcatmobil.webp"
-              alt="mobil"
+              alt="background"
               fill
               unoptimized
             />
-          </motion.div>
-
-          {/* Moonknight */}
-          <motion.div
+          </motion.figure>
+          <motion.figure
             style={{ x: xMoon }}
-            className="relative h-full aspect-square"
+            className="h-full aspect-square relative"
           >
             <Image
-              className="object-cover drop-shadow-2xl"
+              className="drop-shadow-2xl  object-fill"
               src="/asset/pageIllustrator/moonknight.webp"
-              alt="moonknight"
+              alt="background"
               fill
               unoptimized
             />
-          </motion.div>
+          </motion.figure>
+        </section>
+        {/* background */}
+        <figure className="w-full h-screen absolute">
+          <Image
+            className="inset-0 drop-shadow-2xl shrink object-cover"
+            src="/asset/pageIllustrator/background.webp"
+            alt="background"
+            fill
+            unoptimized
+          />
+        </figure>
+        {/* background api */}
+        <figure className="absolute h-[200svh] z-30 w-full">
+          <Image
+            className="drop-shadow-2xl inline-flex object-cover xl:object-fill  aspect-video "
+            src="/asset/pageIllustrator/bgapiv2.webp"
+            alt="background"
+            fill
+            unoptimized
+          />
         </figure>
       </section>
     </header>

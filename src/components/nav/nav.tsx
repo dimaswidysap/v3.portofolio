@@ -29,7 +29,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="absolute w-full flex justify-center z-40 overflow-hidden">
+    <nav className="absolute w-full flex justify-center z-999 overflow-hidden">
       {/* hamburger menu start */}
       <section
         className={`

@@ -29,14 +29,3 @@
 .font span:nth-child(3) {
   color: var(--accen-first);
 }
-
-.downloadCV {
-  font-weight: 900;
-  color: var(--accen-second);
-  background-color: var(--accen-first);
-  padding: 0.2rem 1.2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  outline: 2px solid var(--font);
-  font-family: "Montserrat", sans-serif;
-}

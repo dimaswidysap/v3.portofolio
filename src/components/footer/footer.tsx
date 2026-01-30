@@ -3,6 +3,7 @@ import font from "@/app/my-css.module.css";
 // import { usePathname } from "next/navigation";
 import Link from "next/link";
 import LightRays from "@/components/LightRays/LightRays";
+import IconSosmed from "@/components/iconSosmed/IconSosmed";
 
 const Footer = () => {
   const navItems = [
@@ -12,6 +13,13 @@ const Footer = () => {
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
+
+  const email = "dimaswidysaputra41@gmail.com";
+  const subject = "Halo Widy";
+  const body = "Saya ingin berdiskusi tentang...";
+
+  const mailtoUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
+
   return (
     <footer className={`${style.containerFooter} w-full z-20 relative`}>
       <section className="w-full h-120 relative">
@@ -36,10 +44,41 @@ const Footer = () => {
         {/* konten */}
         <div className="absolute max-width-custom  m-auto h-full w-full inset-0  z-20 flex flex-col">
           <section className="w-full flex flex-1 md:flex-row">
-            <div className="w-full h-full md:w-[70%] pl-2">
+            <div className="w-full flex flex-col gap-7 h-full md:w-[70%] pl-2">
               <h1 className="text-[3em] md:text-[4em] font-extrabold main-font">
-                Lets discuss your project 🚀
+                Let`s discuss your project 🚀
               </h1>
+              <a
+                href={mailtoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contactFooter w-max px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors inline-block"
+              >
+                Contack Me
+              </a>
+              {/* container icon sosmed */}
+              <div className="flex gap-3">
+                {IconSosmed(
+                  "https://github.com/dimaswidysap",
+                  "https://cdn.simpleicons.org/github/ffff",
+                  "bg-primary",
+                )}
+                {IconSosmed(
+                  "https://www.instagram.com/dimaswidysaputraa/",
+                  "https://cdn.simpleicons.org/instagram/ffff",
+                  "bg-primary",
+                )}
+                {IconSosmed(
+                  "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
+                  "https://cdn.simpleicons.org/facebook/ffff",
+                  "bg-primary",
+                )}
+                {IconSosmed(
+                  "https://www.tiktok.com/@segogotol",
+                  "https://cdn.simpleicons.org/tiktok/ffff",
+                  "bg-primary",
+                )}
+              </div>
             </div>
             <div className="hidden md:flex w-[30%] h-full md:flex-col md:items-center md:gap-6 pt-12">
               <header className="text-[2em] font-extrabold main-font">
@@ -52,7 +91,7 @@ const Footer = () => {
                   return (
                     <li
                       key={item.href}
-                      className={`${style.lists} main-font font-bold text-[1.2em]`}
+                      className={`${style.lists} ${font.montserrat} main-font font-bold text-[1.2em]`}
                     >
                       <Link href={item.href}>{item.label}</Link>
                     </li>

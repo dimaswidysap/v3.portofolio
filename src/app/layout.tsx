@@ -11,9 +11,11 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body>
-        <Navbar />
-        <SmoothScroll>{children}</SmoothScroll>
-        <Footer />
+        <SmoothScroll>
+          <Navbar />
+          {children}
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   );

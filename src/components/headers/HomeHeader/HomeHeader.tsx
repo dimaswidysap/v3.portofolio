@@ -37,9 +37,7 @@ const HomeHeader = () => {
             </Magnet>
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <span className="inline-flex mt-[40%]">
-                <button
-                  className={`${style.downloadCV} md:text-[1.2em] lg:text-[1.3em]`}
-                >
+                <button className={`downloadCV md:text-[1.01em] lg:text-[1em]`}>
                   Download CV
                 </button>
               </span>
