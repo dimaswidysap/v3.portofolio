@@ -90,6 +90,15 @@ const AboutHeroSection = () => {
               bidang tersebut.
             </p>
           </div>
+          <span className="h-0.5 w-[20%] bg-accen-first"></span>
+          <div className="flex gap-10">
+            <Link className="globalButton bg-sky-50" href="/about/education/">
+              Education
+            </Link>
+            <Link className="globalButton bg-sky-50" href="/about/education/">
+              Certificate
+            </Link>
+          </div>
           <span className="h-0.5 w-full bg-accen-first"></span>
         </section>
         {/* container story end*/}

@@ -4,6 +4,7 @@ import Image from "next/image";
 import style from "./HomeHeader.module.css";
 import font from "@/app/my-css.module.css";
 import Magnet from "@/components/Magnet/Magnet";
+import Link from "next/link";
 // import SplashCursor from "@/components/SplashCursor/SplashCursor";
 
 const HomeHeader = () => {
@@ -36,8 +37,13 @@ const HomeHeader = () => {
               </p>
             </Magnet>
             <Magnet padding={50} disabled={false} magnetStrength={5}>
-              <span className="inline-flex mt-[40%]">
-                <button className={`globalButton`}>Download CV</button>
+              <span className="inline-flex gap-6 mt-[20%]">
+                <Link href="/about" className={`globalButton`}>
+                  Interested?
+                </Link>
+                <Link href="" className={`globalButton`}>
+                  Hire Me
+                </Link>
               </span>
             </Magnet>
           </div>

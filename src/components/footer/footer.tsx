@@ -14,12 +14,6 @@ const Footer = () => {
     { label: "Contact", href: "/contact" },
   ];
 
-  const email = "dimaswidysaputra41@gmail.com";
-  const subject = "Halo Widy";
-  const body = "Saya ingin berdiskusi tentang...";
-
-  const mailtoUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${subject}&body=${body}`;
-
   return (
     <footer className={`${style.containerFooter} w-full z-20 relative`}>
       <section className="w-full h-120 relative">
@@ -48,14 +42,9 @@ const Footer = () => {
               <h1 className="text-[3em] md:text-[4em] font-extrabold main-font">
                 Let`s discuss your project 🚀
               </h1>
-              <a
-                href={mailtoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="globalButton"
-              >
+              <Link href="/contact" className="globalButton">
                 Contact Me
-              </a>
+              </Link>
               {/* container icon sosmed */}
               <div className="flex gap-3">
                 {IconSosmed(
