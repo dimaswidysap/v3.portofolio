@@ -11,16 +11,19 @@ const PROJECTS = [
     title: "Garuda Illustration",
     src: "/asset/pageIllustrator/projects/1.jpg",
     tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
+    desc: "Illustrasi ini saya buat dalam rangka memperingati hari kemerdekaan Indonesia yang ke 80",
   },
   {
     title: "Tiger Illustration",
     src: "/asset/pageIllustrator/projects/2.jpg",
     tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
+    desc: "illustrasi ini saya buat untuk desain sebua baju",
   },
   {
     title: "Zombie Illustration",
     src: "/asset/pageIllustrator/projects/3.jpg",
     tools: "https://api.iconify.design/logos:adobe-photoshop.svg",
+    desc: "illustrasi ini saya buat untuk desain sebua baju",
   },
 ];
 
@@ -52,7 +55,16 @@ const ProjectGrid = () => {
   );
 };
 
-const Card = ({ i, title, src, tools, progress, range, targetScale }: any) => {
+const Card = ({
+  i,
+  title,
+  src,
+  tools,
+  desc,
+  progress,
+  range,
+  targetScale,
+}: any) => {
   const container = useRef(null);
   const scale = useTransform(progress, range, [1, targetScale]);
 
@@ -93,6 +105,7 @@ const Card = ({ i, title, src, tools, progress, range, targetScale }: any) => {
             <section className="flex gap-4">
               {IconTech(tools, "bg-main-font")}
             </section>
+            <p className="main-font mt-4 montserrat font-bold">{desc}</p>
           </section>
         </section>
       </motion.div>

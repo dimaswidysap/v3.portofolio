@@ -102,7 +102,11 @@
   color: var(--font);
 }
 .font-accen-first {
-  color: var(--accen-first);
+  color: var(--accen-first) !important;
+}
+
+.font-secondary {
+  color: var(--secondary-background);
 }
 .bg-main-font {
   background-color: var(--font);
