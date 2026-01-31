@@ -3,5 +3,5 @@
   background-color: var(--primary-background);
 }
 .montserrat {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
 }

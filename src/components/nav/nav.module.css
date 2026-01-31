@@ -33,7 +33,12 @@
 }
 
 .containerNavDrop {
-  background-color: var(--footer);
+  /* backdrop-filter: blur(10px); */
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.932),
+    rgb(0, 0, 0)
+  );
 }
 
 .containerHam {

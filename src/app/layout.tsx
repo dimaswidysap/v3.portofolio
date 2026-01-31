@@ -10,13 +10,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body>
-        <SmoothScroll>
+      <SmoothScroll>
+        <body>
           <Navbar />
           {children}
           <Footer />
-        </SmoothScroll>
-      </body>
+        </body>
+      </SmoothScroll>
     </html>
   );
 }

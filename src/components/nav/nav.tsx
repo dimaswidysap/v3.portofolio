@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import style from "./nav.module.css";
 import Magnet from "@/components/Magnet/Magnet";
+import IconSosmed from "../iconSosmed/IconSosmed";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,7 +102,7 @@ const Navbar = () => {
         className={`
           ${style.containerNavDrop} 
           fixed h-screen w-full z-50 flex justify-center items-center
-          transition-all duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] shadow-2xl
+          transition-all duration-700  shadow-2xl
           ${isOpen ? "translate-y-0 translate-x-0 rounded-none" : "-translate-y-full -translate-x-full rounded-b-[100%]"}
         `}
       >
@@ -110,7 +111,6 @@ const Navbar = () => {
             const isActive = pathname === item.href;
 
             return (
-              /* PERBAIKAN: key dipindahkan ke komponen paling luar (Magnet) */
               <Magnet
                 key={item.href}
                 padding={50}
@@ -154,6 +154,29 @@ const Navbar = () => {
             );
           })}
         </ul>
+        {/* container sosmed */}
+        <section className="flex gap-4 justify-center w-full absolute bottom-0 mb-4 lg:h-full lg:flex-col lg:w-max lg:right-0 lg:mb-0 lg:mr-4">
+          {IconSosmed(
+            "https://github.com/dimaswidysap",
+            "https://cdn.simpleicons.org/github/ffff",
+            "bg-primary",
+          )}
+          {IconSosmed(
+            "https://www.instagram.com/dimaswidysaputraa/",
+            "https://cdn.simpleicons.org/instagram/ffff",
+            "bg-primary",
+          )}
+          {IconSosmed(
+            "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
+            "https://cdn.simpleicons.org/facebook/ffff",
+            "bg-primary",
+          )}
+          {IconSosmed(
+            "https://www.tiktok.com/@segogotol",
+            "https://cdn.simpleicons.org/tiktok/ffff",
+            "bg-primary",
+          )}
+        </section>
       </section>
     </nav>
   );

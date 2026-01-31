@@ -52,9 +52,9 @@ const Footer = () => {
                 href={mailtoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="contactFooter w-max px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 transition-colors inline-block"
+                className="globalButton"
               >
-                Contack Me
+                Contact Me
               </a>
               {/* container icon sosmed */}
               <div className="flex gap-3">

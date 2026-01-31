@@ -1,0 +1,9 @@
+.containerImage {
+  border: 2px solid var(--font);
+}
+
+.containerLines span {
+  display: inline-flex;
+  background-color: var(--font);
+  position: absolute;
+}

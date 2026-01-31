@@ -5,7 +5,7 @@ import ContainerProjectGrid from "@/components/ProjectIllustratorGrid/ProjectiLL
 
 const iLLustratorPage = () => {
   return (
-    <main className={`${style.backgroundBody} `}>
+    <main className={`${style.backgroundBody}`}>
       <IllustratorHeader />
       <ContainerProjectGrid />
     </main>

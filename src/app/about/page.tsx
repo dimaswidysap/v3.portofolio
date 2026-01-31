@@ -1,10 +1,12 @@
+import AboutHeaderComponent from "@/components/headers/AboutHeader/AboutHeader";
+import AboutHeroSection from "@/components/AboutHeroSection/AboutHeroSection";
+
 const AboutPage = () => {
   return (
-    <div>
-      <div className="h-screen w-full bg-slate-500">
-        <h1>about Page</h1>
-      </div>
-    </div>
+    <main>
+      <AboutHeaderComponent />
+      <AboutHeroSection />
+    </main>
   );
 };
 
