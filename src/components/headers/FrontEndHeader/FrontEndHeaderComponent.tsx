@@ -62,7 +62,8 @@ const FrontEndHeaderComponent = () => {
               Featured Projects 💻
             </h1>
             <p className="font-bold main-font">
-              Showcasing selected projects in Web Development.
+              Showcasing selected projects in Web Development{" "}
+              <span className="text-blue-700">.</span>
             </p>
           </div>
         </div>
