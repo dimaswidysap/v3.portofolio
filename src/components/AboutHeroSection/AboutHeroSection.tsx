@@ -4,6 +4,15 @@ import CircularGallery from "@/components/CircularGallery/CircularGallery";
 import Link from "next/link";
 import Image from "next/image";
 import wiggle from "../HomeHeroSection/HomeHeroSection.module.css";
+import style from "./AboutHeroSection.module.css";
+import Magnet from "../Magnet/Magnet";
+import {
+  GraduationCap,
+  BookOpen,
+  School,
+  Award,
+  Briefcase,
+} from "lucide-react";
 
 const myImages = [
   { image: "/asset/pageAbout/images/1.jpeg", text: "Make Illustration Zombie" },
@@ -45,7 +54,9 @@ const AboutHeroSection = () => {
           </h1>
         </header>
         {/* container gallery */}
-        <section className="w-full h-150 ">
+        <section
+          className={`${style.haooe} w-full h-150 bg-sky-50 bg-secondary lg:rounded-2xl`}
+        >
           <div style={{ height: "600px", position: "relative" }}>
             <CircularGallery
               items={myImages}
@@ -91,13 +102,38 @@ const AboutHeroSection = () => {
             </p>
           </div>
           <span className="h-0.5 w-[20%] bg-accen-first"></span>
-          <div className="flex gap-10">
-            <Link className="globalButton bg-sky-50" href="/about/education/">
-              Education
-            </Link>
-            <Link className="globalButton bg-sky-50" href="/about/education/">
-              Certificate
-            </Link>
+          <div className="flex gap-10 flex-wrap">
+            <Magnet padding={50} disabled={false} magnetStrength={5}>
+              <Link
+                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                href="/education"
+              >
+                <GraduationCap className="text-blue-700" />
+                Education
+                <span className="text-blue-700">.</span>
+              </Link>
+            </Magnet>
+            <Magnet padding={50} disabled={false} magnetStrength={5}>
+              <Link
+                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                href="/experiences"
+                // href="/education"
+              >
+                <Briefcase className="text-blue-700" />
+                Experinces
+                <span className="text-blue-700">.</span>
+              </Link>
+            </Magnet>
+            <Magnet padding={50} disabled={false} magnetStrength={5}>
+              <Link
+                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                href="/about/education/"
+              >
+                <Award className="text-blue-700" />
+                Certificate
+                <span className="text-blue-700">.</span>
+              </Link>
+            </Magnet>
           </div>
           <span className="h-0.5 w-full bg-accen-first"></span>
         </section>

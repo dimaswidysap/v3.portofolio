@@ -5,6 +5,7 @@ import style from "./FrontEndHeroSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
+import Magnet from "../Magnet/Magnet";
 
 const FrontEndHeroSection = () => {
   const containerRef = useRef(null);
@@ -101,38 +102,42 @@ const FrontEndHeroSection = () => {
                   </header>
                   <p className="montserrat font-light">{items.desc}</p>
                   <section className="absolute flex gap-3 bottom-0 mb-[5%]">
-                    <Link
-                      target="_blanks"
-                      href={items.linkRep}
-                      className="flex items-center gap-1"
-                    >
-                      <span className="h-7 aspect-square inline-flex  relative">
-                        {/* <Image
+                    <Magnet padding={50} disabled={false} magnetStrength={5}>
+                      <Link
+                        target="_blanks"
+                        href={items.linkRep}
+                        className="flex items-center gap-1"
+                      >
+                        <span className="h-7 aspect-square inline-flex  relative">
+                          {/* <Image
                           className="object-cover"
                           src="https://cdn.simpleicons.org/github/ffff"
                           alt="person"
                           fill
                           unoptimized
-                        /> */}
+                          /> */}
 
-                        <Github className="main-font" />
-                      </span>
-                      <span className="montserrat main-font font-light">
-                        Source Code
-                      </span>
-                    </Link>
-                    <Link
-                      target="_blanks"
-                      href={items.linkDemo}
-                      className="flex items-center gap-1"
-                    >
-                      <span className="h-7 aspect-square inline-flex relative">
-                        <Globe className="text-blue-700" />
-                      </span>
-                      <span className="montserrat font-light text-blue-700">
-                        live Demo
-                      </span>
-                    </Link>
+                          <Github className="main-font" />
+                        </span>
+                        <span className="montserrat main-font font-light">
+                          Source Code
+                        </span>
+                      </Link>
+                    </Magnet>
+                    <Magnet padding={50} disabled={false} magnetStrength={5}>
+                      <Link
+                        target="_blanks"
+                        href={items.linkDemo}
+                        className="flex items-center gap-1"
+                      >
+                        <span className="h-7 aspect-square inline-flex relative">
+                          <Globe className="text-blue-700" />
+                        </span>
+                        <span className="montserrat font-light text-blue-700">
+                          live Demo
+                        </span>
+                      </Link>
+                    </Magnet>
                   </section>
                 </section>
               </div>

@@ -1,4 +1,4 @@
-import style from "../my-css.module.css";
+import style from "@/app/my-css.module.css";
 
 import IllustratorHeader from "@/components/headers/IllustratorHeader/IllustratorHeader";
 import ContainerProjectGrid from "@/components/ProjectIllustratorGrid/ProjectiLLustratorGrid";
