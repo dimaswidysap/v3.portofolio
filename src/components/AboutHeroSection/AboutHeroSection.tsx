@@ -69,9 +69,12 @@ const AboutHeroSection = () => {
           </div>
         </section>
         {/* container story */}
-        <section className="w-full pt-40 p-5 md:px-[20%] flex flex-col gap-5 main-font font-extrabold montserrat">
+        <section
+          id="story"
+          className="w-full pt-40 p-5 md:px-[20%] flex flex-col gap-5 main-font font-extrabold montserrat"
+        >
           <span className="h-0.5 w-full bg-accen-first"></span>
-          <div className="">
+          <div className="font-medium">
             <h1 className="text-[1.5em]">Hello There 👋</h1>
             <p>
               Nama saya Dimas Widy Saputra, Usia saya 21 tahun. Saya Adalah
@@ -85,7 +88,7 @@ const AboutHeroSection = () => {
             </p>
           </div>
           <span className="h-0.5 w-[20%] bg-accen-first"></span>
-          <div>
+          <div className="font-medium">
             <p>
               Saya mempunyai hobi menggambar dan saya memutuskan untuk memasukan
               ke website portofolio saya, Namun tujuan sebenarnya saya adalah
@@ -93,7 +96,7 @@ const AboutHeroSection = () => {
             </p>
           </div>
           <span className="h-0.5 w-[20%] bg-accen-first"></span>
-          <div>
+          <div className="font-medium">
             <p>
               Saya sangat menerima kesempatan berkerja sebagai Front-End
               devoloper dan bahkan saya bersedia berkeja sebagai illustrator
@@ -127,7 +130,7 @@ const AboutHeroSection = () => {
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <Link
                 className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
-                href="/about/education/"
+                href="/certificate"
               >
                 <Award className="text-blue-700" />
                 Certificate
