@@ -6,11 +6,11 @@ import { ArrowLeft } from "lucide-react";
 
 const EducatioPage = () => {
   return (
-    <main className="w-full relative bg-primary">
+    <main id="education" className="w-full relative bg-primary">
       <section className="max-width-custom m-auto flex flex-col items-center pb-60 ">
         <header className="py-4 flex justify-between w-full px-3">
           <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link href="/about#story">
+            <Link href="/about">
               <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
                 <ArrowLeft className="md:text-[2em]" />
                 Back<span className="text-blue-700">.</span>
@@ -45,6 +45,12 @@ const EducatioPage = () => {
                     SMKN 1 GEGER
                   </h1>
                 </header>
+                <div className="mt-10 flex items-center gap-4">
+                  <span className="h-2 shadow-2xl aspect-square bg-accen-first inline-flex rounded-full"></span>
+                  <span className="montserrat font-bold main-font  text-[1.3em]">
+                    TEKNIK KOMPUTER dan JARINGAN
+                  </span>
+                </div>
                 <div className="mt-10 flex items-center gap-4">
                   <span className="h-2 shadow-2xl aspect-square bg-accen-first inline-flex rounded-full"></span>
                   <span className="montserrat font-bold main-font  text-[1.3em]">
@@ -98,10 +104,33 @@ const EducatioPage = () => {
                   </li>
                 </ul>
               </div>
+              {/* container foto */}
+              <section className="hidden w-full md:h-56 lg:h-100  md:flex justify-center mt-20 gap-20">
+                {/* Container 1: Awalnya miring kiri (-rotate-12) */}
+                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl -rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-110 hover:z-10">
+                  <Image
+                    className="object-cover"
+                    src="/asset/education/1.png"
+                    alt="person"
+                    fill
+                    unoptimized
+                  />
+                </div>
+
+                {/* Container 2: Awalnya miring kanan (rotate-12) */}
+                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-110 hover:z-10">
+                  <Image
+                    className="object-cover"
+                    src="/asset/education/2.png"
+                    alt="person"
+                    fill
+                    unoptimized
+                  />
+                </div>
+              </section>
             </figure>
 
             {/* Spacer agar efek scroll terasa (Hanya untuk testing) */}
-            <div className="h-[100vh]"></div>
           </section>
         </section>
       </section>

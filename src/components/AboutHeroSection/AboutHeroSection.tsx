@@ -6,13 +6,7 @@ import Image from "next/image";
 import wiggle from "../HomeHeroSection/HomeHeroSection.module.css";
 import style from "./AboutHeroSection.module.css";
 import Magnet from "../Magnet/Magnet";
-import {
-  GraduationCap,
-  BookOpen,
-  School,
-  Award,
-  Briefcase,
-} from "lucide-react";
+import { GraduationCap, Award, Briefcase } from "lucide-react";
 
 const myImages = [
   { image: "/asset/pageAbout/images/1.jpeg", text: "Make Illustration Zombie" },

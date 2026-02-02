@@ -1,12 +1,9 @@
-import Navbar from "@/components/nav/nav";
+import ContactHeroSection from "@/components/ContactHeroSection/ContactHeroSection";
 
 const ContactPage = () => {
   return (
     <div>
-      <Navbar />
-      <div>
-        <h1>contact Page</h1>
-      </div>
+      <ContactHeroSection />
     </div>
   );
 };

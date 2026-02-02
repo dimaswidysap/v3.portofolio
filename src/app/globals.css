@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+html {
+  scroll-behavior: smooth;
+}
 .max-width-custom {
   max-width: 80rem;
 }
