@@ -11,8 +11,8 @@ import { GraduationCap, Award, Briefcase } from "lucide-react";
 const myImages = [
   { image: "/asset/pageAbout/images/1.jpeg", text: "Make Illustration Zombie" },
   { image: "/asset/pageAbout/images/2.jpg", text: "Instalation Network" },
-  { image: "/asset/pageAbout/images/3.jpg", text: "Collage" },
-  { image: "/asset/pageAbout/images/4.jpg", text: "Funny" },
+  { image: "/asset/pageAbout/images/beach.jpeg", text: "Holiday" },
+  { image: "/asset/pageAbout/images/cat.jpeg", text: "My cat" },
 ];
 
 const toolsFrontEnd = [

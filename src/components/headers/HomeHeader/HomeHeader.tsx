@@ -41,7 +41,11 @@ const HomeHeader = () => {
                 <Link href="/about" className={`globalButton`}>
                   Interested?
                 </Link>
-                <Link href="" className={`globalButton`}>
+                <Link
+                  target="_blank"
+                  href="https://drive.google.com/file/d/1HrZd5hQpGUMM97I65QJ9fTSIPFZp3K-x/view?usp=drive_link"
+                  className={`globalButton`}
+                >
                   Hire Me
                 </Link>
               </span>
