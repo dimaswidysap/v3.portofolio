@@ -56,9 +56,9 @@ const AboutHeroSection = () => {
               items={myImages}
               bend={1}
               textColor="#cacaca"
-              borderRadius={0.01}
+              borderRadius={0.05}
               scrollEase={0.02}
-              scrollSpeed={5}
+              scrollSpeed={1}
             />
           </div>
         </section>

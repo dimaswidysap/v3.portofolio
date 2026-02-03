@@ -110,29 +110,32 @@ const HomeHeroSection = () => {
             </div>
 
             {/* container techscroll */}
+
             <div
-              className={`${style.sbhas} overflow-hidden w-600 absolute flex  py-2 rotate-12 -left-[20%] bottom-[5%] md:bottom-[20%] `}
+              className={`${style.sbhas} overflow-hidden w-[200%] absolute flex flex-col gap-4 py-2 rotate-12 -left-[20%] bottom-[5%] md:bottom-[20%]`}
             >
+              {/* Baris Atas: Gerak ke Kiri */}
               <div className="flex">
-                {/* 1. Div Item Asli */}
-                <div className="flex gap-4 ml-4 shrink-0">
-                  {[...Array(6)].map((_, groupIndex) => (
-                    <React.Fragment key={`orig-${groupIndex}`}>
+                <div className={`${style.scrollLeft} flex gap-4 shrink-0`}>
+                  {[...Array(12)].map((_, groupIndex) => (
+                    <React.Fragment key={`orig-top-${groupIndex}`}>
                       {techIcons.map((url, i) => (
-                        <React.Fragment key={`icon-orig-${groupIndex}-${i}`}>
+                        <React.Fragment key={`icon-top-${groupIndex}-${i}`}>
                           {createCard(url)}
                         </React.Fragment>
                       ))}
                     </React.Fragment>
                   ))}
                 </div>
+              </div>
 
-                {/* 2. Div Item Kloning (Copy) */}
-                <div className="flex gap-4 ml-4 shrink-0" aria-hidden="true">
-                  {[...Array(6)].map((_, groupIndex) => (
-                    <React.Fragment key={`clone-${groupIndex}`}>
+              {/* Baris Bawah: Gerak ke Kanan (Berlawanan) */}
+              <div className="flex">
+                <div className={`${style.scrollRight} flex gap-4 shrink-0`}>
+                  {[...Array(12)].map((_, groupIndex) => (
+                    <React.Fragment key={`orig-bot-${groupIndex}`}>
                       {techIcons.map((url, i) => (
-                        <React.Fragment key={`icon-clone-${groupIndex}-${i}`}>
+                        <React.Fragment key={`icon-bot-${groupIndex}-${i}`}>
                           {createCard(url)}
                         </React.Fragment>
                       ))}
@@ -141,6 +144,7 @@ const HomeHeroSection = () => {
                 </div>
               </div>
             </div>
+
             {/* container techscroll end*/}
           </section>
         </section>

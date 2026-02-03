@@ -28,8 +28,11 @@ const HerosectionComponent = () => {
           className={`${style.montserrat} ${hero.font} mt-[30%] lg:mt-[20%]
           flex flex-col items-center text-[2.5em] md:text-[3em] font-black  h-max relative`}
         >
-          <span>PROJECT</span>
-          <span className="absolute top-[60%]">ILLUSTRATOR</span>
+          <span className="absolute bottom-[60%]">Featured</span>
+          <span>Projects</span>
+          <span className="absolute top-[60%]">
+            Illustrator<span className="text-blue-700">.</span>
+          </span>
         </motion.p>
       </section>
 

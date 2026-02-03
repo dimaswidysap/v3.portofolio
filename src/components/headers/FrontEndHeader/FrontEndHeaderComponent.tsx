@@ -8,6 +8,8 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+const technology = `"html", "css", "javascript", "next.js"`;
+
 const FrontEndHeaderComponent = () => {
   return (
     <header className="w-full h-screen bg-primary flex justify-center">
@@ -22,7 +24,9 @@ const FrontEndHeaderComponent = () => {
                 <span className="bg-green-400 inline-flex h-[30%] rounded-full aspect-square"></span>
               </div>
             </header>
-            <div className={`${jetbrainsMono.className} p-3 `}>
+
+            <div className={`${jetbrainsMono.className} p-5 space-y-4`}>
+              {/* KODE LAMA: Bagian Console Log */}
               <div className="flex gap-1 items-center">
                 <p className="text-cyan-400">console</p>
                 <p className="text-white">.</p>
@@ -32,8 +36,27 @@ const FrontEndHeaderComponent = () => {
                 <p className="text-purple-400">)</p>
                 <p className="text-white">;</p>
               </div>
-            </div>
-            <div className={`${jetbrainsMono.className} p-3 `}>
+
+              {/* KONTEN BARU: Daftar Skills */}
+              <div className="space-y-1">
+                <div className="flex gap-2 items-center">
+                  <p className="text-purple-400">const</p>
+                  <p className="text-cyan-400">skills</p>
+                  <p className="text-red-400">=</p>
+                  <p className="text-yellow-300">[</p>
+                </div>
+
+                <div className="pl-6 font-semibold">
+                  <p className="text-green-400">{technology}</p>
+                </div>
+
+                <div className="flex gap-1 items-center">
+                  <p className="text-yellow-300">]</p>
+                  <p className="text-white">;</p>
+                </div>
+              </div>
+
+              {/* KODE LAMA: Bagian GitHub Link */}
               <div className="flex gap-1 items-center">
                 <p className="text-purple-400">const</p>
                 <Link

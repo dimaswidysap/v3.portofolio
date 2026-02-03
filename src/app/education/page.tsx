@@ -10,7 +10,7 @@ const EducatioPage = () => {
       <section className="max-width-custom m-auto flex flex-col items-center pb-60 ">
         <header className="py-4 flex justify-between w-full px-3">
           <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link href="/about">
+            <Link href="/about#story">
               <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
                 <ArrowLeft className="md:text-[2em]" />
                 Back<span className="text-blue-700">.</span>
@@ -42,19 +42,20 @@ const EducatioPage = () => {
               <div className="mx-4  w-full h-full  flex flex-col relative">
                 <header className="absolute bottom-full translate-y-[50%]">
                   <h1 className="text-2xl md:text-3xl montserrat font-black main-font">
-                    SMKN 1 GEGER
+                    SMKN 1 GEGER<span className="text-blue-700">.</span>
                   </h1>
                 </header>
                 <div className="mt-10 flex items-center gap-4">
                   <span className="h-2 shadow-2xl aspect-square bg-accen-first inline-flex rounded-full"></span>
                   <span className="montserrat font-bold main-font  text-[1.3em]">
-                    TEKNIK KOMPUTER dan JARINGAN
+                    TEKNIK KOMPUTER dan JARINGAN (Axioo class program)
+                    <span className="text-blue-700">.</span>
                   </span>
                 </div>
                 <div className="mt-10 flex items-center gap-4">
                   <span className="h-2 shadow-2xl aspect-square bg-accen-first inline-flex rounded-full"></span>
                   <span className="montserrat font-bold main-font  text-[1.3em]">
-                    Mikrotik
+                    Mikrotik<span className="text-blue-700">.</span>
                   </span>
                 </div>
                 <ul className="pl-10  montserrat font-light main-font list-disc">
@@ -81,6 +82,7 @@ const EducatioPage = () => {
                   <span className="h-2 shadow-2xl aspect-square bg-accen-first inline-flex rounded-full"></span>
                   <span className="montserrat font-bold main-font  text-[1.3em]">
                     PKL di MENAKSOPAL LINK NUSANTARA MADIUN
+                    <span className="text-blue-700">.</span>
                   </span>
                 </div>
                 <ul className="pl-10  montserrat font-light main-font list-disc">
@@ -107,7 +109,7 @@ const EducatioPage = () => {
               {/* container foto */}
               <section className="hidden w-full md:h-56 lg:h-100  md:flex justify-center mt-20 gap-20">
                 {/* Container 1: Awalnya miring kiri (-rotate-12) */}
-                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl -rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-110 hover:z-10">
+                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl -rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-125 hover:z-10">
                   <Image
                     className="object-cover"
                     src="/asset/education/1.png"
@@ -118,7 +120,7 @@ const EducatioPage = () => {
                 </div>
 
                 {/* Container 2: Awalnya miring kanan (rotate-12) */}
-                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-110 hover:z-10">
+                <div className="h-full aspect-10/16 bg-slate-700 shadow-2xl rounded-2xl rotate-12 relative overflow-hidden transition-all duration-500 ease-in-out hover:rotate-0 hover:scale-125 hover:z-10">
                   <Image
                     className="object-cover"
                     src="/asset/education/2.png"
