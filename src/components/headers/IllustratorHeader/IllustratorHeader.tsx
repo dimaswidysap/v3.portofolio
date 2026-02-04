@@ -9,6 +9,7 @@ const HerosectionComponent = () => {
   const xHellcat = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
   const xMoon = useTransform(scrollYProgress, [0, 0.5], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+
   return (
     <header className="w-full h-screen relative">
       {/* TEXT */}
@@ -25,6 +26,7 @@ const HerosectionComponent = () => {
           </span>
         </motion.p>
       </section>
+
       {/* BACKGROUND */}
       <section className="h-screen w-full absolute inset-0">
         {/* container karakter */}
@@ -39,6 +41,7 @@ const HerosectionComponent = () => {
               src="/asset/pageIllustrator/hellcatmobil.webp"
               alt="background"
               fill
+              unoptimized
             />
           </motion.figure>
           <motion.figure
@@ -51,6 +54,7 @@ const HerosectionComponent = () => {
               src="/asset/pageIllustrator/moonknight.webp"
               alt="background"
               fill
+              unoptimized
             />
           </motion.figure>
         </section>
@@ -73,6 +77,7 @@ const HerosectionComponent = () => {
             src="/asset/pageIllustrator/bgapiv2.webp"
             alt="background"
             fill
+            unoptimized
           />
         </figure>
       </section>
