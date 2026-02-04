@@ -82,11 +82,11 @@ const Card = ({
       >
         <section className="h-full w-full md:w-[50%] relative overflow-hidden rounded-2xl">
           <Image
+            loading="lazy"
             className="drop-shadow-2xl  object-cover"
             src={src}
             alt="background"
             fill
-            unoptimized
           />
         </section>
         <section className="h-full w-[50%] hidden md:flex p-4 flex-col">

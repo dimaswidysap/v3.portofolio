@@ -61,7 +61,7 @@ const ContactHeroSection = () => {
               <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
                 <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
                   <Link
-                    href="https://wa.me/081252966557"
+                    href="https://wa.me/+6281252966557"
                     target="_blanks"
                     className="w-[2rem] relative aspect-square"
                   >
@@ -77,7 +77,7 @@ const ContactHeroSection = () => {
                     Talk via WhatsApp
                   </span>
                   <span className="montserrat">If you need a website</span>
-                  <Link target="_blanks" href="https://wa.me/081252966557">
+                  <Link target="_blanks" href="https://wa.me/+6281252966557">
                     +62 812 529 665 57
                   </Link>
                 </header>

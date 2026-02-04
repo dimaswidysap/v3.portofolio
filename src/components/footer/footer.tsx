@@ -18,7 +18,7 @@ const Footer = () => {
     <footer className={`${style.containerFooter} w-full z-20 relative`}>
       <section className="w-full h-120 relative">
         {/* background */}
-        <div style={{ width: "100%", height: "100%", position: "relative" }}>
+        {/* <div style={{ width: "100%", height: "100%", position: "relative" }}>
           <LightRays
             raysOrigin="bottom-center"
             raysColor="#ffffff"
@@ -34,7 +34,7 @@ const Footer = () => {
             fadeDistance={1}
             saturation={1}
           />
-        </div>
+        </div> */}
         {/* konten */}
         <div className="absolute max-width-custom  m-auto h-full w-full inset-0  z-20 flex flex-col">
           <section className="w-full flex flex-1 md:flex-row">

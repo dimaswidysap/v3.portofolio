@@ -37,38 +37,38 @@ const HomeHeroSection = () => {
           <section className={`${style.objectRandom} relative h-full w-full`}>
             <div className={`${style.ekor} absolute inset-0`}>
               <Image
+                loading="lazy"
                 className="h-full aspect-video drop-shadow-2xl object-cover"
                 src="/asset/pageIndex/garuda/ekor.webp"
                 alt="person"
                 fill
-                unoptimized
               />
             </div>
             <div className={`${style.sayapKanan} absolute inset-0`}>
               <Image
+                loading="lazy"
                 className="h-full aspect-video drop-shadow-2xl object-cover"
                 src="/asset/pageIndex/garuda/sayapkanan.webp"
                 alt="person"
                 fill
-                unoptimized
               />
             </div>
             <div className={`${style.sayapKiri} absolute inset-0`}>
               <Image
+                loading="lazy"
                 className="h-full aspect-video drop-shadow-2xl object-cover"
                 src="/asset/pageIndex/garuda/sayapkiri.webp"
                 alt="person"
                 fill
-                unoptimized
               />
             </div>
             <div className="absolute inset-0">
               <Image
+                loading="lazy"
                 className="h-full aspect-video drop-shadow-2xl object-cover"
                 src="/asset/pageIndex/garuda/badan.webp"
                 alt="person"
                 fill
-                unoptimized
               />
             </div>
           </section>

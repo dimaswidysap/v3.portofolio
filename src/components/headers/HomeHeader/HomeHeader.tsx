@@ -61,7 +61,6 @@ const HomeHeader = () => {
                 src="/asset/pageIndex/person.png"
                 alt="person"
                 fill
-                unoptimized
               />
             </figure>
           </div>
