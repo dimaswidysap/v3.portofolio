@@ -1,4 +1,7 @@
-import React from "react"; // Tambahkan ini
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import style from "./HomeHeroSection.module.css";
 import Image from "next/image";
 import ScrollFloat from "@/components/ScrollFloat/ScrollFloat";
@@ -7,11 +10,10 @@ import RotatingText from "@/components/RotatingText/RotatingText";
 const HomeHeroSection = () => {
   function createCard(linkIcon: string) {
     return (
-      // Tambahkan "relative" di sini
       <section className="relative h-16 aspect-square shrink-0">
         <Image
-          className="object-contain drop-shadow-2xl" // 'object-contain' agar icon tidak gepeng
-          src={linkIcon} // Tidak perlu `${}` jika hanya string tunggal
+          className="object-contain"
+          src={linkIcon}
           alt="icon"
           fill
           unoptimized
@@ -19,6 +21,7 @@ const HomeHeroSection = () => {
       </section>
     );
   }
+
   const techIcons = [
     "https://cdn.simpleicons.org/html5",
     "https://cdn.simpleicons.org/css",
@@ -27,13 +30,60 @@ const HomeHeroSection = () => {
     "https://cdn.simpleicons.org/nextdotjs",
   ];
 
+  const targetRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  const y1 = useSpring(
+    useTransform(scrollYProgress, [0, 0.6], ["0%", "-100%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y2 = useSpring(
+    useTransform(scrollYProgress, [0.05, 0.7], ["0%", "-100%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y3 = useSpring(
+    useTransform(scrollYProgress, [0.1, 0.8], ["0%", "-100%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y4 = useSpring(
+    useTransform(scrollYProgress, [0.15, 0.9], ["0%", "-100%"]),
+    { stiffness: 50, damping: 20 },
+  );
+
   return (
-    <section
-      className={`${style.gradient}  relative z-20 bg-secondary h-200 w-full`}
-    >
+    <section ref={targetRef} className={`relative z-20 h-200 w-full`}>
+      {/* container blok keatas */}
+      <section className="absolute h-full w-full bg-amber-50">
+        {/* penutup */}
+        <section className="absolute h-full w-full bg-secondary z-20"></section>
+        {/* container blok */}
+        <section className="w-full h-full flex">
+          <motion.span
+            style={{ y: y1 }}
+            className="bg-secondary w-[25%] h-full inline-flex"
+          ></motion.span>
+          <motion.span
+            style={{ y: y2 }}
+            className="bg-secondary w-[25%] h-full inline-flex"
+          ></motion.span>
+          <motion.span
+            style={{ y: y3 }}
+            className="bg-secondary w-[25%] h-full inline-flex"
+          ></motion.span>
+          <motion.span
+            style={{ y: y4 }}
+            className="bg-secondary w-[25%] h-full inline-flex"
+          ></motion.span>
+        </section>
+      </section>
+
       {/* container garuda */}
       <section className="relative h-full w-full overflow-hidden flex justify-center">
-        <figure className="h-[90%] aspect-video translate-x-[15%] md:translate-x-[25%] lg:translate-x-[20%]  flex justify-center items-center">
+        <figure className="h-[90%] aspect-video translate-x-[15%] md:translate-x-[25%] lg:translate-x-[20%]  flex justify-center items-center relative z-20">
           <section className={`${style.objectRandom} relative h-full w-full`}>
             <div className={`${style.ekor} absolute inset-0`}>
               <Image
@@ -110,12 +160,9 @@ const HomeHeroSection = () => {
               />
             </div>
 
-            {/* container techscroll */}
-
             <div
               className={`${style.sbhas} overflow-hidden w-[200%] absolute flex flex-col gap-4 py-2 rotate-12 -left-[20%] bottom-[5%] md:bottom-[20%]`}
             >
-              {/* Baris Atas: Gerak ke Kiri */}
               <div className="flex">
                 <div className={`${style.scrollLeft} flex gap-4 shrink-0`}>
                   {[...Array(12)].map((_, groupIndex) => (
@@ -130,7 +177,6 @@ const HomeHeroSection = () => {
                 </div>
               </div>
 
-              {/* Baris Bawah: Gerak ke Kanan (Berlawanan) */}
               <div className="flex">
                 <div className={`${style.scrollRight} flex gap-4 shrink-0`}>
                   {[...Array(12)].map((_, groupIndex) => (
@@ -145,12 +191,11 @@ const HomeHeroSection = () => {
                 </div>
               </div>
             </div>
-
-            {/* container techscroll end*/}
           </section>
         </section>
       </section>
     </section>
   );
 };
+
 export default HomeHeroSection;

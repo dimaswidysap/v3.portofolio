@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
+// import Image from "next/image";
 import style from "./HomeHeader.module.css";
 import font from "@/app/my-css.module.css";
 import Magnet from "@/components/Magnet/Magnet";
 import Link from "next/link";
-// import SplashCursor from "@/components/SplashCursor/SplashCursor";
 
 const HomeHeader = () => {
   return (

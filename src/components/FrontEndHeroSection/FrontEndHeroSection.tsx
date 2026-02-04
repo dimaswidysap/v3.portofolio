@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
 import Magnet from "../Magnet/Magnet";
-// import { section } from "framer-motion/client"; // Baris ini biasanya tidak diperlukan jika sudah ada 'section' HTML
 
 const FrontEndHeroSection = () => {
   // 1. Tambahkan Ref untuk mendeteksi scroll di area ini
@@ -45,23 +44,15 @@ const FrontEndHeroSection = () => {
       linkRep: "https://github.com/dimaswidysap/rekomendasihp",
       linkDemo: "https://dimaswidysap.github.io/rekomendasihp/",
     },
-    {
-      title: "Webiste Rekomendasi Smartphone 2",
-      image: "rekomendasihp.png",
-      desc: "Sebuah website yang menyediakan layanan rekomendasi hp berdasarkan kriteria yang dimasuka pengguna.",
-      linkRep: "https://github.com/dimaswidysap/rekomendasihp",
-      linkDemo: "https://dimaswidysap.github.io/rekomendasihp/",
-    },
   ];
 
   return (
     <section
       ref={targetRef}
-      className="w-full py-[12rem] bg-secondary relative z-20 overflow-hidden"
+      className="w-full py-48 bg-secondary relative z-20 overflow-hidden"
     >
       {/* background grid start */}
       <section className="absolute h-full w-full inset-0 flex">
-        {/* Mengubah span menjadi motion.span dan memasukkan style 'y' */}
         <motion.span
           style={{ y: y1 }}
           className="bg-slate-500 w-[25%] h-full inline-flex"
