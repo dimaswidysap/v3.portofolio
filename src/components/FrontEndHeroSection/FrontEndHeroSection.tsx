@@ -6,9 +6,37 @@ import Image from "next/image";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
 import Magnet from "../Magnet/Magnet";
-import { section } from "framer-motion/client";
+// import { section } from "framer-motion/client"; // Baris ini biasanya tidak diperlukan jika sudah ada 'section' HTML
 
 const FrontEndHeroSection = () => {
+  // 1. Tambahkan Ref untuk mendeteksi scroll di area ini
+  const targetRef = useRef(null);
+
+  // 2. Ambil progress scroll
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  // 3. Buat animasi turun (Y) yang bergantian (staggered)
+  // Kolom 1 mulai duluan, diikuti kolom berikutnya dengan jeda 0.1
+  const y1 = useSpring(
+    useTransform(scrollYProgress, [0, 0.6], ["-100%", "0%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y2 = useSpring(
+    useTransform(scrollYProgress, [0.1, 0.7], ["-100%", "0%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y3 = useSpring(
+    useTransform(scrollYProgress, [0.2, 0.8], ["-100%", "0%"]),
+    { stiffness: 50, damping: 20 },
+  );
+  const y4 = useSpring(
+    useTransform(scrollYProgress, [0.3, 0.9], ["-100%", "0%"]),
+    { stiffness: 50, damping: 20 },
+  );
+
   const cardProjects = [
     {
       title: "Webiste Rekomendasi Smartphone",
@@ -17,11 +45,45 @@ const FrontEndHeroSection = () => {
       linkRep: "https://github.com/dimaswidysap/rekomendasihp",
       linkDemo: "https://dimaswidysap.github.io/rekomendasihp/",
     },
+    {
+      title: "Webiste Rekomendasi Smartphone 2",
+      image: "rekomendasihp.png",
+      desc: "Sebuah website yang menyediakan layanan rekomendasi hp berdasarkan kriteria yang dimasuka pengguna.",
+      linkRep: "https://github.com/dimaswidysap/rekomendasihp",
+      linkDemo: "https://dimaswidysap.github.io/rekomendasihp/",
+    },
   ];
 
   return (
-    <section className="w-full py-[12rem] bg-secondary relative z-20">
-      <div className="max-width-custom mx-auto">
+    <section
+      ref={targetRef}
+      className="w-full py-[12rem] bg-secondary relative z-20 overflow-hidden"
+    >
+      {/* background grid start */}
+      <section className="absolute h-full w-full inset-0 flex">
+        {/* Mengubah span menjadi motion.span dan memasukkan style 'y' */}
+        <motion.span
+          style={{ y: y1 }}
+          className="bg-slate-500 w-[25%] h-full inline-flex"
+        ></motion.span>
+        <motion.span
+          style={{ y: y2 }}
+          className="bg-slate-600 w-[25%] h-full inline-flex"
+        ></motion.span>
+        <motion.span
+          style={{ y: y3 }}
+          className="bg-slate-700 w-[25%] h-full inline-flex"
+        ></motion.span>
+        <motion.span
+          style={{ y: y4 }}
+          className="bg-slate-800 w-[25%] h-full inline-flex"
+        ></motion.span>
+      </section>
+      {/* background grid end */}
+
+      <div className="max-width-custom mx-auto relative z-30">
+        {" "}
+        {/* Tambah z-30 agar konten tetap di atas bg */}
         {/* card */}
         <div className="w-full  max-width-custom flex flex-col  items-center justify-center gap-32 py-24">
           {cardProjects.map((items, index) => {
@@ -96,6 +158,7 @@ const FrontEndHeroSection = () => {
             );
           })}
         </div>
+        {/* card end */}
       </div>
     </section>
   );

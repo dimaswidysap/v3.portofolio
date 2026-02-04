@@ -82,7 +82,9 @@ const HomeHeroSection = () => {
         >
           {/* kontem */}
           <section className="w-full h-full relative z-20 pl-2">
-            <div className={`${style.fontBold} flex items-end`}>
+            <div
+              className={`flex items-end text-[3em] montserrat font-black main-font `}
+            >
               <ScrollFloat
                 animationDuration={2.5}
                 ease="back.inOut(2)"
@@ -90,14 +92,13 @@ const HomeHeroSection = () => {
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.03}
               >
-                Im Good At
+                Im Good At.
               </ScrollFloat>
-              <p className="text-blue-600 text-[6.5em]">.</p>
             </div>
             <div>
               <RotatingText
                 texts={["Front-End Developer", "Illustrator"]}
-                mainClassName="px-4 py-2 bg-primary shadow-2xl text-white font-extrabold rounded-2xl font-bold text-2xl inline-flex items-center justify-center"
+                mainClassName="px-4 py-2 bg-primary shadow-2xl text-[1.6em] md:text-[2em] lg:text-[3em] montserrat font-black main-font text-white font-extrabold rounded-2xl font-bold text-2xl inline-flex items-center justify-center"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}

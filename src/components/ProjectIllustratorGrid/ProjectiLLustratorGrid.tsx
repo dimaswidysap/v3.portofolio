@@ -87,6 +87,7 @@ const Card = ({
             src={src}
             alt="background"
             fill
+            unoptimized
           />
         </section>
         <section className="h-full w-[50%] hidden md:flex p-4 flex-col">
