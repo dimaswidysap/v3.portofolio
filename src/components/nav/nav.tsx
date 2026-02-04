@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import style from "./nav.module.css";
-import Magnet from "@/components/Magnet/Magnet";
 import IconSosmed from "../iconSosmed/IconSosmed";
 
 const Navbar = () => {
@@ -66,7 +65,7 @@ const Navbar = () => {
           </div>
         </button>
       </section>
-      {/* hamburger menu end */}
+
       {/* nav header start */}
       <section className="w-full max-width-custom">
         <ul className="justify-center gap-2 hidden md:flex">
@@ -81,7 +80,7 @@ const Navbar = () => {
                   className={`
                     absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
                     ${item.extraClass || ""} 
-                    ${isActive ? "translate-y-0 blur-none" : "blur-lg -translate-y-20 group-hover:translate-y-0 group-hover:blur-none"}
+                    ${isActive ? "translate-y-0" : "-translate-y-20 group-hover:translate-y-0"}
                   `}
                 ></div>
                 <Link
@@ -95,15 +94,14 @@ const Navbar = () => {
           })}
         </ul>
       </section>
-      {/* nav header end */}
 
       {/* MOBILE MENU CONTAINER */}
       <section
         className={`
           ${style.containerNavDrop} 
           fixed h-screen w-full z-50 flex justify-center items-center
-          transition-all duration-700  shadow-2xl
-          ${isOpen ? "translate-y-0 translate-x-0 rounded-none" : "-translate-y-full -translate-x-full rounded-b-[100%]"}
+          transition-all duration-700 shadow-2xl
+          ${isOpen ? "translate-y-0 translate-x-0 " : "-translate-y-full -translate-x-full "}
         `}
       >
         <ul className="flex flex-col justify-center gap-6">
@@ -111,46 +109,40 @@ const Navbar = () => {
             const isActive = pathname === item.href;
 
             return (
-              <Magnet
+              <li
                 key={item.href}
-                padding={50}
-                disabled={false}
-                magnetStrength={10}
+                style={{
+                  transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
+                }}
+                className={`
+                  ${style.lists} lists group relative flex justify-center
+                  transition-all duration-500 ease-in-out
+                  ${
+                    isOpen
+                      ? "translate-x-0 translate-y-0 opacity-100"
+                      : "-translate-x-10 translate-y-10 opacity-0"
+                  }
+                `}
               >
-                <li
-                  style={{
-                    transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
-                  }}
+                <div
                   className={`
-                    ${style.lists} lists group relative flex justify-center
-                    transition-all duration-500 ease-in-out
-                    ${
-                      isOpen
-                        ? "translate-x-0 translate-y-0 opacity-100 blur-none"
-                        : "-translate-x-10 translate-y-10 opacity-0 blur-sm"
-                    }
-                  `}
-                >
-                  <div
-                    className={`
-                    absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
-                    ${item.extraClass || ""} 
-                    ${isActive ? "blur-none" : "blur-lg group-hover:blur-none"}
-                  `}
-                  ></div>
+                  absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
+                  ${item.extraClass || ""} 
+                  ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
+                `}
+                ></div>
 
-                  <Link
-                    href={item.href}
-                    onClick={() => setIsOpen(false)}
-                    className={`
-                    relative z-10 block lg:text-2xl sm:text-xl transition-colors duration-300
-                    ${isActive ? "text-black font-bold" : "text-white"}
-                  `}
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              </Magnet>
+                <Link
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`
+                  relative z-10 block lg:text-2xl sm:text-xl transition-colors duration-300
+                  ${isActive ? "text-black font-bold" : "text-white"}
+                `}
+                >
+                  {item.label}
+                </Link>
+              </li>
             );
           })}
         </ul>

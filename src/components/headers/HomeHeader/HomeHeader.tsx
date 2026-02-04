@@ -9,10 +9,17 @@ import Link from "next/link";
 
 const HomeHeader = () => {
   return (
-    <header className="w-full h-screen overflow-hidden bg-primary">
-      {/* <SplashCursor /> */}
-      <section className="w-full h-full max-width-custom mx-auto relative">
-        {/* container layar 1 */}
+    <header className="w-full h-screen overflow-hidden bg-primary relative">
+      {/* container background start */}
+      <section className="absolute h-screen flex">
+        <div className="shrink-0 h-screen aspect-video xl:translate-x-0 md:-translate-x-[50%] -translate-x-[55%]">
+          <div className={`${style.person} h-full w-full`}></div>
+        </div>
+      </section>
+      {/* container background end */}
+
+      {/* container teks start */}
+      <section className="max-width-custom h-screen relative z-20 m-auto">
         <section className="relative z-20 w-full h-full flex justify-center items-center">
           <div className={`${style.glass} mt-[10%]`}></div>
           <div className="absolute flex flex-col justify-center w-max h-screen inset-0 left-[40%] translate-x-[-50%]">
@@ -52,20 +59,8 @@ const HomeHeader = () => {
             </Magnet>
           </div>
         </section>
-        {/* container layar 2 */}
-        <section className="absolute w-full h-screen ">
-          <div className="w-full h-screen fixed inset-0 ">
-            <figure className="absolute h-full aspect-video -translate-x-[55%] md:-translate-x-[45%] lg:translate-x-0">
-              <Image
-                className="h-full aspect-video drop-shadow-2xl"
-                src="/asset/pageIndex/person.png"
-                alt="person"
-                fill
-              />
-            </figure>
-          </div>
-        </section>
       </section>
+      {/* container teks end */}
     </header>
   );
 };

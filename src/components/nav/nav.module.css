@@ -33,7 +33,7 @@
 }
 
 .containerNavDrop {
-  backdrop-filter: blur(3px);
+  /* backdrop-filter: blur(3px); */
   background: linear-gradient(
     to bottom right,
     rgba(0, 0, 0, 0.9),
