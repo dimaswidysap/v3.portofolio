@@ -6,8 +6,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const HerosectionComponent = () => {
   const { scrollYProgress } = useScroll();
+
   const xHellcat = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
   const xMoon = useTransform(scrollYProgress, [0, 0.5], [0, 300]);
+
+  const scaleHellcat = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
+  const scaleMoon = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
@@ -32,7 +36,7 @@ const HerosectionComponent = () => {
         {/* container karakter */}
         <section className="w-full h-[80%]  absolute z-40 bottom-0 flex justify-between overflow-hidden">
           <motion.figure
-            style={{ x: xHellcat }}
+            style={{ x: xHellcat, scale: scaleHellcat }}
             className="h-full aspect-square  relative"
           >
             <Image
@@ -45,7 +49,7 @@ const HerosectionComponent = () => {
             />
           </motion.figure>
           <motion.figure
-            style={{ x: xMoon }}
+            style={{ x: xMoon, scale: scaleMoon }}
             className="h-full aspect-square relative"
           >
             <Image

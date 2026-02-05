@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 const ContactHeroSection = () => {
   return (
-    <main className="w-full h-200 md:h-screen xl:h-200 bg-primary overflow-hidden">
+    <main className="w-full h-360 md:h-screen xl:h-200 bg-primary overflow-hidden">
       <section className=" h-full w-full ">
         <div className="w-full h-[50%] max-width-custom m-auto flex items-center">
           <header className="px-4 relative w-full">
@@ -26,7 +26,34 @@ const ContactHeroSection = () => {
         </div>
         <div className="w-full h-[50%] bg-secondary relative z-20">
           <div className="max-width-custom h-full m-auto">
-            <div className="flex flex-col xl:flex-row gap-4 w-full items-center justify-center">
+            <div className="flex flex-col xl:flex-row gap-4 w-full items-center justify-center px-4">
+              {/* card */}
+              <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
+                <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
+                  <Link
+                    href="mailto:dimaswidysaputra41@email.com"
+                    target="_blanks"
+                    className="w-[2rem] relative aspect-square"
+                  >
+                    <Image
+                      className="object-cover"
+                      src="https://cdn.simpleicons.org/gmail"
+                      alt="bendera-indonesia"
+                      fill
+                      unoptimized
+                    />
+                  </Link>
+                  <span className="montserrat font-bold">
+                    Contact me on Email
+                  </span>
+                  <Link
+                    target="_blanks"
+                    href="mailto:dimaswidysaputra41@email.com"
+                  >
+                    @dimaswidysaputraa41@gmail.com
+                  </Link>
+                </header>
+              </section>
               {/* card */}
               <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
                 <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
@@ -44,10 +71,7 @@ const ContactHeroSection = () => {
                     />
                   </Link>
                   <span className="montserrat font-bold">
-                    Talk via Instagram
-                  </span>
-                  <span className="montserrat">
-                    If you need an illustration
+                    Contact me on Instagram
                   </span>
                   <Link
                     target="_blanks"
@@ -74,9 +98,8 @@ const ContactHeroSection = () => {
                     />
                   </Link>
                   <span className="montserrat font-bold">
-                    Talk via WhatsApp
+                    Contact me on WhatsApp
                   </span>
-                  <span className="montserrat">If you need a website</span>
                   <Link target="_blanks" href="https://wa.me/+6281252966557">
                     +62 812 529 665 57
                   </Link>

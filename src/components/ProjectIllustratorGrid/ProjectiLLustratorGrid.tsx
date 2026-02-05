@@ -22,8 +22,14 @@ const PROJECTS = [
   {
     title: "Zombie Illustration",
     src: "/asset/pageIllustrator/projects/3.jpg",
-    tools: "https://api.iconify.design/logos:adobe-photoshop.svg",
+    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
     desc: "illustrasi ini saya buat untuk desain sebua baju",
+  },
+  {
+    title: "Ibu Keraton",
+    src: "/asset/pageIllustrator/projects/ibukeraton.webp",
+    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
+    desc: "Illustrasi ini saya buat untuk desan sebuah banner warung nasi pecel, Illustrasi ini permintaan client yang meminta sebuat illustrasi ibu ibu keraton dengan menu nasi pecel, kopi panas dan esteh didepannya",
   },
 ];
 
@@ -106,7 +112,7 @@ const Card = ({
             <section className="flex gap-4">
               {IconTech(tools, "bg-main-font")}
             </section>
-            <p className="main-font mt-4 montserrat font-bold">{desc}</p>
+            <p className="main-font mt-4 montserrat font-light">{desc}</p>
           </section>
         </section>
       </motion.div>

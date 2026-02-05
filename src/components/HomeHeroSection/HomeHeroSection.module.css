@@ -143,12 +143,12 @@
 
 .scrollLeft {
   display: flex;
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 40s linear infinite;
 }
 
 .scrollRight {
   display: flex;
-  animation: scrollRight 20s linear infinite;
+  animation: scrollRight 40s linear infinite;
 }
 
 @keyframes scrollLeft {

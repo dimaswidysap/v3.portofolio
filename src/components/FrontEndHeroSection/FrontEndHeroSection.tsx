@@ -73,15 +73,13 @@ const FrontEndHeroSection = () => {
       {/* background grid end */}
 
       <div className="max-width-custom mx-auto relative z-30">
-        {" "}
-        {/* Tambah z-30 agar konten tetap di atas bg */}
         {/* card */}
-        <div className="w-full  max-width-custom flex flex-col  items-center justify-center gap-32 py-24">
+        <div className="w-full  max-width-custom flex flex-col  items-center justify-center gap-32 py-24 ">
           {cardProjects.map((items, index) => {
             return (
               <div
                 key={items.title}
-                className={`${style.glass} w-[90%] flex flex-col md:flex-row h-120 max-w-280 shrink-0 rounded-2xl relative`}
+                className={`${style.glass} bg-slate-800 xl:bg-transparent w-[90%] flex flex-col md:flex-row h-120 max-w-280 shrink-0 rounded-2xl relative xl:backdrop-blur-[10px] xl:bg-linear-to-br xl:from-black/45 xl:to-black/35`}
               >
                 {/* nomor */}
                 <section
@@ -115,7 +113,7 @@ const FrontEndHeroSection = () => {
                     {items.desc}
                   </p>
                   <section className="absolute flex gap-3 bottom-0 mb-[5%]">
-                    <Magnet padding={50} disabled={false} magnetStrength={5}>
+                    <Magnet padding={50} disabled={false} magnetStrength={15}>
                       <Link
                         target="_blanks"
                         href={items.linkRep}
@@ -129,7 +127,7 @@ const FrontEndHeroSection = () => {
                         </span>
                       </Link>
                     </Magnet>
-                    <Magnet padding={50} disabled={false} magnetStrength={5}>
+                    <Magnet padding={50} disabled={false} magnetStrength={15}>
                       <Link
                         target="_blanks"
                         href={items.linkDemo}
