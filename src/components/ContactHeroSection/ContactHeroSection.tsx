@@ -15,7 +15,8 @@ const ContactHeroSection = () => {
             </span>
             <div className="absolute right-0 top-0 h-140 aspect-square -translate-y-[25%] translate-x-[25%] opacity-55">
               <Image
-                className="object-cover drop-shadow-2xl"
+                loading="eager"
+                className="object-cover"
                 src="/asset/pageContact/bendera.png"
                 alt="bendera-indonesia"
                 fill

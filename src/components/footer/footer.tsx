@@ -4,16 +4,9 @@ import font from "@/app/my-css.module.css";
 import Link from "next/link";
 import LightRays from "@/components/LightRays/LightRays";
 import IconSosmed from "@/components/iconSosmed/IconSosmed";
+import Image from "next/image";
 
 const Footer = () => {
-  const navItems = [
-    { label: "Home", href: "/", extraClass: "menuActive" },
-    { label: "iLLustrator", href: "/iLLustrator" },
-    { label: "Front-End", href: "/front-end" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ];
-
   return (
     <footer className={`${style.containerFooter} w-full z-20 relative`}>
       <section className="w-full h-120 relative">
@@ -70,23 +63,16 @@ const Footer = () => {
               </div>
             </div>
             <div className="hidden md:flex w-[30%] h-full md:flex-col md:items-center md:gap-6 pt-12">
-              <header className="text-[2em] font-extrabold main-font">
-                MENU
-              </header>
-              <ul className="flex flex-col items-center gap-2">
-                {navItems.map((item) => {
-                  // const isActive = pathname === item.href;
-
-                  return (
-                    <li
-                      key={item.href}
-                      className={`${style.lists} ${font.montserrat} main-font font-bold text-[1.2em]`}
-                    >
-                      <Link href={item.href}>{item.label}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              {/* konten logo */}
+              <div className="w-full relative aspect-square">
+                <Image
+                  className="opacity-60"
+                  src="/asset/logo/logo.svg"
+                  alt="Foto Profil"
+                  loading="lazy"
+                  fill
+                />
+              </div>
             </div>
           </section>
           {/* copy right */}

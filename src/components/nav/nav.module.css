@@ -1,62 +1,68 @@
 @import url("https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap");
 
-.lists {
-  position: relative;
-  margin: 0.8rem 0;
-}
-
-.lists div {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
-  background-color: var(--accen-first);
-  transition: all 0.2s ease-in-out;
-  box-shadow: var(--accen-second) -2px 4px 4px 0px;
-}
-
-.lists a {
-  position: relative;
-  z-index: 3;
-  padding: 0.2rem 1.1rem;
+.fontNav {
   font-family: "Special Gothic Expanded One", sans-serif;
 }
 
-.linkActive {
-  color: var(--footer);
+/* new */
+.shadowGlass {
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 10 10px rgba(0, 0, 0, 0.08);
 }
 
-.linkNonActive {
-  color: var(--font);
-}
+/*  */
 
-.containerNavDrop {
-  /* backdrop-filter: blur(3px); */
-  background: linear-gradient(
-    to bottom right,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 1)
-  );
-}
+/* nav.module.css */
 
-.containerHam {
-  position: fixed;
-  z-index: 100;
-  right: 0;
-  margin: 0.5rem 5%;
-  border-radius: 50%;
-}
-.containerHam button {
+.menuWrapper {
+  position: relative;
+  width: 30px; /* Ukuran disesuaikan agar pas di navbar */
+  height: 20px;
   cursor: pointer;
-  background-color: var(--accen-first);
-  border: 5px solid var(--font);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.hamLine {
-  height: 8%;
-  width: 60%;
-  background-color: var(--footer);
-  border-radius: 5px;
+.menuWrapper div {
+  position: relative;
+  height: 3px;
+  background-color: #fff;
+  transition:
+    0.3s ease transform,
+    0.3s ease top,
+    0.3s ease width,
+    0.3s ease right;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.menuWrapper div:first-child {
+  transform-origin: 0;
+}
+
+.menuWrapper div:last-child {
+  transform-origin: 100%;
+}
+
+/* Animasi ketika state isOpen bernilai true */
+.activeMenu div:first-child {
+  top: -2px;
+  transform: rotateZ(45deg);
+  width: 33px;
+}
+
+.activeMenu div:last-child {
+  top: 2px;
+  transform: rotateZ(45deg);
+  width: 33px;
+}
+
+.activeMenu div:nth-child(2) {
+  width: 40px;
+  top: 0;
+  right: 5px;
+  transform: rotateZ(-45deg);
 }
