@@ -40,6 +40,7 @@ const HerosectionComponent = () => {
             className="h-full aspect-square  relative"
           >
             <Image
+              loading="eager"
               priority
               className="object-fill"
               src="/asset/pageIllustrator/hellcatmobil.webp"
@@ -53,6 +54,7 @@ const HerosectionComponent = () => {
             className="h-full aspect-square relative"
           >
             <Image
+              loading="eager"
               priority
               className="object-fill"
               src="/asset/pageIllustrator/moonknight.webp"
@@ -65,6 +67,7 @@ const HerosectionComponent = () => {
         {/* background */}
         <figure className="w-full h-screen absolute">
           <Image
+            loading="eager"
             priority
             className="inset-0 shrink object-cover"
             src="/asset/pageIllustrator/background.webp"
@@ -76,6 +79,7 @@ const HerosectionComponent = () => {
         {/* background api */}
         <figure className="absolute h-[200svh] z-30 w-full">
           <Image
+            loading="eager"
             priority
             className="inline-flex object-cover xl:object-fill  aspect-video "
             src="/asset/pageIllustrator/bgapiv2.webp"

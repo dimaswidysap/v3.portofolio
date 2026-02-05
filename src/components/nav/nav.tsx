@@ -1,24 +1,14 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import style from "./nav.module.css";
-import IconSosmed from "../iconSosmed/IconSosmed";
+import Image from "next/image";
+import Magnet from "../Magnet/Magnet";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // State untuk kontrol menu
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navItems = [
     { label: "Home", href: "/", extraClass: "menuActive" },
@@ -28,149 +18,104 @@ const Navbar = () => {
     { label: "Contact", href: "/contact" },
   ];
 
+  // Fungsi untuk toggle menu
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
-    <nav className="absolute w-full flex justify-center z-999 overflow-hidden">
-      {/* hamburger menu start */}
-      <section
-        className={`
-          ${style.containerHam} 
-          z-50 h-16 md:h-20 aspect-square relative 
-          transition-all ease-in-out duration-500 overflow-hidden 
-          ${scrolled || isOpen ? "opacity-100 scale-100" : "translate-x-0 scale-100 md:scale-0 md:opacity-0"}
-        `}
-      >
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative w-full h-full rounded-full shadow-xl focus:outline-none"
+    <header className="w-full z-100 fixed top-0 left-0 right-0 flex">
+      <nav className={`relative w-[90%] mt-4 h-12 m-auto`}>
+        {/* background transparant */}
+        <div
+          className={`${style.shadowGlass} w-full h-full rounded-2xl bg-primary opacity-95`}
+        ></div>
+
+        {/* konten */}
+        <div className="absolute w-full h-full inset-0 flex justify-between px-4">
+          <div className="h-full aspect-square relative">
+            <Image src="/asset/logo/logo.svg" alt="Foto Profil" fill />
+          </div>
+          <div>
+            <ul className="gap-4 h-full items-center hidden md:flex">
+              {navItems
+                .filter((item) => item.href !== pathname)
+                .map((items) => (
+                  <Magnet
+                    key={items.label}
+                    padding={50}
+                    disabled={false}
+                    magnetStrength={10}
+                  >
+                    <li>
+                      <Link
+                        className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
+                        href={items.href}
+                      >
+                        {items.label}
+                      </Link>
+                    </li>
+                  </Magnet>
+                ))}
+            </ul>
+          </div>
+
+          {/* Tombol Hamburger Custom */}
+          <div className="md:hidden flex items-center justify-center">
+            <div
+              className={`${style.menuWrapper} ${isOpen ? style.activeMenu : ""}`}
+              onClick={toggleMenu}
+            >
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+
+        {/* nav mobile */}
+        <div
+          className={`md:hidden w-full h-[70vh] absolute mt-4 rounded-2xl transition-all duration-500 ease-in-out ${
+            isOpen
+              ? "translate-x-0 opacity-100"
+              : "translate-x-[110%] opacity-0"
+          }`}
         >
+          {/* background transparan */}
           <div
-            className={` ${isOpen ? "-translate-y-full -translate-x-full" : "translate-y-0 translate-x-0"}
-              absolute flex flex-col gap-2 justify-center items-center h-full w-full inset-0 transition-all ease-in-out duration-300 
-            `}
-          >
-            <span className={`${style.hamLine} rotate-45`}></span>
-            <span className={`${style.hamLine} rotate-45`}></span>
-          </div>
+            className={`${style.shadowGlass} h-full w-full bg-primary opacity-98 rounded-2xl`}
+          ></div>
+          {/* konten */}
           <div
-            className={` ${isOpen ? "translate-y-0 translate-x-0" : "translate-y-full translate-x-full"}
-              absolute flex flex-col gap-2 justify-center items-center h-full w-full inset-0 transition-all ease-in-out duration-300 
-            `}
+            className={`absolute inset-0 w-full h-full  flex justify-center items-center `}
           >
-            <span
-              className={`${style.hamLine} ${isOpen ? "translate-y-0 translate-x-0" : "translate-y-3 translate-x-3"} transition-all ease-in-out duration-700 -rotate-45`}
-            ></span>
-            <span
-              className={`${style.hamLine} ${isOpen ? "translate-y-0 translate-x-0" : "-translate-y-3 -translate-x-3"} transition-all ease-in-out duration-700 -rotate-45`}
-            ></span>
+            <div className="h-full">
+              <ul className="flex flex-col h-full justify-center items-center gap-6">
+                {navItems
+                  .filter((item) => item.href !== pathname)
+                  .map((items) => (
+                    <Magnet
+                      key={items.label}
+                      padding={50}
+                      disabled={false}
+                      magnetStrength={10}
+                    >
+                      <li onClick={() => setIsOpen(false)}>
+                        {" "}
+                        <Link
+                          className={`${style.fontNav} text-2xl main-font`}
+                          href={items.href}
+                        >
+                          {items.label}
+                        </Link>
+                      </li>
+                    </Magnet>
+                  ))}
+              </ul>
+            </div>
           </div>
-        </button>
-      </section>
-
-      {/* nav header start */}
-      <section className="w-full max-width-custom">
-        <ul className="justify-center gap-2 hidden md:flex">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <li
-                key={item.href}
-                className={`${style.lists} lists group relative`}
-              >
-                <div
-                  className={`
-                    absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
-                    ${item.extraClass || ""} 
-                    ${isActive ? "translate-y-0" : "-translate-y-20 group-hover:translate-y-0"}
-                  `}
-                ></div>
-                <Link
-                  href={item.href}
-                  className={`relative z-10 block transition-colors duration-300 ${isActive ? "text-black font-semibold" : "text-slate-100 hover:text-white"}`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-
-      {/* MOBILE MENU CONTAINER */}
-      <section
-        className={`
-          ${style.containerNavDrop} 
-          fixed h-screen w-full z-50 flex justify-center items-center
-          transition-all duration-700 shadow-2xl
-          ${isOpen ? "translate-y-0 translate-x-0 " : "-translate-y-full -translate-x-full "}
-        `}
-      >
-        <ul className="flex flex-col justify-center gap-6">
-          {navItems.map((item, index) => {
-            const isActive = pathname === item.href;
-
-            return (
-              <li
-                key={item.href}
-                style={{
-                  transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
-                }}
-                className={`
-                  ${style.lists} lists group relative flex justify-center
-                  transition-all duration-500 ease-in-out
-                  ${
-                    isOpen
-                      ? "translate-x-0 translate-y-0 opacity-100"
-                      : "-translate-x-10 translate-y-10 opacity-0"
-                  }
-                `}
-              >
-                <div
-                  className={`
-                  absolute w-full h-full bg-inherit transition-all duration-300 ease-in-out
-                  ${item.extraClass || ""} 
-                  ${isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"}
-                `}
-                ></div>
-
-                <Link
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className={`
-                  relative z-10 block lg:text-2xl sm:text-xl transition-colors duration-300
-                  ${isActive ? "text-black font-bold" : "text-white"}
-                `}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-        {/* container sosmed */}
-        <section className="flex gap-4 justify-center w-full absolute bottom-0 mb-4 lg:h-full lg:flex-col lg:w-max lg:right-0 lg:mb-0 lg:mr-4">
-          {IconSosmed(
-            "https://github.com/dimaswidysap",
-            "https://cdn.simpleicons.org/github/ffff",
-            "bg-primary",
-          )}
-          {IconSosmed(
-            "https://www.instagram.com/dimaswidysaputraa/",
-            "https://cdn.simpleicons.org/instagram/ffff",
-            "bg-primary",
-          )}
-          {IconSosmed(
-            "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
-            "https://cdn.simpleicons.org/facebook/ffff",
-            "bg-primary",
-          )}
-          {IconSosmed(
-            "https://www.tiktok.com/@segogotol",
-            "https://cdn.simpleicons.org/tiktok/ffff",
-            "bg-primary",
-          )}
-        </section>
-      </section>
-    </nav>
+        </div>
+        {/* nav mobile end */}
+      </nav>
+    </header>
   );
 };
 
