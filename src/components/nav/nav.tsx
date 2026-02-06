@@ -5,10 +5,30 @@ import style from "./nav.module.css";
 import Image from "next/image";
 import Magnet from "../ReacbitsComponents/Magnet/Magnet";
 import { usePathname } from "next/navigation";
+import IconSosmed from "../iconSosmed/IconSosmed";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+
+  const linkIcons = [
+    {
+      linkIcon: "https://cdn.simpleicons.org/github/ffff",
+      href: "https://github.com/dimaswidysap",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/instagram/ffff",
+      href: "https://www.instagram.com/dimaswidysaputraa/",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/facebook/ffff",
+      href: "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/tiktok/ffff",
+      href: "https://www.tiktok.com/@segogotol",
+    },
+  ];
 
   const navItems = [
     { label: "Home", href: "/", extraClass: "menuActive" },
@@ -83,7 +103,7 @@ const Navbar = () => {
             className={`${style.shadowGlass} h-full w-full bg-primary opacity-98 rounded-2xl`}
           ></div>
           <div
-            className={`absolute inset-0 w-full h-full flex justify-center items-center `}
+            className={`absolute inset-0 w-full h-full flex flex-col justify-center items-center `}
           >
             <div className="h-full">
               <ul className="flex flex-col h-full justify-center items-center gap-6">
@@ -109,6 +129,16 @@ const Navbar = () => {
                     </Magnet>
                   ))}
               </ul>
+            </div>
+            {/* container icons */}
+            <div className="w-full h-16 flex justify-center gap-4">
+              {linkIcons.map((item, index) => (
+                <IconSosmed
+                  key={`sosmed-${index}`} // Menggunakan prefix agar key lebih unik
+                  linkIcon={item.linkIcon}
+                  linkSosmed={item.href}
+                />
+              ))}
             </div>
           </div>
         </div>

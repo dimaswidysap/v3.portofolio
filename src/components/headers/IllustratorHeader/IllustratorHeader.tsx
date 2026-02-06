@@ -3,6 +3,7 @@ import Image from "next/image";
 import style from "../../../app/my-css.module.css";
 import hero from "./IllustratorHeader.module.css";
 import { motion, useScroll, useTransform } from "framer-motion";
+// import { Moon } from "lucide-react";
 
 const HerosectionComponent = () => {
   const { scrollYProgress } = useScroll();
@@ -10,7 +11,7 @@ const HerosectionComponent = () => {
   const xHellcat = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
   const xMoon = useTransform(scrollYProgress, [0, 0.5], [0, 300]);
 
-  const scaleHellcat = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
+  // const scaleHellcat = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
   const scaleMoon = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
@@ -32,37 +33,44 @@ const HerosectionComponent = () => {
       </section>
 
       {/* BACKGROUND */}
-      <section className="h-screen w-full absolute inset-0">
+      <section className="h-screen w-full absolute inset-0 oe">
         {/* container karakter */}
-        <section className="w-full h-[80%]  absolute z-40 bottom-0 flex justify-between overflow-hidden">
-          <motion.figure
-            style={{ x: xHellcat, scale: scaleHellcat }}
-            className="h-full aspect-square  relative"
+        <section className="w-full h-[200vh] absolute z-40 inset-0 overflow-hidden flex justify-center">
+          <motion.section
+            style={{ scale: scaleMoon }}
+            className="h-screen aspect-video flex items-end"
           >
-            <Image
-              loading="eager"
-              priority
-              className="object-fill"
-              src="/asset/pageIllustrator/hellcatmobil.webp"
-              alt="background"
-              fill
-              unoptimized
-            />
-          </motion.figure>
-          <motion.figure
-            style={{ x: xMoon, scale: scaleMoon }}
-            className="h-full aspect-square relative"
-          >
-            <Image
-              loading="eager"
-              priority
-              className="object-fill"
-              src="/asset/pageIllustrator/moonknight.webp"
-              alt="background"
-              fill
-              unoptimized
-            />
-          </motion.figure>
+            <section className="h-[80%] w-full  flex justify-center xl:justify-between relative">
+              <motion.figure
+                style={{ x: xHellcat }}
+                className="h-full aspect-square relative translate-x-[20%] xl:translate-x-0"
+              >
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-fill"
+                  src="/asset/pageIllustrator/hellcatmobil.webp"
+                  alt="background"
+                  fill
+                  unoptimized
+                />
+              </motion.figure>
+              <motion.figure
+                style={{ x: xMoon }}
+                className="h-full aspect-square relative -translate-x-[20%] xl:translate-x-0"
+              >
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-fill"
+                  src="/asset/pageIllustrator/moonknight.webp"
+                  alt="background"
+                  fill
+                  unoptimized
+                />
+              </motion.figure>
+            </section>
+          </motion.section>
         </section>
         {/* background */}
         <figure className="w-full h-screen absolute">
