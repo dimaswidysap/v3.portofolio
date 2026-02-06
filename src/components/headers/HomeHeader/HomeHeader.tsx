@@ -3,7 +3,7 @@
 // import Image from "next/image";
 import style from "./HomeHeader.module.css";
 import font from "@/app/my-css.module.css";
-import Magnet from "@/components/Magnet/Magnet";
+import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
 
 const HomeHeader = () => {

@@ -1,5 +1,5 @@
 "use client";
-import Magnet from "@/components/Magnet/Magnet";
+import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";

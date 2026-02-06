@@ -1,31 +1,46 @@
+"use client";
 import style from "./footer.module.css";
 import font from "@/app/my-css.module.css";
-// import { usePathname } from "next/navigation";
 import Link from "next/link";
-import LightRays from "@/components/LightRays/LightRays";
 import IconSosmed from "@/components/iconSosmed/IconSosmed";
 import Image from "next/image";
+import Particles from "@/components/ReacbitsComponents/Particles/Particles";
 
 const Footer = () => {
+  const linkIcons = [
+    {
+      linkIcon: "https://cdn.simpleicons.org/github/ffff",
+      href: "https://github.com/dimaswidysap",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/instagram/ffff",
+      href: "https://www.instagram.com/dimaswidysaputraa/",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/facebook/ffff",
+      href: "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
+    },
+    {
+      linkIcon: "https://cdn.simpleicons.org/tiktok/ffff",
+      href: "https://www.tiktok.com/@segogotol",
+    },
+  ];
+
   return (
     <footer className={`${style.containerFooter} w-full z-20 relative`}>
       <section className="w-full h-120 relative">
         {/* background */}
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
-          <LightRays
-            raysOrigin="bottom-center"
-            raysColor="#ffffff"
-            raysSpeed={1}
-            lightSpread={1}
-            rayLength={3}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0}
-            distortion={0}
-            className="custom-rays"
-            pulsating={false}
-            fadeDistance={1}
-            saturation={1}
+          <Particles
+            particleColors={["#ffffff"]}
+            particleCount={200}
+            particleSpread={10}
+            speed={0.1}
+            particleBaseSize={100}
+            moveParticlesOnHover
+            alphaParticles={false}
+            disableRotation={false}
+            pixelRatio={1}
           />
         </div>
         {/* konten */}
@@ -39,27 +54,14 @@ const Footer = () => {
                 Contact Me
               </Link>
               {/* container icon sosmed */}
-              <div className="flex gap-3">
-                {IconSosmed(
-                  "https://github.com/dimaswidysap",
-                  "https://cdn.simpleicons.org/github/ffff",
-                  "bg-primary",
-                )}
-                {IconSosmed(
-                  "https://www.instagram.com/dimaswidysaputraa/",
-                  "https://cdn.simpleicons.org/instagram/ffff",
-                  "bg-primary",
-                )}
-                {IconSosmed(
-                  "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
-                  "https://cdn.simpleicons.org/facebook/ffff",
-                  "bg-primary",
-                )}
-                {IconSosmed(
-                  "https://www.tiktok.com/@segogotol",
-                  "https://cdn.simpleicons.org/tiktok/ffff",
-                  "bg-primary",
-                )}
+              <div className="flex gap-3 h-full">
+                {linkIcons.map((item, index) => (
+                  <IconSosmed
+                    key={`sosmed-${index}`} // Menggunakan prefix agar key lebih unik
+                    linkIcon={item.linkIcon}
+                    linkSosmed={item.href}
+                  />
+                ))}
               </div>
             </div>
             <div className="hidden md:flex w-[30%] h-full md:flex-col md:items-center md:gap-6 pt-12">

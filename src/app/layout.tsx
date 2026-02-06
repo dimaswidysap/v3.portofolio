@@ -1,5 +1,5 @@
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll/SmoothScroll";
+import SmoothScroll from "@/components/ReacbitsComponents/SmoothScroll/SmoothScroll";
 
 export default function RootLayout({
   children,

@@ -4,8 +4,8 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import style from "./HomeHeroSection.module.css";
 import Image from "next/image";
-import ScrollFloat from "@/components/ScrollFloat/ScrollFloat";
-import RotatingText from "@/components/RotatingText/RotatingText";
+import ScrollFloat from "@/components/ReacbitsComponents/ScrollFloat/ScrollFloat";
+import RotatingText from "@/components/ReacbitsComponents/RotatingText/RotatingText";
 
 const HomeHeroSection = () => {
   function createCard(linkIcon: string) {
