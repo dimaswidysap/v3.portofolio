@@ -41,24 +41,20 @@ const Navbar = () => {
               {navItems
                 .filter((item) => item.href !== pathname)
                 .map((items) => (
-                  <Magnet
+                  <li
                     key={items.label}
-                    padding={50}
-                    disabled={false}
-                    magnetStrength={10}
+                    className="h-full inline-flex  py-1 relative group overflow-hidden items-center"
                   >
-                    <li className="h-full inline-flex py-1 relative group overflow-hidden">
-                      <Link
-                        className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
-                        href={items.href}
-                        // Opsional: tambahkan di desktop jika ingin menu tertutup saat navigasi
-                        onClick={handleLinkClick}
-                      >
-                        {items.label}
-                      </Link>
-                      <span className="translate-x-full group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
-                    </li>
-                  </Magnet>
+                    <Link
+                      className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
+                      href={items.href}
+                      // Opsional: tambahkan di desktop jika ingin menu tertutup saat navigasi
+                      onClick={handleLinkClick}
+                    >
+                      {items.label}
+                    </Link>
+                    <span className="translate-x-[110%] mb-2 group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
+                  </li>
                 ))}
             </ul>
           </div>
