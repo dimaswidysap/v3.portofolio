@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <header className="w-full z-100 fixed top-0 left-0 right-0 flex">
-      <nav className={`relative w-[90%] mt-4 h-12 m-auto`}>
+      <nav className={`relative w-[90%] mt-1 h-12 m-auto`}>
         <div
           className={`${style.shadowGlass} w-full h-full rounded-2xl bg-primary opacity-95`}
         ></div>
