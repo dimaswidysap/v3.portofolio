@@ -30,6 +30,21 @@
   will-change: transform;
 }
 
+@media (max-width: 640px) {
+  .sayapKiri {
+    animation: none;
+  }
+  .sayapKanan {
+    animation: none;
+  }
+  .ekor {
+    animation: none;
+  }
+  .objectRandom {
+    animation: none;
+  }
+}
+
 @keyframes sayapKiriHempas {
   0% {
     transform: rotateZ(0deg);

@@ -92,6 +92,7 @@ const HomeHeroSection = () => {
                 src="/asset/pageIndex/garuda/ekor.webp"
                 alt="person"
                 fill
+                unoptimized
               />
             </div>
             <div className={`${style.sayapKanan} absolute inset-0`}>
@@ -101,6 +102,7 @@ const HomeHeroSection = () => {
                 src="/asset/pageIndex/garuda/sayapkanan.webp"
                 alt="person"
                 fill
+                unoptimized
               />
             </div>
             <div className={`${style.sayapKiri} absolute inset-0`}>
@@ -110,6 +112,7 @@ const HomeHeroSection = () => {
                 src="/asset/pageIndex/garuda/sayapkiri.webp"
                 alt="person"
                 fill
+                unoptimized
               />
             </div>
             <div className="absolute inset-0">
@@ -119,6 +122,7 @@ const HomeHeroSection = () => {
                 src="/asset/pageIndex/garuda/badan.webp"
                 alt="person"
                 fill
+                unoptimized
               />
             </div>
           </section>

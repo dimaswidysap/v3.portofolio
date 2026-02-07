@@ -4,7 +4,7 @@ import font from "@/app/my-css.module.css";
 import Link from "next/link";
 import IconSosmed from "@/components/iconSosmed/IconSosmed";
 import Image from "next/image";
-import Particles from "@/components/ReacbitsComponents/Particles/Particles";
+import DotGrid from "@/components/ReacbitsComponents/DotGrid/DotGrid";
 
 const Footer = () => {
   const linkIcons = [
@@ -31,16 +31,16 @@ const Footer = () => {
       <section className="w-full h-120 relative">
         {/* background */}
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
-          <Particles
-            particleColors={["#ffffff"]}
-            particleCount={200}
-            particleSpread={10}
-            speed={0.1}
-            particleBaseSize={100}
-            moveParticlesOnHover
-            alphaParticles={false}
-            disableRotation={false}
-            pixelRatio={1}
+          <DotGrid
+            dotSize={5}
+            gap={15}
+            baseColor="#271E37"
+            activeColor="#5227FF"
+            proximity={120}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
           />
         </div>
         {/* konten */}

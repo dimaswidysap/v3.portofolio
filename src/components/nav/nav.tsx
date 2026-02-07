@@ -73,30 +73,41 @@ const Navbar = () => {
                     >
                       {items.label}
                     </Link>
-                    <span className="translate-x-[110%] mb-2 group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
+                    <span className="translate-x-[110%] mb-2 group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl bg-accen-first"></span>
                   </li>
                 ))}
             </ul>
           </div>
-
-          <div className="md:hidden flex items-center justify-center">
+          {/* button haburger menu start*/}
+          <div className="md:hidden flex items-center justify-center h-full  aspect-square">
             <div
-              className={`${style.menuWrapper} ${isOpen ? style.activeMenu : ""}`}
+              className={`${style.menuWrapper} ${isOpen ? style.activeMenu : ""} overflow-hidden h-full w-full relative`}
               onClick={toggleMenu}
             >
-              <div></div>
-              <div></div>
-              <div></div>
+              {/* wrapper close */}
+              <div
+                className={`${isOpen ? "-translate-x-full -translate-y-full" : "translate-x-0 translate-y-0"} duration-300 ease-in-out absolute inset-0 h-full aspect-square  flex flex-col justify-center items-center gap-2`}
+              >
+                <span className={`${style.lines} -rotate-45`}></span>
+                <span className={`${style.lines} -rotate-45`}></span>
+              </div>
+              <div
+                className={`${isOpen ? "translate-x-0 translate-y-0" : "translate-x-full translate-y-full"} duration-300 ease-in-out absolute inset-0 h-full aspect-square  flex flex-col justify-center items-center gap-2`}
+              >
+                <span
+                  className={`${style.lines} rotate-45 ${isOpen ? "" : ""}`}
+                ></span>
+                <span className={`${style.lines} rotate-45`}></span>
+              </div>
             </div>
           </div>
+          {/* button haburger menu end*/}
         </div>
 
         {/* nav mobile */}
         <div
           className={`md:hidden w-full h-[70vh] absolute mt-4 rounded-2xl transition-all duration-500 ease-in-out ${
-            isOpen
-              ? "translate-x-0 opacity-100"
-              : "translate-x-[110%] opacity-0"
+            isOpen ? "translate-x-0 " : "translate-x-[110%] "
           }`}
         >
           <div
@@ -109,14 +120,17 @@ const Navbar = () => {
               <ul className="flex flex-col h-full justify-center items-center gap-6">
                 {navItems
                   .filter((item) => item.href !== pathname)
-                  .map((items) => (
+                  .map((items, index) => (
                     <Magnet
                       key={items.label}
                       padding={50}
                       disabled={false}
                       magnetStrength={10}
                     >
-                      <li className="h-full inline-flex py-1 relative group overflow-hidden">
+                      <li
+                        style={{ transitionDelay: `${index * 200}ms` }}
+                        className={`${isOpen ? `translate-x-0 translate-y-0 opacity-100` : `opacity-0 translate-x-4 translate-y-4`}  duration-300 ease-in-out  h-full inline-flex py-1 relative group overflow-hidden `}
+                      >
                         <Link
                           className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
                           href={items.href}
@@ -124,7 +138,7 @@ const Navbar = () => {
                         >
                           {items.label}
                         </Link>
-                        <span className="translate-x-full group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
+                        <span className="hidden md:flex translate-x-full group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
                       </li>
                     </Magnet>
                   ))}
@@ -134,7 +148,7 @@ const Navbar = () => {
             <div className="w-full h-16 flex justify-center gap-4">
               {linkIcons.map((item, index) => (
                 <IconSosmed
-                  key={`sosmed-${index}`} // Menggunakan prefix agar key lebih unik
+                  key={`sosmed-${index}`}
                   linkIcon={item.linkIcon}
                   linkSosmed={item.href}
                 />
