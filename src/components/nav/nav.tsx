@@ -31,11 +31,11 @@ const Navbar = () => {
   ];
 
   const navItems = [
-    { label: "Home", href: "/", extraClass: "menuActive" },
+    { label: "Beranda", href: "/", extraClass: "menuActive" },
     { label: "iLLustrator", href: "/iLLustrator" },
     { label: "Front-End", href: "/front-end" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "Tentang saya", href: "/about" },
+    { label: "Kontak", href: "/contact" },
   ];
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -68,7 +68,6 @@ const Navbar = () => {
                     <Link
                       className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
                       href={items.href}
-                      // Opsional: tambahkan di desktop jika ingin menu tertutup saat navigasi
                       onClick={handleLinkClick}
                     >
                       {items.label}

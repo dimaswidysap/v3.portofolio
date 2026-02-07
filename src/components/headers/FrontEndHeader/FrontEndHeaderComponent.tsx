@@ -82,10 +82,10 @@ const FrontEndHeaderComponent = () => {
         <div className="h-screen w-full absolute inset-0 pl-4 flex items-center">
           <div className="montserrat">
             <h1 className="main-font font-black text-[3em]">
-              Featured Projects 💻
+              Proyek Unggulan 💻
             </h1>
-            <p className="font-bold main-font">
-              Showcasing selected projects in Web Development{" "}
+            <p className="main-font">
+              Menampilkan proyek pilihan dalam Pengembangan Web.
               <span className="text-blue-700">.</span>
             </p>
           </div>

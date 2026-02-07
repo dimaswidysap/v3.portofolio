@@ -7,11 +7,12 @@ const ContactHeroSection = () => {
         <div className="w-full h-[50%] max-width-custom m-auto flex items-center">
           <header className="px-4 relative w-full">
             <h1 className="text-[2.5em] md:text-[3em] montserrat font-black main-font relative z-20">
-              Get in touch <span className="text-blue-600">.</span>
+              Mari Terhubung<span className="text-blue-600">.</span>
             </h1>
             <span className="montserrat main-font relative z-20">
-              Want to get in touch, we`d love to hear you from . here you can
-              reach me<span className="text-blue-700">.</span>
+              Ingin terhubung? Saya akan senang mendengar kabar dari Anda. Di
+              sini Anda dapat menghubungi saya
+              <span className="text-blue-700">.</span>
             </span>
             <div className="absolute right-0 top-0 h-140 aspect-square -translate-y-[25%] translate-x-[25%] opacity-55">
               <Image
@@ -45,7 +46,7 @@ const ContactHeroSection = () => {
                     />
                   </Link>
                   <span className="montserrat font-bold">
-                    Contact me on Email
+                    Kontak saya lewat Email
                   </span>
                   <Link
                     target="_blanks"
@@ -72,7 +73,7 @@ const ContactHeroSection = () => {
                     />
                   </Link>
                   <span className="montserrat font-bold">
-                    Contact me on Instagram
+                    Kontak saya lewat Instagram
                   </span>
                   <Link
                     target="_blanks"
@@ -99,7 +100,7 @@ const ContactHeroSection = () => {
                     />
                   </Link>
                   <span className="montserrat font-bold">
-                    Contact me on WhatsApp
+                    Kontak saya lewat WhatsApp
                   </span>
                   <Link target="_blanks" href="https://wa.me/+6281252966557">
                     +62 812 529 665 57

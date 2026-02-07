@@ -48,10 +48,10 @@ const Footer = () => {
           <section className="w-full flex flex-1 md:flex-row">
             <div className="w-full flex flex-col gap-7 h-full md:w-[70%] pl-2">
               <h1 className="text-[3em] md:text-[4em] font-extrabold main-font montserrat">
-                Let`s discuss your project 🚀
+                Ayo kita bahas proyek Anda 🚀
               </h1>
               <Link href="/contact" className="globalButton">
-                Contact Me
+                Kontak Saya
               </Link>
               {/* container icon sosmed */}
               <div className="flex gap-3 h-full">
@@ -82,7 +82,7 @@ const Footer = () => {
             <span
               className={`${font.montserrat} text-[0.7em] md:text-[1em] font-bold text-slate-300`}
             >
-              Copyright Dimas Widy Saputra 2026
+              Dimas Widy Saputra © 2026
             </span>
           </section>
         </div>

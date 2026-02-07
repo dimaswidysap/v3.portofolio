@@ -28,7 +28,7 @@ const HomeHeader = () => {
                   className={`${font.montserrat} ${style.font}  flex flex-col relative`}
                 >
                   <span className="absolute bottom-[170%] font-bold">
-                    Hallo 👋, My Name is
+                    Hallo 👋, Nama saya
                   </span>
                   <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%]">
                     DIMAS
@@ -45,14 +45,14 @@ const HomeHeader = () => {
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <span className="inline-flex gap-6 mt-[20%]">
                 <Link href="/about" className={`globalButton`}>
-                  Interested?
+                  Tertarik?
                 </Link>
                 <Link
                   target="_blank"
                   href="https://drive.google.com/file/d/1HrZd5hQpGUMM97I65QJ9fTSIPFZp3K-x/view?usp=drive_link"
                   className={`globalButton`}
                 >
-                  Hire Me
+                  Rekrut Saya
                 </Link>
               </span>
             </Magnet>

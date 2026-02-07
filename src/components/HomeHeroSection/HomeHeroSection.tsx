@@ -146,7 +146,7 @@ const HomeHeroSection = () => {
                 scrollEnd="bottom bottom-=40%"
                 stagger={0.03}
               >
-                Im Good At.
+                Saya Hebat Dalam.
               </ScrollFloat>
             </div>
             <div>

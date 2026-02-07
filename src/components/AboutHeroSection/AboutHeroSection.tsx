@@ -9,10 +9,10 @@ import Magnet from "../ReacbitsComponents/Magnet/Magnet";
 import { GraduationCap, Award, Briefcase } from "lucide-react";
 
 const myImages = [
-  { image: "/asset/pageAbout/images/1.jpeg", text: "Make Illustration Zombie" },
-  { image: "/asset/pageAbout/images/2.jpg", text: "Instalation Network" },
-  { image: "/asset/pageAbout/images/beach.jpeg", text: "Holiday" },
-  { image: "/asset/pageAbout/images/cat.jpeg", text: "My cat" },
+  { image: "/asset/pageAbout/images/1.jpeg", text: "" },
+  { image: "/asset/pageAbout/images/2.jpg", text: "" },
+  { image: "/asset/pageAbout/images/beach.jpeg", text: "" },
+  { image: "/asset/pageAbout/images/cat.jpeg", text: "" },
 ];
 
 const toolsFrontEnd = [
@@ -44,7 +44,8 @@ const AboutHeroSection = () => {
       <section className="max-width-custom  m-auto pt-40">
         <header className="w-full flex justify-center px-4">
           <h1 className="font-black montserrat text-[2em] md:text-[3em] main-font">
-            Let Me Introduce Myself👋<span className="text-blue-500">.</span>
+            Izinkan saya memperkenalkan diri👋
+            <span className="text-blue-500">.</span>
           </h1>
         </header>
         {/* container gallery */}
@@ -69,7 +70,7 @@ const AboutHeroSection = () => {
         >
           <span className="h-0.5 w-full bg-accen-first"></span>
           <div className="font-medium">
-            <h1 className="text-[1.5em]">Hello There 👋</h1>
+            <h1 className="text-[1.5em] font-black">Hello👋</h1>
             <p>
               Nama saya Dimas Widy Saputra, Usia saya 21 tahun. Saya Adalah
               mahasiswa <span> </span>
@@ -106,7 +107,7 @@ const AboutHeroSection = () => {
                 href="/education"
               >
                 <GraduationCap className="text-blue-700" />
-                Education
+                Pendidikan
                 <span className="text-blue-700">.</span>
               </Link>
             </Magnet>
@@ -117,7 +118,7 @@ const AboutHeroSection = () => {
                 // href="/education"
               >
                 <Briefcase className="text-blue-700" />
-                Experinces
+                Pengalaman
                 <span className="text-blue-700">.</span>
               </Link>
             </Magnet>
@@ -127,7 +128,7 @@ const AboutHeroSection = () => {
                 href="/certificate"
               >
                 <Award className="text-blue-700" />
-                Certificate
+                Sertifikat
                 <span className="text-blue-700">.</span>
               </Link>
             </Magnet>
@@ -138,8 +139,8 @@ const AboutHeroSection = () => {
         {/* container tools */}
         <section className="pt-40 w-full flex flex-wrap">
           <header className="flex w-full justify-center shrink-0">
-            <h1 className="flex justify-center w-full  font-black montserrat text-[2em] md:text-[3em] main-font ">
-              The Tools I Use <span className="text-blue-700">.</span>
+            <h1 className="flex font-black montserrat text-[1.6em] md:text-[3em] main-font ">
+              Alat yang saya gunakan <span className="text-blue-700">.</span>
             </h1>
           </header>
           {/*  */}
