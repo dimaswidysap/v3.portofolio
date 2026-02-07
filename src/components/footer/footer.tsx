@@ -48,7 +48,7 @@ const Footer = () => {
           <section className="w-full flex flex-1 md:flex-row">
             <div className="w-full flex flex-col gap-7 h-full md:w-[70%] pl-2">
               <h1 className="text-[3em] md:text-[4em] font-extrabold main-font montserrat">
-                Ayo kita bahas proyek Anda 🚀
+                Ayo kita bahas proyek anda 🚀
               </h1>
               <Link href="/contact" className="globalButton">
                 Kontak Saya
