@@ -14,6 +14,12 @@ const PROJECTS = [
     desc: "Illustrasi ini saya buat dalam rangka memperingati hari kemerdekaan Indonesia yang ke 80",
   },
   {
+    title: "Sam Wilson",
+    src: "/asset/pageIllustrator/projects/falcon.webp",
+    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
+    desc: "Illustrasi ini  dibuat karena saya suka dengan karakter yang diperankan oleh Anthony mackie",
+  },
+  {
     title: "Tiger Illustration",
     src: "/asset/pageIllustrator/projects/2.jpg",
     tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
@@ -107,7 +113,8 @@ const Card = ({
           {/* container tecth */}
           <section>
             <h1 className="mb-1 font-extrabold text-[1em] montserrat main-font">
-              This Illustration made by <span className="text-blue-500">:</span>
+              Illustrasi ini dibuat dengan{" "}
+              <span className="text-blue-500">:</span>
             </h1>
             <section className="flex gap-4">
               {IconTech(tools, "bg-main-font")}
