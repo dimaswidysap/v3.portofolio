@@ -3,7 +3,7 @@ import HomeHeroSection from "@/components/HomeHeroSection/HomeHeroSection";
 
 export default function Home() {
   return (
-    <div>
+    <div className="relative">
       <HomeHeader />
       <HomeHeroSection />
     </div>

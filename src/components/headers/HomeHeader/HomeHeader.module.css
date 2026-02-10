@@ -25,9 +25,19 @@
   color: var(--accen-first);
 }
 
-.person {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url(../../../../public/asset/pageIndex/person.png);
+.fghyu {
+  animation: jhuu 2s linear infinite;
+}
+
+@keyframes jhuu {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(1deg);
+  }
+  75% {
+    transform: rotate(-1deg);
+  }
 }

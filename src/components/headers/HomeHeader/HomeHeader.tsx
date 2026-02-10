@@ -5,14 +5,29 @@ import style from "./HomeHeader.module.css";
 import font from "@/app/my-css.module.css";
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
+import Image from "next/image";
 
 const HomeHeader = () => {
   return (
     <header className="w-full h-screen overflow-hidden bg-primary relative">
       {/* container background start */}
-      <section className="absolute h-screen flex">
-        <div className="shrink-0 h-screen aspect-video xl:translate-x-0 md:-translate-x-[50%] -translate-x-[55%]">
-          <div className={`${style.person} h-full w-full`}></div>
+      <section className="absolute h-screen w-full overflow-hidden">
+        {/* Container foto yang mepet ke kanan */}
+        <div className="absolute right-0 top-0 h-screen aspect-video">
+          {/* Container card dengan overflow-hidden */}
+          <div
+            className={` h-full w-full  overflow-hidden relative translate-x-[20%] lg:translate-x-0`}
+          >
+            <Image
+              loading="eager"
+              priority
+              className="object-cover"
+              src="/asset/pageIndex/personv2.png"
+              alt="background"
+              fill
+              unoptimized
+            />
+          </div>
         </div>
       </section>
       {/* container background end */}
@@ -27,16 +42,16 @@ const HomeHeader = () => {
                 <span
                   className={`${font.montserrat} ${style.font}  flex flex-col relative`}
                 >
-                  <span className="absolute bottom-[170%] font-bold">
+                  <span className="absolute bottom-[170%] font-bold font-secondary">
                     Hallo 👋, Nama saya
                   </span>
-                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%]">
+                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%] font-secondary">
                     DIMAS
                   </span>
                   <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold">
                     WIDY
                   </span>
-                  <span className="absolute md:text-5xl lg:text-6xl font-extrabold text-4xl translate-y-[80%]">
+                  <span className="absolute md:text-5xl lg:text-6xl font-extrabold text-4xl translate-y-[80%] font-secondary">
                     SAPUTRA
                   </span>
                 </span>
