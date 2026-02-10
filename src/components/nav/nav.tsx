@@ -40,7 +40,6 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Fungsi baru untuk menutup menu saat link ditekan
   const handleLinkClick = () => {
     setIsOpen(false);
   };
@@ -58,23 +57,23 @@ const Navbar = () => {
           </div>
           <div>
             <ul className="gap-4 h-full items-center hidden md:flex ">
-              {navItems
-                .filter((item) => item.href !== pathname)
-                .map((items) => (
-                  <li
-                    key={items.label}
-                    className="h-full inline-flex  py-1 relative group overflow-hidden items-center"
+              {navItems.map((items) => (
+                <li
+                  key={items.label}
+                  className="h-full  inline-flex  py-1 relative group overflow-hidden items-center"
+                >
+                  <Link
+                    className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em] h-full flex items-center`}
+                    href={items.href}
+                    onClick={handleLinkClick}
                   >
-                    <Link
-                      className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
-                      href={items.href}
-                      onClick={handleLinkClick}
-                    >
-                      {items.label}
-                    </Link>
-                    <span className="translate-x-[110%] mb-2 group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl bg-accen-first"></span>
-                  </li>
-                ))}
+                    {items.label}
+                  </Link>
+                  <span
+                    className={`${pathname === items.href ? "translate-x-0" : "translate-x-[110%]"}  mb-2 group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl bg-accen-first`}
+                  ></span>
+                </li>
+              ))}
             </ul>
           </div>
           {/* button haburger menu start*/}
@@ -117,30 +116,38 @@ const Navbar = () => {
           >
             <div className="h-full">
               <ul className="flex flex-col h-full justify-center items-center gap-6">
-                {navItems
-                  .filter((item) => item.href !== pathname)
-                  .map((items, index) => (
-                    <Magnet
-                      key={items.label}
-                      padding={50}
-                      disabled={false}
-                      magnetStrength={10}
+                {navItems.map((items, index) => (
+                  <Magnet
+                    key={items.label}
+                    padding={50}
+                    disabled={false}
+                    magnetStrength={10}
+                  >
+                    <li
+                      style={{
+                        // Delay hanya aktif saat menu dibuka (staggered effect)
+                        // Saat ditutup, delay jadi 0ms agar menghilang bersamaan
+                        transitionDelay: isOpen ? `${index * 100}ms` : "0ms",
+                      }}
+                      className={`${
+                        isOpen
+                          ? `translate-x-0 translate-y-0 opacity-100`
+                          : `opacity-0 translate-x-4 translate-y-4`
+                      } duration-300 ease-in-out h-full inline-flex py-1 relative group overflow-hidden flex-col`}
                     >
-                      <li
-                        style={{ transitionDelay: `${index * 200}ms` }}
-                        className={`${isOpen ? `translate-x-0 translate-y-0 opacity-100` : `opacity-0 translate-x-4 translate-y-4`}  duration-300 ease-in-out  h-full inline-flex py-1 relative group overflow-hidden `}
+                      <Link
+                        className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em] flex h-full `}
+                        href={items.href}
+                        onClick={handleLinkClick}
                       >
-                        <Link
-                          className={`${style.fontNav} main-font md:text-[0.8em] lg:text-[1em]`}
-                          href={items.href}
-                          onClick={handleLinkClick}
-                        >
-                          {items.label}
-                        </Link>
-                        <span className="hidden md:flex translate-x-full group-hover:translate-x-0 duration-300 ease-in-out absolute inset-x-0 bottom-0 before:content-[''] before:block before:w-full before:h-0.5 rounded-2xl before:bg-slate-200"></span>
-                      </li>
-                    </Magnet>
-                  ))}
+                        {items.label}
+                      </Link>
+                      <span
+                        className={`${pathname === items.href ? "translate-x-0" : "translate-x-full"} w-full h-0.5 bg-accen-first rounded-2xl`}
+                      ></span>
+                    </li>
+                  </Magnet>
+                ))}
               </ul>
             </div>
             {/* container icons */}
