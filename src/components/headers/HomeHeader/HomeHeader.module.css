@@ -25,19 +25,10 @@
   color: var(--accen-first);
 }
 
-.fghyu {
-  animation: jhuu 2s linear infinite;
-}
-
-@keyframes jhuu {
-  0%,
-  100% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: rotate(1deg);
-  }
-  75% {
-    transform: rotate(-1deg);
+@media (min-width: 640px) {
+  .font span:nth-child(1),
+  .font span:nth-child(2),
+  .font span:nth-child(4) {
+    color: var(--secondary-background);
   }
 }

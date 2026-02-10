@@ -16,7 +16,7 @@ const HomeHeader = () => {
         <div className="absolute right-0 top-0 h-screen aspect-video">
           {/* Container card dengan overflow-hidden */}
           <div
-            className={` h-full w-full  overflow-hidden relative translate-x-[20%] lg:translate-x-0`}
+            className={`h-full w-full  overflow-hidden relative translate-x-[20%] lg:translate-x-0`}
           >
             <Image
               loading="eager"
@@ -42,16 +42,16 @@ const HomeHeader = () => {
                 <span
                   className={`${font.montserrat} ${style.font}  flex flex-col relative`}
                 >
-                  <span className="absolute bottom-[170%] font-bold font-secondary">
+                  <span className="absolute bottom-[170%] font-bold  md:font-secondary">
                     Hallo 👋, Nama saya
                   </span>
-                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%] font-secondary">
+                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%] ">
                     DIMAS
                   </span>
                   <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold">
                     WIDY
                   </span>
-                  <span className="absolute md:text-5xl lg:text-6xl font-extrabold text-4xl translate-y-[80%] font-secondary">
+                  <span className="absolute md:text-5xl lg:text-6xl font-extrabold text-4xl translate-y-[80%]">
                     SAPUTRA
                   </span>
                 </span>
