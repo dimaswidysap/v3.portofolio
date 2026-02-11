@@ -13,13 +13,13 @@ const EducatioPage = () => {
             <Link href="/about#story">
               <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
                 <ArrowLeft className="md:text-[2em]" />
-                Back<span className="text-blue-700">.</span>
+                Kembali<span className="text-blue-700">.</span>
               </span>
             </Link>
           </Magnet>
           <Magnet padding={50} disabled={false} magnetStrength={5}>
             <h1 className="main-font montserrat text-[1.3em] font-black md:text-[3em]">
-              Experiences
+              Pengalaman
             </h1>
           </Magnet>
         </header>
