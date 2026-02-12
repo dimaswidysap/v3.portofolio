@@ -8,6 +8,8 @@ const Terminal: React.FC = () => {
   const [history, setHistory] = useState<string[]>([
     `Welcome to my terminal type 'help' to see all command available`,
   ]);
+  const [commandHistory, setCommandHistory] = useState<string[]>([]);
+  const [historyIndex, setHistoryIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -43,7 +45,11 @@ const Terminal: React.FC = () => {
         break;
       case "contact":
         router.push("/contact");
-        output = "Navigasi ke halaman about.";
+        output = "Navigasi ke halaman contact.";
+        break;
+      case "pratic":
+        router.push("/pratic");
+        output = "Navigasi ke halaman pratic.";
         break;
       case "clear":
         setHistory([`Terminal cleared. type 'help'  for commands.`]);
@@ -62,6 +68,8 @@ const Terminal: React.FC = () => {
     }
     setHistory(newHistory);
     setInput("");
+    setCommandHistory((prev) => [...prev, cmd]);
+    setHistoryIndex(-1);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -71,11 +79,40 @@ const Terminal: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (historyIndex < commandHistory.length - 1) {
+        const newIndex = historyIndex + 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+      }
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIndex > 0) {
+        const newIndex = historyIndex - 1;
+        setHistoryIndex(newIndex);
+        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
+      } else if (historyIndex === 0) {
+        setHistoryIndex(-1);
+        setInput("");
+      }
     }
-  }, []);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value);
+    if (historyIndex !== -1) {
+      setHistoryIndex(-1);
+    }
+  };
+
+  // useEffect untuk auto focus dihapus
+  // useEffect(() => {
+  //   if (inputRef.current) {
+  //     inputRef.current.focus();
+  //   }
+  // }, []);
 
   return (
     <div className="main-font p-4  h-full overflow-y-auto">
@@ -83,7 +120,9 @@ const Terminal: React.FC = () => {
         {history.map((line, index) => (
           <div key={index}>
             {line.split("\n").map((subLine, subIndex) => (
-              <div key={subIndex}>{subLine}</div>
+              <div className="text-[0.8em]" key={subIndex}>
+                {subLine}
+              </div>
             ))}
           </div>
         ))}
@@ -97,9 +136,9 @@ const Terminal: React.FC = () => {
           ref={inputRef}
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          className="bg-transparent outline-none flex-1 font-accen-first pl-2"
-          autoFocus
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          className="bg-transparent outline-none flex-1 font-accen-first pl-2 text-[0.8em]"
         />
       </form>
     </div>

@@ -1,7 +1,7 @@
 "use client";
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
-import Image from "next/image";
+// import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 
 const EducatioPage = () => {

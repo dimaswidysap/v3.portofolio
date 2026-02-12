@@ -55,11 +55,11 @@ const FrontEndHeroSection = () => {
       <section className="absolute h-full w-full inset-0 flex">
         <motion.span
           style={{ y: y1 }}
-          className="bg-slate-500 w-[25%] h-full inline-flex"
+          className="bg-slate-900 w-[25%] h-full inline-flex"
         ></motion.span>
         <motion.span
           style={{ y: y2 }}
-          className="bg-slate-600 w-[25%] h-full inline-flex"
+          className="bg-slate-800 w-[25%] h-full inline-flex"
         ></motion.span>
         <motion.span
           style={{ y: y3 }}
@@ -67,7 +67,7 @@ const FrontEndHeroSection = () => {
         ></motion.span>
         <motion.span
           style={{ y: y4 }}
-          className="bg-slate-800 w-[25%] h-full inline-flex"
+          className="bg-slate-600 w-[25%] h-full inline-flex"
         ></motion.span>
       </section>
       {/* background grid end */}
