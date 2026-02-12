@@ -1,7 +1,7 @@
 "use client";
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
-import style from "./idk.module.css";
+import style from "./certificate.module.css";
 import { ArrowLeft, Calendar, BookOpen, ExternalLink } from "lucide-react";
 
 const cards = [
