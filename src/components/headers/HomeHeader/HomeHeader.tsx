@@ -1,6 +1,4 @@
 "use client";
-
-// import Image from "next/image";
 import style from "./HomeHeader.module.css";
 import font from "@/app/my-css.module.css";
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";

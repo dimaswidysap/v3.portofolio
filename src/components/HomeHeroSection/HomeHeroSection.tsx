@@ -30,7 +30,8 @@ const HomeHeroSection = () => {
     "https://cdn.simpleicons.org/nextdotjs",
   ];
 
-  const targetRef = useRef(null);
+  // Best practice: Definisikan tipe elemen untuk useRef agar TS tidak complain
+  const targetRef = useRef<HTMLElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -155,7 +156,8 @@ const HomeHeroSection = () => {
                 mainClassName="px-4 py-2 bg-primary shadow-2xl text-[1.6em] md:text-[2em] lg:text-[3em] montserrat font-black main-font text-white font-extrabold rounded-2xl font-bold text-2xl inline-flex items-center justify-center"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
-                animate={{ y: 0 }}
+                // PERBAIKAN DI SINI: Ubah 0 (number) menjadi "0%" (string)
+                animate={{ y: "0%" }}
                 exit={{ y: "-120%" }}
                 staggerDuration={0.03}
                 splitLevelClassName="overflow-hidden pb-0.5 sm:pb-1 md:pb-1 px-1"

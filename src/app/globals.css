@@ -107,6 +107,9 @@ html.lenis {
 .font-accen-first {
   color: var(--accen-first) !important;
 }
+.font-accen-second {
+  color: var(--accen-second) !important;
+}
 
 .font-secondary {
   color: var(--secondary-background);

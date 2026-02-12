@@ -1,23 +1,18 @@
 import { JetBrains_Mono } from "next/font/google";
-import Link from "next/link";
-const pesan = `"testing"`;
-const linkGithub = `"https://github.com/dimaswidysap"`;
-
+import Terminal from "./Terminal";
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
 });
-
-const technology = `"html", "css", "javascript", "next.js"`;
 
 const FrontEndHeaderComponent = () => {
   return (
     <header className="w-full h-screen bg-primary flex justify-center">
       <section className="w-full max-width-custom h-screen m-auto fixed ">
         {/* container fake vs code */}
-        <div className="hidden md:flex h-screen w-full absolute items-center inset-0 justify-end md:items-end">
+        <div className="hidden md:flex h-screen w-full absolute items-center inset-0 justify-end ">
           <div className="w-[45%] relative z-20 aspect-square bg-gray-900 mr-[5%] mb-[2%] rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-800">
-            <header className="h-10 w-full bg-gray-700">
+            <header className="h-10 w-full bg-gray-700 absolute">
               <div className="h-full flex gap-2 items-center pl-4">
                 <span className="bg-orange-700 inline-flex h-[30%] rounded-full aspect-square"></span>
                 <span className="bg-yellow-600 inline-flex h-[30%] rounded-full aspect-square"></span>
@@ -25,57 +20,10 @@ const FrontEndHeaderComponent = () => {
               </div>
             </header>
 
-            <div className={`${jetbrainsMono.className} p-5 space-y-4`}>
-              {/* KODE LAMA: Bagian Console Log */}
-              <div className="flex gap-1 items-center">
-                <p className="text-cyan-400">console</p>
-                <p className="text-white">.</p>
-                <p className="text-yellow-300">log</p>
-                <p className="text-purple-400">(</p>
-                <p className="text-green-400">{pesan}</p>
-                <p className="text-purple-400">)</p>
-                <p className="text-white">;</p>
-              </div>
-
-              {/* KONTEN BARU: Daftar Skills */}
-              <div className="space-y-1">
-                <div className="flex gap-2 items-center">
-                  <p className="text-purple-400">const</p>
-                  <p className="text-cyan-400">skills</p>
-                  <p className="text-red-400">=</p>
-                  <p className="text-yellow-300">[</p>
-                </div>
-
-                <div className="pl-6 font-semibold">
-                  <p className="text-green-400">{technology}</p>
-                </div>
-
-                <div className="flex gap-1 items-center">
-                  <p className="text-yellow-300">]</p>
-                  <p className="text-white">;</p>
-                </div>
-              </div>
-
-              {/* KODE LAMA: Bagian GitHub Link */}
-              <div className="flex gap-1 items-center">
-                <p className="text-purple-400">const</p>
-                <Link
-                  target="_blanks"
-                  className="text-cyan-400"
-                  href="https://github.com/dimaswidysap"
-                >
-                  gitHub
-                </Link>
-                <p className="text-red-400">=</p>
-                <Link
-                  target="_blanks"
-                  href="https://github.com/dimaswidysap"
-                  className="text-green-400"
-                >
-                  {linkGithub}
-                </Link>
-                <p className="text-white">;</p>
-              </div>
+            <div
+              className={`${jetbrainsMono.className} pt-10  space-y-4 h-full`}
+            >
+              <Terminal />
             </div>
           </div>
         </div>
