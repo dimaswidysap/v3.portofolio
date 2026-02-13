@@ -7,8 +7,12 @@ import Style from "./pratic.module.css";
 const PraticPage = () => {
   const projects = [
     {
-      name: "Membuat Kalkulator",
+      name: "Membuat Web Kalkulator",
       link: "https://github.com/dimaswidysap/kalkulator",
+    },
+    {
+      name: "Membuat Web Todolist",
+      link: "https://github.com/dimaswidysap/todolist",
     },
     {
       name: "Landing page produk kopi",
