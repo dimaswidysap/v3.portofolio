@@ -1,49 +1,80 @@
-import { JetBrains_Mono } from "next/font/google";
-import Terminal from "./Terminal";
+"use client";
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  display: "swap",
-});
+import Image from "next/image";
+import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 
-const FrontEndHeaderComponent = () => {
+const HeaderFrontEndComponent = () => {
   return (
-    <header className="w-full h-screen bg-primary flex justify-center">
-      <section className="w-full max-w-7xl h-screen m-auto fixed  flex flex-col md:flex-row items-center justify-center px-4">
-        {/* Konten teks di sebelah kiri (atas di mobile) */}
-        <div className="w-full md:w-1/2 flex items-center justify-start md:justify-center mb-8 md:mb-0">
-          <div className="montserrat text-center md:text-left">
-            <h1 className="main-font font-black text-4xl md:text-6xl lg:text-7xl">
-              Proyek Unggulan 💻
-            </h1>
-            <p className="main-font text-lg md:text-xl mt-4">
-              Menampilkan proyek pilihan dalam Pengembangan Web
-              <span className="text-blue-700">.</span>
+    <header className="w-full h-screen bg-primary fixed inset-0">
+      <section className="max-width-custom h-screen flex flex-col lg:flex-row items-center m-auto">
+        {/*  */}
+        <div className="w-[90%] h-[50%] lg:h-full pt-[20%] montserrat">
+          <Magnet padding={50} disabled={false} magnetStrength={50}>
+            <p className="text-[2em] font-black md:text-[4em] main-font">
+              Proyek Saya<span className="text-blue-700">.</span>
             </p>
-          </div>
-        </div>
-
-        {/* Konten terminal di sebelah kanan (bawah di mobile) */}
-        <div className="w-full md:w-1/2 flex items-center justify-end">
-          <div className="w-full md:w-[90%] lg:w-[80%] relative z-20 aspect-square bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-800">
-            <header className="h-10 w-full bg-gray-700 absolute">
-              <div className="h-full flex gap-2 items-center pl-4">
-                <span className="bg-orange-700 inline-flex h-[30%] rounded-full aspect-square"></span>
-                <span className="bg-yellow-600 inline-flex h-[30%] rounded-full aspect-square"></span>
-                <span className="bg-green-400 inline-flex h-[30%] rounded-full aspect-square"></span>
+          </Magnet>
+          <section className="flex items-center gap-2">
+            <span className="h-6 w-0.5 bg-slate-50"></span>
+            <blockquote className="italic main-font montserrat">
+              Sukses itu hadiah bagi yang selalu berusaha.
+            </blockquote>
+          </section>
+          <Magnet padding={50} disabled={false} magnetStrength={15}>
+            <section className="w-full h-20 md:h-32 flex relative">
+              <div className="h-full aspect-square  relative">
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-cover"
+                  src="/asset/pageFrontend/stopkontak.webp"
+                  alt="stopkontak"
+                  fill
+                  unoptimized
+                />
               </div>
-            </header>
 
-            <div
-              className={`${jetbrainsMono.className} pt-10 space-y-4 h-full overflow-auto`}
-            >
-              <Terminal />
-            </div>
-          </div>
+              <div className="h-full aspect-square  relative">
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-cover"
+                  src="/asset/pageFrontend/router.webp"
+                  alt="stopkontak"
+                  fill
+                  unoptimized
+                />
+              </div>
+              <div className="h-full aspect-square  relative">
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-cover"
+                  src="/asset/pageFrontend/kabellan.webp"
+                  alt="stopkontak"
+                  fill
+                  unoptimized
+                />
+              </div>
+              <div className="h-full aspect-square  relative">
+                <Image
+                  loading="eager"
+                  priority
+                  className="object-cover"
+                  src="/asset/pageFrontend/databases.webp"
+                  alt="stopkontak"
+                  fill
+                  unoptimized
+                />
+              </div>
+            </section>
+          </Magnet>
         </div>
+        {/*  */}
+        <div className="w-[90%] h-[50%] lg:h-full  pt-[15%]"></div>
       </section>
     </header>
   );
 };
 
-export default FrontEndHeaderComponent;
+export default HeaderFrontEndComponent;

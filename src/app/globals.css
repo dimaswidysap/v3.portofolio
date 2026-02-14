@@ -114,6 +114,10 @@ html.lenis {
 .font-secondary {
   color: var(--secondary-background);
 }
+.bg-footer {
+  background-color: var(--footer);
+}
+
 .bg-main-font {
   background-color: var(--font);
 }
