@@ -18,7 +18,7 @@ const FrontEndHeroSection = () => {
   ];
 
   return (
-    <section className="w-full py-48 bg-secondary mt-[100svh] relative z-20 overflow-hidden">
+    <section className="w-full py-48 bg-secondary  relative z-20 overflow-hidden">
       <div className="max-width-custom mx-auto relative z-30">
         {/* card */}
         <div className="w-full  max-width-custom flex flex-col  items-center justify-center gap-32 py-24 ">

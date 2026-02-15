@@ -49,9 +49,9 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+  // const handleLinkClick = () => {
+  //   setIsOpen(false);
+  // };
 
   return (
     <header
