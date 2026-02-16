@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+.fontTitleCard {
+  font-family: "Oswald", sans-serif;
+  font-weight: 900;
+  font-size: 4em;
+  color: var(--font);
+}
+.font {
+  font-family: "Oswald", sans-serif;
+
+  /* background: linear-gradient(90deg, #ff6a00, #ee0979);
+  background: url("./../../../.././../public/asset/pageIllustrator/background.webp")
+    center/cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+}
+.fontTitleCard p span {
+  /* font-size: 1em; */
+  text-shadow: 4px 4px 0px #101010;
+}

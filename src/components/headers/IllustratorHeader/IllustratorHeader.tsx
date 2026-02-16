@@ -10,8 +10,10 @@ const HerosectionComponent = () => {
 
   const xHellcat = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
   const xMoon = useTransform(scrollYProgress, [0, 0.5], [0, 300]);
+  const yUp = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
+  const figureUp = useTransform(scrollYProgress, [0, 0.5], [0, -500]);
+  // const yUp = useTransform(scrollYProgress, [0, 0.5], [0, -300]);
 
-  // const scaleHellcat = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
   const scaleMoon = useTransform(scrollYProgress, [0, 0.5], [1, 1.5]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
@@ -42,7 +44,7 @@ const HerosectionComponent = () => {
           >
             <section className="h-[80%] w-full  flex justify-center xl:justify-between relative">
               <motion.figure
-                style={{ x: xHellcat }}
+                style={{ x: xHellcat, y: figureUp }}
                 className="h-full aspect-square relative translate-x-[20%] xl:translate-x-0"
               >
                 <Image
@@ -56,7 +58,7 @@ const HerosectionComponent = () => {
                 />
               </motion.figure>
               <motion.figure
-                style={{ x: xMoon }}
+                style={{ x: xMoon, y: figureUp }}
                 className="h-full aspect-square relative -translate-x-[20%] xl:translate-x-0"
               >
                 <Image
@@ -73,7 +75,7 @@ const HerosectionComponent = () => {
           </motion.section>
         </section>
         {/* background */}
-        <figure className="w-full h-screen absolute">
+        <motion.figure style={{ y: yUp }} className="w-full h-screen absolute">
           <Image
             loading="eager"
             priority
@@ -83,9 +85,12 @@ const HerosectionComponent = () => {
             fill
             unoptimized
           />
-        </figure>
+        </motion.figure>
         {/* background api */}
-        <figure className="absolute h-[200svh] z-30 w-full">
+        <motion.figure
+          style={{ y: yUp }}
+          className="absolute h-[200svh] z-30 w-full"
+        >
           <Image
             loading="eager"
             priority
@@ -95,7 +100,7 @@ const HerosectionComponent = () => {
             fill
             unoptimized
           />
-        </figure>
+        </motion.figure>
       </section>
     </header>
   );
