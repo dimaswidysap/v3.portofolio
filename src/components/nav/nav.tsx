@@ -90,7 +90,7 @@ const Navbar = () => {
                 className="flex relative gap-0.5 items-center h-max cursor-pointer bg-secondary px-2 py-1 rounded-md"
               >
                 <Grid2X2 size={15} />
-                <p>Lainya</p>
+                <p>Lainnya</p>
               </button>
               <section
                 className={`${style.shadowv2} ${isOpen ? "flex" : "hidden"} absolute py-12 px-3.5 gap-4  top-full  flex-col  w-[250%]  right-0`}

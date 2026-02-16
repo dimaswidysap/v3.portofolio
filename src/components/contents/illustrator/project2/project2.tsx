@@ -1,9 +1,10 @@
 "use client";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Style from "./project2.module.css";
 import { useRef, useEffect } from "react";
+import Style from "./project2.module.css";
 import Image from "next/image";
+
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 const DisplayProject2 = () => {
@@ -76,7 +77,51 @@ const DisplayProject2 = () => {
       </section>
 
       {/* container mockup */}
-      <section className="w-full h-full  absolute inset-0"></section>
+      <section className="w-full h-full flex justify-end absolute inset-0">
+        <section className="w-[50%] h-full gap-3 flex flex-col justify-center">
+          <div className="relative w-[65%]">
+            {/* Label dipindah ke pojok kanan atas (luar card) */}
+            <span className="absolute z-20 rotate-90 main-font left-full top-0 origin-bottom-left -translate-y-full px-2 font-black montserrat md:text-[1.6em] lg:text-[2em] whitespace-nowrap">
+              DESIGN T-SHIRT
+            </span>
+
+            <figure
+              data-aos="fade-up"
+              className={`${Style.mockupShadow} w-full relative aspect-square bg-font rounded-2xl overflow-hidden`}
+            >
+              <Image
+                loading="lazy"
+                className="object-cover p-1 rounded-[17px]"
+                src="/asset/pageIllustrator/displayProjects/project2/mocup2.jpg"
+                alt="background"
+                fill
+                unoptimized
+              />
+            </figure>
+          </div>
+          {/* Hapus ml-[40%] agar kontainer merapat ke kiri */}
+          <div className="relative w-[40%] ml-[40%]">
+            {/* Label berada di luar card sebelah kiri atas */}
+            <span className="absolute z-20 -rotate-90 origin-bottom-right right-full top-0 -translate-y-full px-2 font-black montserrat md:text-[1em] lg:text-[1.5em] whitespace-nowrap main-font">
+              DECORATIONS
+            </span>
+
+            <figure
+              data-aos="fade-up"
+              className={`${Style.mockupShadow} w-full relative aspect-square bg-font rounded-2xl overflow-hidden`}
+            >
+              <Image
+                loading="lazy"
+                className="object-cover p-1 rounded-[17px]"
+                src="/asset/pageIllustrator/displayProjects/project2/mocup1.jpg"
+                alt="background"
+                fill
+                unoptimized
+              />
+            </figure>
+          </div>
+        </section>
+      </section>
 
       {/* Main content section with image */}
       <section className="relative z-50 w-full lg:aspect-video md:aspect-3/4">
