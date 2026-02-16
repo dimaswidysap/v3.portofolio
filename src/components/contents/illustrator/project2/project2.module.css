@@ -1,0 +1,7 @@
+.borderLeft {
+  border-bottom-left-radius: 10px;
+}
+
+.outlineTop {
+  border-top: 2px solid var(--accen-first);
+}
