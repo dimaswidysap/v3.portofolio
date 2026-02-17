@@ -4,7 +4,7 @@ import style from "./FrontEndHeroSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import { Globe, Github } from "lucide-react";
-import Magnet from "../ReacbitsComponents/Magnet/Magnet";
+import Magnet from "../../ReacbitsComponents/Magnet/Magnet";
 
 const FrontEndHeroSection = () => {
   const cardProjects = [

@@ -3,9 +3,9 @@
 import CircularGallery from "@/components/ReacbitsComponents/CircularGallery/CircularGallery";
 import Link from "next/link";
 import Image from "next/image";
-import wiggle from "../HomeHeroSection/HomeHeroSection.module.css";
+import wiggle from "./AboutHeroSection.module.css";
 import style from "./AboutHeroSection.module.css";
-import Magnet from "../ReacbitsComponents/Magnet/Magnet";
+import Magnet from "../../ReacbitsComponents/Magnet/Magnet";
 import { GraduationCap, Award, Briefcase } from "lucide-react";
 
 const myImages = [

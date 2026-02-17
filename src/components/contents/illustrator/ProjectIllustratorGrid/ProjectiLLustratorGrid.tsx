@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import style from "./ProjectIllustratorGrid.module.css";
 import font from "@/app/my-css.module.css";
-import IconTech from "../iconTech/iconTech";
+import IconTech from "../../../iconTech/iconTech";
 
 const PROJECTS = [
   {

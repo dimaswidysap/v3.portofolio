@@ -1,5 +1,5 @@
 import AboutHeaderComponent from "@/components/headers/AboutHeader/AboutHeader";
-import AboutHeroSection from "@/components/AboutHeroSection/AboutHeroSection";
+import AboutHeroSection from "@/components/contents/AboutHeroSection/AboutHeroSection";
 
 const AboutPage = () => {
   return (
