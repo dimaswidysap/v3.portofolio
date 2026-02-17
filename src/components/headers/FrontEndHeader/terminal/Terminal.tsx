@@ -114,7 +114,7 @@ const Terminal = () => {
 
   return (
     <section
-      className={`${Style.terminal} w-full max-w-2xl h-[300px] rounded-xl overflow-hidden shadow-2xl border border-white/10`}
+      className={`${Style.terminal} fixed top-[50%] z-40 left-[50%] -translate-x-[50%] w-full max-w-2xl h-[300px] rounded-xl overflow-hidden shadow-2xl border border-white/10`}
     >
       {/* Kontainer Utama dengan Scroll Independen */}
       <section className="h-full w-full bg-[#1e1e1e] flex flex-col">

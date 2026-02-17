@@ -2,60 +2,68 @@
 
 import Image from "next/image";
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
-import Terminal from "./Terminal";
+import TerminalComponent from "./terminal/Terminal";
+import { Terminal, Files } from "lucide-react";
 
 const HeaderFrontEndComponent = () => {
+  const icon = [
+    { name: "stopkontak.webp", alt: "stop kontak" },
+    { name: "router.webp", alt: "router" },
+    { name: "kabellan.webp", alt: "kabel lan" },
+    { name: "databases.webp", alt: "data bases" },
+  ];
+
   return (
-    <header className="w-full h-screen bg-primary inset-0 overflow-hidden">
-      <section className="max-w-[1200px] h-screen flex flex-col lg:flex-row items-center m-auto px-6">
-        {/* Bagian Teks & Image */}
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex flex-col justify-center montserrat">
-          <Magnet padding={50} disabled={false} magnetStrength={50}>
-            <p className="text-[2.5em] font-black md:text-[4em] main-font leading-tight">
-              Proyek Saya<span className="text-blue-700">.</span>
-            </p>
-          </Magnet>
-
-          <section className="flex items-center gap-3 my-4">
-            <span className="h-6 w-0.5 bg-slate-50"></span>
-            <blockquote className="italic main-font opacity-80">
-              Sukses itu hadiah bagi yang selalu berusaha.
-            </blockquote>
-          </section>
-
-          <Magnet padding={50} disabled={false} magnetStrength={15}>
-            <section className="w-full h-20 md:h-32 flex gap-2 relative mt-4">
-              {[
-                "stopkontak.webp",
-                "router.webp",
-                "kabellan.webp",
-                "databases.webp",
-              ].map((img, i) => (
+    <section className="w-full h-screen  relative bg-primary">
+      <TerminalComponent />
+      <section className="w-full h-screen fixed inset-0">
+        {/* container items bulat */}
+        <section className="w-full h-screen flex items-center absolute inset-0">
+          <span className="inline-flex h-[40%] lg:h-[50%] aspect-square -translate-x-[50%] rounded-full bg-slate-700 opacity-50 scale-[300%]"></span>
+        </section>
+        {/* container konten */}
+        <section className="absolute z-50 inset-0 max-width-custom m-auto h-screen flex justify-center">
+          <div className="w-[20rem] translate-x-[50%] h-screen flex flex-col items-center justify-center">
+            {icon.map((icon, index) => {
+              return (
                 <div
-                  key={i}
-                  className="h-full aspect-square relative rounded-lg overflow-hidden border border-white/10"
+                  key={icon.name}
+                  className={`w-full flex ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
                 >
-                  <Image
-                    loading="eager"
-                    priority
-                    className="object-cover"
-                    src={`/asset/pageFrontend/${img}`}
-                    alt={img}
-                    fill
-                    unoptimized
-                  />
+                  <figure className="w-[50%] aspect-square group outline-1 outline-gray-200 rounded-sm relative">
+                    <Image
+                      loading="eager"
+                      priority
+                      className="object-cover group-hover:scale-150 group-hover:rotate-10 duration-200 ease-in-out"
+                      src={`/asset/pageFrontend/${icon.name}`}
+                      alt={icon.alt}
+                      fill
+                      unoptimized
+                    />
+                  </figure>
                 </div>
-              ))}
-            </section>
-          </Magnet>
-        </div>
-
-        {/* Bagian Terminal */}
-        <div className="w-full lg:w-1/2 h-1/2 lg:h-full flex items-center justify-center p-4">
-          <Terminal />
-        </div>
+              );
+            })}
+          </div>
+          <div className="absolute right-0 hidden md:flex h-screen flex-col items-center justify-center">
+            <button className="flex flex-col items-center">
+              <figure className="w-14 aspect-square bg-footer rounded-md">
+                <Terminal className="main-font m-1" size={30} />
+              </figure>
+              <span className="main-font montserrat text-[0.8em]">
+                Terminal
+              </span>
+            </button>
+            <button className="flex flex-col items-center">
+              <figure className="w-14 aspect-square bg-footer rounded-md">
+                <Files className="main-font m-1" size={30} />
+              </figure>
+              <span className="main-font montserrat text-[0.8em]">File</span>
+            </button>
+          </div>
+        </section>
       </section>
-    </header>
+    </section>
   );
 };
 
