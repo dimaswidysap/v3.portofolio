@@ -87,14 +87,14 @@ const DisplayProject1 = () => {
         </figure>
       </section>
       {/* background */}
-      <section className="overflow-hidden w-full h-full absolute inset-0 flex flex-col justify-center items-center">
+      <section className="overflow-hidden w-full h-full absolute inset-0 flex flex-col justify-center gap-60 items-center">
         <span
-          className={`${Style.font} opacity-100 inline-flex shrink-0 font-secondary  text-[10em] font-black montserrat -rotate-12 scale-125`}
+          className={`${Style.font}  font-secondary font-black montserrat -rotate-12 scale-[1000%]`}
         >
           COME TO RULE
         </span>
         <span
-          className={`${Style.font} opacity-100 shrink-0 font-secondary  text-[10em]  -rotate-192 font-black montserrat  scale-125`}
+          className={`${Style.font} font-secondary -rotate-192 font-black montserrat scale-[1000%]`}
         >
           COME TO RULE
         </span>

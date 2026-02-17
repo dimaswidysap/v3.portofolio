@@ -23,13 +23,19 @@ const PROJECTS = [
     title: "Tiger Illustration",
     src: "/asset/pageIllustrator/projects/2.jpg",
     tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "illustrasi ini saya buat untuk desain sebua baju",
+    desc: "illustrasi ini saya buat untuk desain sebuah baju",
   },
   {
     title: "Zombie Illustration",
     src: "/asset/pageIllustrator/projects/3.jpg",
     tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "illustrasi ini saya buat untuk desain sebua baju",
+    desc: "illustrasi ini saya buat untuk desain sebuah baju",
+  },
+  {
+    title: "GODZILLA AND DOCTOR DOOM",
+    src: "/asset/pageIllustrator/projects/goddoom.webp",
+    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
+    desc: "illustrasi ini saya buat untuk desain sebuah baju",
   },
   {
     title: "Ibu Keraton",
@@ -95,7 +101,7 @@ const Card = ({
         <section className="h-full w-full md:w-[50%] relative overflow-hidden rounded-2xl">
           <Image
             loading="lazy"
-            className="drop-shadow-2xl  object-cover"
+            className="object-cover"
             src={src}
             alt="background"
             fill
