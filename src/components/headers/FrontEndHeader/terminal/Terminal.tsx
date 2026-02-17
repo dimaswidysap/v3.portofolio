@@ -1,141 +1,170 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Style from "./terminal.module.css";
 
-const Terminal = () => {
-  const [input, setInput] = useState("");
+interface TerminalProps {
+  className?: string;
+  onClose?: () => void; // Callback opsional untuk memberi tahu parent jika terminal ditutup
+}
+
+const Terminal = ({ className, onClose }: TerminalProps) => {
+  const [visible, setVisible] = useState(true);
+  const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<string[]>([
-    "Welcome to Widhy Terminal. Type 'help' to see all commands available.",
+    "Welcome to Widy Terminal. Type 'help' to see all commands available.",
   ]);
   const [commandHistory, setCommandHistory] = useState<string[]>([]);
-  const [historyIndex, setHistoryIndex] = useState(-1);
+  const [historyIndex, setHistoryIndex] = useState<number | null>(null);
+
   const inputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  // Fungsi untuk menutup terminal secara bersih
+  const handleClose = useCallback(() => {
+    setVisible(false);
+    if (onClose) onClose();
+  }, [onClose]);
+
+  /* ================= AUTO SCROLL ================= */
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [history]);
+
+  /* ================= HANDLE COMMAND ================= */
   const handleCommand = (cmd: string) => {
-    const newHistory = [...history, `> ${cmd}`];
+    const cleanCmd = cmd.trim().toLowerCase();
+    const newHistory = [...history, `$ > ${cmd}`];
     let output = "";
 
     const commandAvailable = [
-      "Commands available:",
-      "home - go to home page",
-      "ill - go to illustrator page",
-      "about - go to front-end page",
-      "contact - go to contact page",
-      "pratic - practice files create a basic front-end",
+      "pratic   - practice files create a basic front-end",
       "location - show location",
-      "clear - clear terminal",
+      "clear    - clear terminal",
+      "echo     - print text",
+      "exit     - close the terminal",
     ];
 
-    switch (cmd.toLowerCase()) {
+    switch (cleanCmd) {
       case "help":
         output = commandAvailable.join("\n");
         break;
-      case "home":
-        router.push("/");
-        output = "Navigating to home page.";
-        break;
-      case "ill":
-        router.push("/iLLustrator");
-        output = "Navigating to illustrator page.";
-        break;
-      case "about":
-        router.push("/about");
-        output = "Navigating to about page.";
-        break;
-      case "contact":
-        router.push("/contact");
-        output = "Navigating to contact page.";
-        break;
+
       case "pratic":
         router.push("/pratic");
-        output = "Navigating to pratic page.";
+        output = "Navigating to pratic page...";
         break;
+
       case "location":
-        output = "madiun, east java";
+        output = "Madiun, East Java";
         break;
-      case "clear":
-        setHistory(["Terminal cleared. Type 'help' for commands."]);
-        setInput("");
+
+      case "exit":
+        handleClose();
         return;
+
+      case "clear":
+        setHistory([
+          "Welcome to Widy Terminal. Type 'help' to see all commands available.",
+        ]);
+        setInput("");
+        setHistoryIndex(null);
+        return;
+
       default:
-        if (cmd.startsWith("echo ")) {
+        if (cleanCmd.startsWith("echo ")) {
           output = cmd.slice(5);
         } else {
           output = `Command not found: ${cmd}`;
         }
     }
 
-    if (output) {
-      newHistory.push(output);
-    }
-    setHistory(newHistory);
-    setInput("");
+    setHistory([...newHistory, output]);
     setCommandHistory((prev) => [...prev, cmd]);
-    setHistoryIndex(-1);
+    setInput("");
+    setHistoryIndex(null);
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-    if (historyIndex !== -1) {
-      setHistoryIndex(-1);
-    }
-  };
-
+  /* ================= EVENT HANDLERS ================= */
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input.trim()) {
-      handleCommand(input.trim());
-    }
+    if (!input.trim()) return;
+    handleCommand(input);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
+      if (commandHistory.length === 0) return;
+      const newIndex =
+        historyIndex === null
+          ? commandHistory.length - 1
+          : Math.max(0, historyIndex - 1);
+      setHistoryIndex(newIndex);
+      setInput(commandHistory[newIndex]);
+    }
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (historyIndex === null) return;
       if (historyIndex < commandHistory.length - 1) {
         const newIndex = historyIndex + 1;
         setHistoryIndex(newIndex);
-        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
-      }
-    } else if (e.key === "ArrowDown") {
-      e.preventDefault();
-      if (historyIndex > 0) {
-        const newIndex = historyIndex - 1;
-        setHistoryIndex(newIndex);
-        setInput(commandHistory[commandHistory.length - 1 - newIndex]);
-      } else if (historyIndex === 0) {
-        setHistoryIndex(-1);
+        setInput(commandHistory[newIndex]);
+      } else {
+        setHistoryIndex(null);
         setInput("");
       }
     }
   };
 
+  if (!visible) return null;
+
   return (
     <section
-      className={`${Style.terminal} fixed top-[50%] z-40 left-[50%] -translate-x-[50%] w-full max-w-2xl h-[300px] rounded-xl overflow-hidden shadow-2xl border border-white/10`}
+      onClick={() => inputRef.current?.focus()}
+      className={`${Style.terminal} ${className} fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
     >
-      {/* Kontainer Utama dengan Scroll Independen */}
-      <section className="h-full w-full bg-[#1e1e1e] flex flex-col">
-        {/* Header Terminal */}
-        <header className="w-full py-2 px-4 bg-[#333] flex gap-2 items-center">
-          <span className="h-3 w-3 rounded-full bg-red-500"></span>
-          <span className="h-3 w-3 rounded-full bg-yellow-500"></span>
-          <span className="h-3 w-3 rounded-full bg-green-500"></span>
-          <span className="ml-2 text-xs text-gray-400 font-mono">
-            bash — portofolio
+      <div className="h-full w-full bg-[#1e1e1e] flex flex-col">
+        {/* Header / Title Bar */}
+        <header className="w-full py-2 px-4 bg-[#333] flex gap-2 items-center cursor-default">
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleClose();
+            }}
+            className="h-3 w-3 rounded-full bg-[#ff5f56] hover:brightness-75 transition-all"
+            title="Close"
+          />
+          <button
+            type="button"
+            className="h-3 w-3 rounded-full bg-[#ffbd2e]"
+            title="Minimize"
+          />
+          <button
+            type="button"
+            className="h-3 w-3 rounded-full bg-[#27c93f]"
+            title="Maximize"
+          />
+          <span className="ml-2 text-[10px] sm:text-xs text-gray-400 font-mono uppercase tracking-widest">
+            bash — portfolio
           </span>
         </header>
 
-        {/* Area Content yang bisa di-scroll */}
-        <section className="flex-1 overflow-y-auto p-4 font-mono text-sm overscroll-contain bg-footer/50">
+        {/* Terminal Body */}
+        <section
+          ref={scrollRef}
+          className="flex-1 overflow-y-auto p-4 font-mono text-sm bg-[#1e1e1e]/90"
+        >
           <div className="text-slate-50 whitespace-pre-wrap">
             {history.map((line, index) => (
-              <div key={index} className="mb-1">
-                {line.split("\n").map((subLine, subIndex) => (
-                  <div key={subIndex}>{subLine}</div>
-                ))}
+              <div key={index} className="mb-1 leading-relaxed text-blue-50/90">
+                {line}
               </div>
             ))}
           </div>
@@ -148,18 +177,18 @@ const Terminal = () => {
             <span className="text-blue-300 font-bold">{">"}</span>
             <input
               ref={inputRef}
-              id="input-terminal"
               type="text"
               autoFocus
               value={input}
-              onChange={handleInputChange}
+              onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
+              className="bg-transparent border-none outline-none flex-1 text-slate-50 p-0 m-0 focus:ring-0"
               autoComplete="off"
-              className="bg-transparent outline-none flex-1 text-slate-50 border-none focus:ring-0 p-0 m-0"
+              spellCheck={false}
             />
           </form>
         </section>
-      </section>
+      </div>
     </section>
   );
 };

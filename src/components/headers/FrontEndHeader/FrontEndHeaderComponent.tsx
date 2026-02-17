@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
+// import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import TerminalComponent from "./terminal/Terminal";
+import FinderComponent from "./finder/finder";
 import { Terminal, Files } from "lucide-react";
+import { useState } from "react";
 
 const HeaderFrontEndComponent = () => {
   const icon = [
@@ -12,10 +14,12 @@ const HeaderFrontEndComponent = () => {
     { name: "kabellan.webp", alt: "kabel lan" },
     { name: "databases.webp", alt: "data bases" },
   ];
+  const [show, setShow] = useState(false);
 
   return (
     <section className="w-full h-screen  relative bg-primary">
-      <TerminalComponent />
+      {show && <TerminalComponent />}
+      <FinderComponent />
       <section className="w-full h-screen fixed inset-0">
         {/* container items bulat */}
         <section className="w-full h-screen flex items-center absolute inset-0">
@@ -46,7 +50,10 @@ const HeaderFrontEndComponent = () => {
             })}
           </div>
           <div className="absolute right-0 hidden md:flex h-screen flex-col items-center justify-center">
-            <button className="flex flex-col items-center">
+            <button
+              onClick={() => setShow(!show)}
+              className="flex flex-col items-center"
+            >
               <figure className="w-14 aspect-square bg-footer rounded-md">
                 <Terminal className="main-font m-1" size={30} />
               </figure>
