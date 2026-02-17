@@ -30,12 +30,12 @@ const ContactHeroSection = () => {
           <div className="max-width-custom h-full m-auto">
             <div className="flex flex-col xl:flex-row gap-4 w-full items-center justify-center px-4">
               {/* card */}
-              <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
+              <section className="w-[80%] max-w-120 border-2 border-slate-700 h-40 bg-primary -translate-y-8 rounded-2xl shadow-2xl">
                 <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
                   <Link
                     href="mailto:dimaswidysaputra41@email.com"
                     target="_blanks"
-                    className="w-[2rem] relative aspect-square"
+                    className="w-8 relative aspect-square"
                   >
                     <Image
                       className="object-cover"
@@ -57,12 +57,12 @@ const ContactHeroSection = () => {
                 </header>
               </section>
               {/* card */}
-              <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
+              <section className="w-[80%] max-w-120 border-2 border-slate-700 h-40 bg-primary -translate-y-8 rounded-2xl shadow-2xl">
                 <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
                   <Link
                     href="https://www.instagram.com/widyportofolio/"
                     target="_blanks"
-                    className="w-[2rem] relative aspect-square"
+                    className="w-8 relative aspect-square"
                   >
                     <Image
                       className="object-cover"
@@ -84,12 +84,12 @@ const ContactHeroSection = () => {
                 </header>
               </section>
               {/* card */}
-              <section className="w-[80%] max-w-[30rem] border-2 border-slate-700 h-[10rem] bg-primary -translate-y-[2rem] rounded-2xl shadow-2xl">
+              <section className="w-[80%] max-w-120 border-2 border-slate-700 h-40 bg-primary -translate-y-8 rounded-2xl shadow-2xl">
                 <header className="w-full main-font flex gap-2 justify-center py-4 flex-col items-center relative">
                   <Link
                     href="https://wa.me/+6281252966557"
                     target="_blanks"
-                    className="w-[2rem] relative aspect-square"
+                    className="w-8 relative aspect-square"
                   >
                     <Image
                       className="object-cover"
