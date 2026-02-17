@@ -18,7 +18,7 @@
 }
 
 .font {
-  color: var(--font);
+  color: var(--primary-background);
 }
 .font span:nth-child(3) {
   color: var(--accen-first);

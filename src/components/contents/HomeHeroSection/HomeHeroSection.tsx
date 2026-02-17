@@ -39,19 +39,19 @@ const HomeHeroSection = () => {
   });
 
   const y1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.6], ["0%", "-100%"]),
+    useTransform(scrollYProgress, [0, 0.6], ["0", "-40rem"]),
     { stiffness: 50, damping: 20 },
   );
   const y2 = useSpring(
-    useTransform(scrollYProgress, [0.05, 0.7], ["0%", "-100%"]),
+    useTransform(scrollYProgress, [0.05, 0.7], ["0", "-40rem"]),
     { stiffness: 50, damping: 20 },
   );
   const y3 = useSpring(
-    useTransform(scrollYProgress, [0.1, 0.8], ["0%", "-100%"]),
+    useTransform(scrollYProgress, [0.1, 0.8], ["0", "-40rem"]),
     { stiffness: 50, damping: 20 },
   );
   const y4 = useSpring(
-    useTransform(scrollYProgress, [0.15, 0.9], ["0%", "-100%"]),
+    useTransform(scrollYProgress, [0.15, 0.9], ["0", "-40rem"]),
     { stiffness: 50, damping: 20 },
   );
 
@@ -156,7 +156,6 @@ const HomeHeroSection = () => {
                 mainClassName="px-4 py-2 bg-primary shadow-2xl text-[1.6em] md:text-[2em] lg:text-[3em] montserrat font-black main-font text-white font-extrabold rounded-2xl font-bold text-2xl inline-flex items-center justify-center"
                 staggerFrom={"last"}
                 initial={{ y: "100%" }}
-                // PERBAIKAN DI SINI: Ubah 0 (number) menjadi "0%" (string)
                 animate={{ y: "0%" }}
                 exit={{ y: "-120%" }}
                 staggerDuration={0.03}

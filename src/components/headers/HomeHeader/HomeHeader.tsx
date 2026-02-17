@@ -9,24 +9,18 @@ const HomeHeader = () => {
   return (
     <header className="w-full h-screen overflow-hidden bg-primary relative">
       {/* container background start */}
-      <section className="absolute h-screen w-full overflow-hidden">
-        {/* Container foto yang mepet ke kanan */}
-        <div className="absolute right-0 top-0 h-screen aspect-video">
-          {/* Container card dengan overflow-hidden */}
-          <div
-            className={`h-full w-full  overflow-hidden relative translate-x-[20%] lg:translate-x-0`}
-          >
-            <Image
-              loading="eager"
-              priority
-              className="object-cover"
-              src="/asset/pageIndex/personv2.png"
-              alt="background"
-              fill
-              unoptimized
-            />
-          </div>
-        </div>
+      <section className="absolute h-full lg:w-full aspect-video bg-amber-400 overflow-hidden">
+        <figure className="w-full h-full relative -left-[40%] lg:left-0">
+          <Image
+            loading="eager"
+            priority
+            className="object-cover"
+            src="/asset/pageIndex/personv2.png"
+            alt="background"
+            fill
+            unoptimized
+          />
+        </figure>
       </section>
       {/* container background end */}
 
