@@ -20,7 +20,7 @@ const AboutHeaderComponent = () => {
       <section className="max-width-custom h-screen sticky top-0 m-auto  flex justify-center items-center overflow-hidden">
         {/* container teks */}
         <div className="mb-40">
-          <h1 className="font-extrabold montserrat text-[2em] md:text-[3em] main-font">
+          <h1 className="font-black montserrat text-[2em] md:text-[3em] main-font">
             <span className="font-accen-first">Cerita</span> Singkat
             <span className="text-blue-500">.</span>
           </h1>

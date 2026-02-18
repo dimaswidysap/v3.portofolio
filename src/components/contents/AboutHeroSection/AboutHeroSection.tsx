@@ -43,7 +43,7 @@ const AboutHeroSection = () => {
     <section className="w-full bg-primary">
       <section className="max-width-custom  m-auto pt-40">
         <header className="w-full flex justify-center px-4">
-          <h1 className="font-black montserrat text-[2em] md:text-[3em] main-font">
+          <h1 className="font-black  text-[2em] md:text-[3em] main-font">
             Izinkan saya memperkenalkan diri👋
             <span className="text-blue-500">.</span>
           </h1>
@@ -101,9 +101,9 @@ const AboutHeroSection = () => {
           </div>
           <span className="h-0.5 w-[20%] bg-accen-first"></span>
           <div className="flex gap-10 flex-wrap">
-            <Magnet padding={50} disabled={false} magnetStrength={5}>
+            <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
-                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                className="flex items-center gap-1 font-semibold text-[0.9em] md:text-[1.2em]"
                 href="/education"
               >
                 <GraduationCap className="text-blue-700" />
@@ -111,9 +111,9 @@ const AboutHeroSection = () => {
                 <span className="text-blue-700">.</span>
               </Link>
             </Magnet>
-            <Magnet padding={50} disabled={false} magnetStrength={5}>
+            <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
-                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                className="flex items-center gap-1 font-semibold  text-[0.9em] md:text-[1.2em]"
                 href="/experiences"
                 // href="/education"
               >
@@ -122,9 +122,9 @@ const AboutHeroSection = () => {
                 <span className="text-blue-700">.</span>
               </Link>
             </Magnet>
-            <Magnet padding={50} disabled={false} magnetStrength={5}>
+            <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
-                className="flex items-center gap-1 text-[0.9em] md:text-[1.2em]"
+                className="flex items-center gap-1 font-semibold  text-[0.9em] md:text-[1.2em]"
                 href="/certificate"
               >
                 <Award className="text-blue-700" />
@@ -139,7 +139,7 @@ const AboutHeroSection = () => {
         {/* container tools */}
         <section className="pt-40 w-full flex flex-wrap">
           <header className="flex w-full justify-center shrink-0">
-            <h1 className="flex font-black montserrat text-[1.6em] md:text-[3em] main-font ">
+            <h1 className="flex font-black text-[1.6em] md:text-[3em] main-font ">
               Alat yang saya gunakan <span className="text-blue-700">.</span>
             </h1>
           </header>
@@ -155,12 +155,12 @@ const AboutHeroSection = () => {
                   unoptimized
                 />
               </div>
-              <h1 className="absolute bottom-0 text-[3em] font-black montserrat mb-[10%] -rotate-12 main-font">
-                Illustrator <span className="font-accen-first">.</span>
+              <h1 className="absolute flex gap-2 bottom-0 text-[3em] font-black montserrat mb-[10%]  main-font bg-secondary rounded-2xl px-3">
+                iLLustrator <span className="font-accen-first">.</span>
               </h1>
             </header>
             <div className="w-[90%]  flex flex-col gap-6 ">
-              <div className="flex bg-main-font w-max items-center rounded-md pr-4 shadow-2xl">
+              <div className="flex bg-secondary w-max items-center rounded-md pr-4 shadow-2xl">
                 <div className="h-16 aspect-square relative ">
                   <Image
                     className="aspect-square drop-shadow-2xl p-2 "
@@ -170,7 +170,7 @@ const AboutHeroSection = () => {
                     unoptimized
                   />
                 </div>
-                <span className="font-bold text-md montserrat font-secondary">
+                <span className="font-bold text-md main-font">
                   Adobe Illustrator
                 </span>
               </div>
@@ -189,7 +189,7 @@ const AboutHeroSection = () => {
                   unoptimized
                 />
               </div>
-              <h1 className="absolute bottom-0 text-[3em] font-black montserrat mb-[10%] rotate-12 main-font bg-secondary rounded-2xl px-3">
+              <h1 className="absolute bottom-0 text-[3em] font-black montserrat mb-[10%]  main-font bg-secondary rounded-2xl px-3">
                 Front-End <span className="font-accen-first">.</span>
               </h1>
             </header>

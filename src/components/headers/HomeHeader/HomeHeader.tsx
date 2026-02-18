@@ -37,13 +37,13 @@ const HomeHeader = () => {
                   <span className="absolute bottom-[170%] font-bold  md:font-secondary">
                     Hallo 👋, Nama saya
                   </span>
-                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-extrabold -translate-y-[80%] ">
+                  <span className="absolute text-4xl md:text-5xl lg:text-6xl font-black -translate-y-[80%] ">
                     DIMAS
                   </span>
-                  <span className="text-4xl md:text-5xl lg:text-6xl font-extrabold">
+                  <span className="text-4xl md:text-5xl lg:text-6xl font-black">
                     WIDY
                   </span>
-                  <span className="absolute md:text-5xl lg:text-6xl font-extrabold text-4xl translate-y-[80%]">
+                  <span className="absolute md:text-5xl lg:text-6xl font-black text-4xl translate-y-[80%]">
                     SAPUTRA
                   </span>
                 </span>

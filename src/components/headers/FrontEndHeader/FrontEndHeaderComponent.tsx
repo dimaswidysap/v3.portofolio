@@ -59,7 +59,7 @@ const HeaderFrontEndComponent = () => {
               <figure className="w-14 aspect-square bg-footer rounded-md">
                 <Terminal className="main-font m-1" size={30} />
               </figure>
-              <span className="main-font montserrat text-[0.8em]">
+              <span className="main-font montserrat font-light text-slate-700 text-[0.8em]">
                 Terminal
               </span>
             </button>
