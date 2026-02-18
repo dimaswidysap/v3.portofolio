@@ -28,7 +28,7 @@ const PraticPage = () => {
             <Link href="/front-end">
               <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
                 <ArrowLeft className="md:text-[2em]" />
-                Kembali<span className="text-blue-700">.</span>
+                Kembali<span className="text-blue-700 montserrat">.</span>
               </span>
             </Link>
           </Magnet>

@@ -15,11 +15,13 @@ const HeaderFrontEndComponent = () => {
     { name: "databases.webp", alt: "data bases" },
   ];
   const [show, setShow] = useState(false);
-
+  const [isFinderOpen, setIsFinderOpen] = useState<boolean>(false);
   return (
     <section className="w-full h-screen  relative bg-primary">
       {show && <TerminalComponent />}
-      <FinderComponent />
+      {isFinderOpen && (
+        <FinderComponent onClose={() => setIsFinderOpen(false)} />
+      )}
       <section className="w-full h-screen fixed inset-0">
         {/* container items bulat */}
         <section className="w-full h-screen flex items-center absolute inset-0">
@@ -61,7 +63,10 @@ const HeaderFrontEndComponent = () => {
                 Terminal
               </span>
             </button>
-            <button className="flex flex-col items-center">
+            <button
+              onClick={() => setIsFinderOpen(!isFinderOpen)}
+              className="flex flex-col items-center"
+            >
               <figure className="w-14 aspect-square bg-footer rounded-md">
                 <Files className="main-font m-1" size={30} />
               </figure>

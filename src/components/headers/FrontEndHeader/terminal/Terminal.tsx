@@ -127,7 +127,7 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
   return (
     <section
       onClick={() => inputRef.current?.focus()}
-      className={`${Style.terminal} ${className} fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
+      className={`${Style.terminal} ${className} fixed top-0 left-1/2 -translate-x-1/2 mt-20 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
     >
       <div className="h-full w-full bg-[#1e1e1e] flex flex-col">
         {/* Header / Title Bar */}

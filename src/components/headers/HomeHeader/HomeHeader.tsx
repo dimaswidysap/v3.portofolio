@@ -9,7 +9,7 @@ const HomeHeader = () => {
   return (
     <header className="w-full h-screen overflow-hidden bg-primary relative">
       {/* container background start */}
-      <section className="absolute h-full lg:w-full aspect-video bg-amber-400 overflow-hidden">
+      <section className="absolute h-full lg:w-full aspect-video overflow-hidden">
         <figure className="w-full h-full relative -left-[40%] lg:left-0">
           <Image
             loading="eager"
