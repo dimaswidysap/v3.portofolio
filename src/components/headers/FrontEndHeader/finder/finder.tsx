@@ -37,7 +37,7 @@ const FinderComponent: React.FC<FinderComponentProps> = ({ onClose }) => {
           <ul className="pt-3 pl-4">
             <Link href="/pratic" className="flex gap-1 items-center">
               <FileCode className="main-font" />
-              <span className="main-font montserrat">
+              <span className="main-font montserrat font-light">
                 example simple project website.html
               </span>
             </Link>
