@@ -33,19 +33,19 @@ const HomeHeroSection = () => {
   );
 
   const y1 = useSpring(
-    useTransform(scrollYProgress, [0, 0.6], ["0", "-40rem"]),
+    useTransform(scrollYProgress, [0, 0.6], ["0%", "-100%"]),
     { stiffness: 50, damping: 20 },
   );
   const y2 = useSpring(
-    useTransform(scrollYProgress, [0.05, 0.7], ["0", "-40rem"]),
+    useTransform(scrollYProgress, [0.05, 0.7], ["0%", "-100%"]),
     { stiffness: 50, damping: 20 },
   );
   const y3 = useSpring(
-    useTransform(scrollYProgress, [0.1, 0.8], ["0", "-40rem"]),
+    useTransform(scrollYProgress, [0.1, 0.8], ["0%", "-100%"]),
     { stiffness: 50, damping: 20 },
   );
   const y4 = useSpring(
-    useTransform(scrollYProgress, [0.15, 0.9], ["0", "-40rem"]),
+    useTransform(scrollYProgress, [0.15, 0.9], ["0%", "-100%"]),
     { stiffness: 50, damping: 20 },
   );
 
@@ -113,17 +113,32 @@ const HomeHeroSection = () => {
                 />
               </div>
             ))}
-            <span className="absolute top-[50%] flex flex-col items-center">
-              <p
-                className={`${style.textShadow} main-font font-black  px-4 text-[1em] lg:text-[1.5em]`}
-              >
-                SAYA HEBAT DALAM
-              </p>
-              <p
-                className={`${style.textShadow} main-font font-black  px-4 text-[2em] lg:text-[2.5em]`}
-              >
-                ILLUSTRATOR
-              </p>
+            <span className="absolute top-[50%] w-full flex flex-col items-center">
+              <span className="relative inline-flex w-full justify-center z-20">
+                <p
+                  className={`${style.textShadow} font-accen-first font-black  px-4 text-[1em] lg:text-[1.5em]`}
+                >
+                  SAYA HEBAT DALAM
+                </p>
+                <p
+                  className={`${style.textShadow} absolute md:top-3 lg:top-5 font-accen-first font-black  px-4 text-[2em] lg:text-[2.5em]`}
+                >
+                  ILLUSTRATOR
+                </p>
+              </span>
+              <span className="relative inline-flex w-full justify-center md:mt-7 lg:mt-6 z-20">
+                <p
+                  className={`${style.textShadow} font-accen-first font-black  px-4 text-[1em] lg:text-[1.5em]`}
+                >
+                  DAN
+                </p>
+                <p
+                  className={`${style.textShadow} absolute md:top-3 lg:top-5 font-accen-first font-black  px-4 text-[2em] lg:text-[2.5em]`}
+                >
+                  FRONT-END DEVOLOPER
+                </p>
+              </span>
+              <span className="absolute h-full aspect-square bg-primary rounded-2xl scale-1100 translate-y-[600%] rotate-45"></span>
             </span>
           </motion.figure>
           <section className="absolute  inset-0 w-full aspect-square rounded-full translate-y-[20%] bg-secondary scale-x-150"></section>

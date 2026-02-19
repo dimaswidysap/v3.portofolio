@@ -4,10 +4,10 @@ import HomeContentMobile from "@/components/contents/contentHome/homeContentMobi
 
 export default function Home() {
   return (
-    <div className="relative">
+    <main className="relative">
       <HomeHeader />
       <HomeHeroSection />
       <HomeContentMobile />
-    </div>
+    </main>
   );
 }

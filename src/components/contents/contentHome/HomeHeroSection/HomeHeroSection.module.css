@@ -100,5 +100,5 @@
 }
 
 .textShadow {
-  text-shadow: 4px 4px 0px var(--primary-background);
+  text-shadow: 4px 4px 1px var(--secondary-background);
 }

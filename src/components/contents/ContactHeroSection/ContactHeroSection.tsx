@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 const ContactHeroSection = () => {
   return (
-    <main className="w-full h-360 md:h-screen xl:h-200 bg-primary overflow-hidden">
+    <section className="w-full h-360 md:h-screen xl:h-200 bg-primary overflow-hidden">
       <section className=" h-full w-full ">
         <div className="w-full h-[50%] max-width-custom m-auto flex items-center">
           <header className="px-4 relative w-full">
@@ -111,7 +111,7 @@ const ContactHeroSection = () => {
           </div>
         </div>
       </section>
-    </main>
+    </section>
   );
 };
 

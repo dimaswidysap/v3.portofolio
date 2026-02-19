@@ -2,9 +2,9 @@ import ContactHeroSection from "@/components/contents/ContactHeroSection/Contact
 
 const ContactPage = () => {
   return (
-    <div>
+    <main>
       <ContactHeroSection />
-    </div>
+    </main>
   );
 };
 

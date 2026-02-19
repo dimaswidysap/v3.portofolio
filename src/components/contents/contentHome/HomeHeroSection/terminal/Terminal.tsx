@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import Style from "./terminal.module.css";
-
 import { Roboto_Mono } from "next/font/google";
+import Style from "./terminal.module.css";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -12,7 +11,15 @@ const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
 });
 
+const COMMANDS = [
+  "pratic   - practice files create a basic front-end",
+  "location - show location",
+  "clear    - clear terminal",
+  "echo     - print text",
+];
+
 const Terminal = () => {
+  const [mounted, setMounted] = useState(false);
   const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<string[]>([
     "Welcome to Widy Terminal. Type 'help' to see all commands available.",
@@ -24,6 +31,10 @@ const Terminal = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   /* ================= AUTO SCROLL ================= */
   useEffect(() => {
     if (scrollRef.current) {
@@ -32,56 +43,49 @@ const Terminal = () => {
   }, [history]);
 
   /* ================= HANDLE COMMAND ================= */
-  const handleCommand = (cmd: string) => {
-    const cleanCmd = cmd.trim().toLowerCase();
-    const newHistory = [...history, `$ > ${cmd}`];
-    let output = "";
+  const handleCommand = useCallback(
+    (cmd: string) => {
+      const cleanCmd = cmd.trim().toLowerCase();
+      const newHistory = [...history, `$ > ${cmd}`];
+      let output = "";
 
-    // Daftar perintah (exit sudah dihapus)
-    const commandAvailable = [
-      "pratic   - practice files create a basic front-end",
-      "location - show location",
-      "clear    - clear terminal",
-      "echo     - print text",
-    ];
+      switch (cleanCmd) {
+        case "help":
+          output = COMMANDS.join("\n");
+          break;
 
-    switch (cleanCmd) {
-      case "help":
-        output = commandAvailable.join("\n");
-        break;
+        case "pratic":
+          router.push("/pratic");
+          output = "Navigating to pratic page...";
+          break;
 
-      case "pratic":
-        router.push("/pratic");
-        output = "Navigating to pratic page...";
-        break;
+        case "location":
+          output = "Madiun, East Java";
+          break;
 
-      case "location":
-        output = "Madiun, East Java";
-        break;
+        case "clear":
+          setHistory([
+            "Welcome to Widy Terminal. Type 'help' to see all commands available.",
+          ]);
+          setInput("");
+          setHistoryIndex(null);
+          return;
 
-      // case "exit" sudah dihapus
+        default:
+          if (cleanCmd.startsWith("echo ")) {
+            output = cmd.slice(5);
+          } else {
+            output = `Command not found: ${cmd}`;
+          }
+      }
 
-      case "clear":
-        setHistory([
-          "Welcome to Widy Terminal. Type 'help' to see all commands available.",
-        ]);
-        setInput("");
-        setHistoryIndex(null);
-        return;
-
-      default:
-        if (cleanCmd.startsWith("echo ")) {
-          output = cmd.slice(5);
-        } else {
-          output = `Command not found: ${cmd}`;
-        }
-    }
-
-    setHistory([...newHistory, output]);
-    setCommandHistory((prev) => [...prev, cmd]);
-    setInput("");
-    setHistoryIndex(null);
-  };
+      setHistory((prev) => [...newHistory, output]);
+      setCommandHistory((prev) => [...prev, cmd]);
+      setInput("");
+      setHistoryIndex(null);
+    },
+    [history, router],
+  );
 
   /* ================= EVENT HANDLERS ================= */
   const handleSubmit = (e: React.FormEvent) => {
@@ -116,18 +120,21 @@ const Terminal = () => {
     }
   };
 
+  if (!mounted)
+    return (
+      <div className="h-80 w-[20rem] bg-[#1e1e1e] rounded-xl animate-pulse" />
+    );
+
   return (
     <section
-      onClick={() => inputRef.current?.focus()}
-      className={`${Style.terminal}  ${robotoMono.className} top-0 mt-4 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
+      className={`${Style.terminal} ${robotoMono.className} relative mt-4 w-[50%] h-80 rounded-xl overflow-hidden shadow-2xl border z-20 border-white/10 `}
     >
       <div className="h-full w-full bg-[#1e1e1e] flex flex-col">
         {/* Header / Title Bar */}
         <header className="w-full py-2 px-4 bg-[#333] flex gap-2 items-center cursor-default">
-          {/* Tombol Merah (Close) dihapus */}
-          <span className="h-3 aspect-square bg-[#ff5f56] rounded-full"></span>
-          <span className="h-3 aspect-square bg-[#ffbd2e] rounded-full"></span>
-          <span className="h-3 aspect-square bg-[#27c93f] rounded-full"></span>
+          <span className="h-3 w-3 bg-[#ff5f56] rounded-full"></span>
+          <span className="h-3 w-3 bg-[#ffbd2e] rounded-full"></span>
+          <span className="h-3 w-3 bg-[#27c93f] rounded-full"></span>
           <span className="ml-2 text-[10px] sm:text-xs text-gray-400 font-mono uppercase tracking-widest">
             bash — portfolio
           </span>
@@ -136,7 +143,7 @@ const Terminal = () => {
         {/* Terminal Body */}
         <section
           ref={scrollRef}
-          className="flex-1 overflow-y-auto p-4 text-sm bg-[#1e1e1e]/90"
+          className="flex-1 overflow-y-auto p-4 text-sm bg-[#1e1e1e]/90 scrollbar-thin scrollbar-thumb-white/10"
         >
           <div className="text-slate-50 whitespace-pre-wrap">
             {history.map((line, index) => (
@@ -155,11 +162,11 @@ const Terminal = () => {
             <input
               ref={inputRef}
               type="text"
-              autoFocus
+              aria-label="Terminal Input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="bg-transparent border-none outline-none flex-1 text-slate-50 p-0 m-0 focus:ring-0"
+              className="bg-transparent border-none outline-none flex-1 text-slate-50 p-0 m-0 focus:ring-0 font-mono"
               autoComplete="off"
               spellCheck={false}
             />
