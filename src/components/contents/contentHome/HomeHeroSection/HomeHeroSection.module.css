@@ -98,3 +98,7 @@
     transform: translateY(0) rotate(0deg) scale(0.99, 0.99);
   }
 }
+
+.textShadow {
+  text-shadow: 4px 4px 0px var(--primary-background);
+}

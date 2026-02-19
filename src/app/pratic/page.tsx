@@ -25,7 +25,7 @@ const PraticPage = () => {
       <section className="max-width-custom m-auto flex flex-col items-center pb-60 ">
         <header className="py-4 flex justify-between w-full px-3">
           <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link href="/front-end">
+            <Link href="/">
               <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
                 <ArrowLeft className="md:text-[2em]" />
                 Kembali<span className="text-blue-700 montserrat">.</span>

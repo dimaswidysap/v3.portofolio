@@ -1,16 +1,18 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Style from "./terminal.module.css";
 
-interface TerminalProps {
-  className?: string;
-  onClose?: () => void; // Callback opsional untuk memberi tahu parent jika terminal ditutup
-}
+import { Roboto_Mono } from "next/font/google";
 
-const Terminal = ({ className, onClose }: TerminalProps) => {
-  const [visible, setVisible] = useState(true);
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-roboto-mono",
+});
+
+const Terminal = () => {
   const [input, setInput] = useState<string>("");
   const [history, setHistory] = useState<string[]>([
     "Welcome to Widy Terminal. Type 'help' to see all commands available.",
@@ -21,12 +23,6 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-
-  // Fungsi untuk menutup terminal secara bersih
-  const handleClose = useCallback(() => {
-    setVisible(false);
-    if (onClose) onClose();
-  }, [onClose]);
 
   /* ================= AUTO SCROLL ================= */
   useEffect(() => {
@@ -41,12 +37,12 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
     const newHistory = [...history, `$ > ${cmd}`];
     let output = "";
 
+    // Daftar perintah (exit sudah dihapus)
     const commandAvailable = [
       "pratic   - practice files create a basic front-end",
       "location - show location",
       "clear    - clear terminal",
       "echo     - print text",
-      "exit     - close the terminal",
     ];
 
     switch (cleanCmd) {
@@ -63,9 +59,7 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
         output = "Madiun, East Java";
         break;
 
-      case "exit":
-        handleClose();
-        return;
+      // case "exit" sudah dihapus
 
       case "clear":
         setHistory([
@@ -122,35 +116,18 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
     }
   };
 
-  if (!visible) return null;
-
   return (
     <section
       onClick={() => inputRef.current?.focus()}
-      className={`${Style.terminal} ${className} fixed top-0 left-1/2 -translate-x-1/2 mt-20 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
+      className={`${Style.terminal}  ${robotoMono.className} top-0 mt-4 w-full max-w-2xl h-80 rounded-xl overflow-hidden shadow-2xl border border-white/10 z-50`}
     >
       <div className="h-full w-full bg-[#1e1e1e] flex flex-col">
         {/* Header / Title Bar */}
         <header className="w-full py-2 px-4 bg-[#333] flex gap-2 items-center cursor-default">
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleClose();
-            }}
-            className="h-3 w-3 rounded-full bg-[#ff5f56] hover:brightness-75 transition-all"
-            title="Close"
-          />
-          <button
-            type="button"
-            className="h-3 w-3 rounded-full bg-[#ffbd2e]"
-            title="Minimize"
-          />
-          <button
-            type="button"
-            className="h-3 w-3 rounded-full bg-[#27c93f]"
-            title="Maximize"
-          />
+          {/* Tombol Merah (Close) dihapus */}
+          <span className="h-3 aspect-square bg-[#ff5f56] rounded-full"></span>
+          <span className="h-3 aspect-square bg-[#ffbd2e] rounded-full"></span>
+          <span className="h-3 aspect-square bg-[#27c93f] rounded-full"></span>
           <span className="ml-2 text-[10px] sm:text-xs text-gray-400 font-mono uppercase tracking-widest">
             bash — portfolio
           </span>
@@ -159,7 +136,7 @@ const Terminal = ({ className, onClose }: TerminalProps) => {
         {/* Terminal Body */}
         <section
           ref={scrollRef}
-          className="flex-1 overflow-y-auto p-4 font-mono text-sm bg-[#1e1e1e]/90"
+          className="flex-1 overflow-y-auto p-4 text-sm bg-[#1e1e1e]/90"
         >
           <div className="text-slate-50 whitespace-pre-wrap">
             {history.map((line, index) => (
