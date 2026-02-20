@@ -130,3 +130,6 @@ html.lenis {
 .bg-accen-first {
   background-color: var(--accen-first);
 }
+.bg-accen-second {
+  background-color: var(--accen-second);
+}
