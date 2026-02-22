@@ -24,11 +24,20 @@ const cards = [
       "https://drive.google.com/file/d/1jvxtJl2O3dlb0ff6ncNygPQ70_XvJXTN/view?usp=sharing",
     focus: ["HTML", "CSS"],
   },
+  {
+    title: "Front-End Web untuk Pemula",
+    location: "Dicoding Academy",
+    year: "2026",
+    desc: "Membangun halaman web Selfbook App yang responsif dan interaktif, dan mengaplikasikan local storage.",
+    linkDrive:
+      "https://drive.google.com/file/d/1ZaziMXQLjsdL7ibXnmivudbf1kbEUB3t/view?usp=sharing",
+    focus: ["HTML", "CSS", "Javascript"],
+  },
 ];
 
 const CertificatePage = () => {
   return (
-    <main className="w-full pb-60 h-max md:h-screen bg-primary">
+    <main className="w-full pb-60 h-max  bg-primary">
       <section className="max-width-custom   m-auto">
         <header className="py-4 flex justify-between w-full px-3">
           <Magnet padding={50} disabled={false} magnetStrength={5}>
@@ -47,7 +56,7 @@ const CertificatePage = () => {
         </header>
 
         {/* container card */}
-        <section className="w-full  mt-40 flex flex-wrap justify-center gap-4">
+        <section className="w-full  mt-40 flex flex-wrap justify-center gap-10">
           {cards.map((items) => {
             return (
               <article
