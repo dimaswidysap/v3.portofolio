@@ -10,38 +10,26 @@ const PROJECTS = [
   {
     title: "Garuda Illustration",
     src: "/asset/pageIllustrator/projects/1.jpg",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "Illustrasi ini saya buat dalam rangka memperingati hari kemerdekaan Indonesia yang ke 80",
   },
   {
     title: "Sam Wilson",
     src: "/asset/pageIllustrator/projects/falcon.webp",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "Illustrasi ini  dibuat karena saya suka dengan karakter yang diperankan oleh Anthony mackie",
   },
   {
     title: "Tiger Illustration",
     src: "/asset/pageIllustrator/projects/2.jpg",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "illustrasi ini saya buat untuk desain sebuah baju",
   },
   {
     title: "Zombie Illustration",
     src: "/asset/pageIllustrator/projects/3.jpg",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "illustrasi ini saya buat untuk desain sebuah baju",
   },
   {
     title: "GODZILLA AND DOCTOR DOOM",
     src: "/asset/pageIllustrator/projects/goddoom.webp",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "illustrasi ini saya buat untuk desain sebuah baju",
   },
   {
     title: "Ibu Keraton",
     src: "/asset/pageIllustrator/projects/ibukeraton.webp",
-    tools: "https://api.iconify.design/logos:adobe-illustrator.svg",
-    desc: "Illustrasi ini saya buat untuk desan sebuah banner warung nasi pecel, Illustrasi ini permintaan client yang meminta sebuat illustrasi ibu ibu keraton dengan menu nasi pecel, kopi panas dan esteh didepannya",
   },
 ];
 
@@ -107,26 +95,6 @@ const Card = ({
             fill
             unoptimized
           />
-        </section>
-        <section className="h-full w-[50%] hidden md:flex p-4 flex-col">
-          <header>
-            <h1
-              className={`${font.montserrat} text-[2em] font-extrabold text-slate-200`}
-            >
-              {title}
-            </h1>
-          </header>
-          {/* container tecth */}
-          <section>
-            <h1 className="mb-1 font-extrabold text-[1em] montserrat main-font">
-              Illustrasi ini dibuat dengan{" "}
-              <span className="text-blue-500">:</span>
-            </h1>
-            <section className="flex gap-4">
-              {IconTech(tools, "bg-main-font")}
-            </section>
-            <p className="main-font mt-4 montserrat font-light">{desc}</p>
-          </section>
         </section>
       </motion.div>
     </div>

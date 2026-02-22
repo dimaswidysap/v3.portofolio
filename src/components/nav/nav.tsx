@@ -138,7 +138,7 @@ const Navbar = () => {
                       <Link
                         href={item.href}
                         className="flex items-center w-full"
-                        onClick={closeMenu} // Menutup menu saat link diklik
+                        onClick={closeMenu}
                       >
                         {getIcon(item.label)}
                         {item.label}
