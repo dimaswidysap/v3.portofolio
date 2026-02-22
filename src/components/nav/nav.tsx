@@ -1,11 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import style from "./nav.module.css";
-// import Image from "next/image";
-// import Magnet from "../ReacbitsComponents/Magnet/Magnet";
 import { usePathname } from "next/navigation";
-// import IconSosmed from "../iconSosmed/IconSosmed";
 import {
   Home,
   PenTool,
@@ -16,31 +13,20 @@ import {
   Mail,
 } from "lucide-react";
 
+interface NavItem {
+  label: string;
+  href: string;
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  // const linkIcons = [
-  //   {
-  //     linkIcon: "https://cdn.simpleicons.org/github/ffff",
-  //     href: "https://github.com/dimaswidysap",
-  //   },
-  //   {
-  //     linkIcon: "https://cdn.simpleicons.org/instagram/ffff",
-  //     href: "https://www.instagram.com/dimaswidysaputraa/",
-  //   },
-  //   {
-  //     linkIcon: "https://cdn.simpleicons.org/facebook/ffff",
-  //     href: "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
-  //   },
-  //   {
-  //     linkIcon: "https://cdn.simpleicons.org/tiktok/ffff",
-  //     href: "https://www.tiktok.com/@segogotol",
-  //   },
-  // ];
+  // Ref untuk menampung elemen dropdown/kontainer navigasi
+  const navRef = useRef<HTMLDivElement>(null);
 
-  const navItems = [
-    { label: "Beranda", href: "/", extraClass: "menuActive", icon: "<Home />" },
+  const navItems: NavItem[] = [
+    { label: "Beranda", href: "/" },
     { label: "iLLustrator", href: "/iLLustrator" },
     { label: "Front-End", href: "/front-end" },
     { label: "Tentang saya", href: "/about" },
@@ -49,13 +35,51 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // const handleLinkClick = () => {
-  //   setIsOpen(false);
-  // };
+  // Fungsi untuk menutup menu
+  const closeMenu = () => setIsOpen(false);
+
+  // Effect untuk menangani klik di luar
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Jika menu terbuka DAN klik terjadi di luar elemen yang direferensikan (navRef)
+      if (
+        isOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        closeMenu();
+      }
+    };
+
+    // Tambah event listener
+    document.addEventListener("mousedown", handleClickOutside);
+
+    // Bersihkan event listener saat komponen unmount
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const getIcon = (label: string) => {
+    switch (label.toLowerCase()) {
+      case "beranda":
+        return <Home size={16} className="mr-2" />;
+      case "illustrator":
+        return <PenTool size={16} className="mr-2" />;
+      case "front-end":
+        return <Laptop size={16} className="mr-2" />;
+      case "tentang saya":
+        return <UserRound size={16} className="mr-2" />;
+      case "kontak":
+        return <Mail size={16} className="mr-2" />;
+      default:
+        return <Menu size={16} className="mr-2" />;
+    }
+  };
 
   return (
     <header
-      className={`${style.shadow} w-full z-100 fixed top-0 left-0 right-0 flex justify-center  h-14`}
+      className={`${style.shadow} w-full z-100 fixed top-0 left-0 right-0 flex justify-center h-14 bg-white`}
     >
       <nav className="w-[90%] h-full text-[0.8em] md:text-[0.9em] flex justify-between items-center main-font montserrat font-black">
         <div>
@@ -67,8 +91,9 @@ const Navbar = () => {
             <p className="hidden md:flex">Beranda</p>
           </Link>
         </div>
+
         <div className="h-full">
-          <div className="flex gap-4  h-full items-center">
+          <div className="flex gap-4 h-full items-center">
             <Link
               className="hidden md:flex gap-0.5 items-center"
               href="/iLLustrator"
@@ -84,7 +109,8 @@ const Navbar = () => {
               <p> Front-End</p>
             </Link>
 
-            <div className="h-full flex items-center relative ">
+            {/* Bungkus area toggle dengan Ref */}
+            <div className="h-full flex items-center relative" ref={navRef}>
               <button
                 onClick={toggleMenu}
                 className="flex relative gap-0.5 items-center h-max cursor-pointer bg-secondary px-2 py-1 rounded-md"
@@ -92,45 +118,36 @@ const Navbar = () => {
                 <Grid2X2 size={15} />
                 <p>Lainnya</p>
               </button>
+
               <section
-                className={`${style.shadowv2} ${isOpen ? "flex" : "hidden"} absolute py-12 px-3.5 gap-4  top-full  flex-col  w-[250%]  right-0`}
+                className={`${style.shadowv2} ${
+                  isOpen ? "flex" : "hidden"
+                } absolute py-12 px-3.5 gap-4 top-full flex-col w-[250%] right-0 bg-white`}
               >
-                {navItems.map((items) => {
+                {navItems.map((item) => {
                   const hiddenLabels = ["beranda", "illustrator", "front-end"];
-
                   const isHidden = hiddenLabels.includes(
-                    items.label.toLowerCase(),
+                    item.label.toLowerCase(),
                   );
-
-                  const getIcon = (label: string) => {
-                    switch (label.toLowerCase()) {
-                      case "beranda":
-                        return <Home size={16} className="mr-2" />;
-                      case "illustrator":
-                        return <PenTool size={16} className="mr-2" />;
-                      case "front-end":
-                        return <Laptop size={16} className="mr-2" />;
-                      case "tentang saya":
-                        return <UserRound size={16} className="mr-2" />;
-                      case "kontak":
-                        return <Mail size={16} className="mr-2" />;
-                      default:
-                        return <Menu size={16} className="mr-2" />;
-                    }
-                  };
 
                   return (
                     <li
-                      className={`list-none ${isHidden ? "flex md:hidden" : ""} relative `}
-                      key={items.label}
+                      className={`list-none ${isHidden ? "flex md:hidden" : "flex"} relative`}
+                      key={item.label}
                     >
-                      <Link href={items.href} className="flex items-center">
-                        {getIcon(items.label)}
-                        {items.label}
+                      <Link
+                        href={item.href}
+                        className="flex items-center w-full"
+                        onClick={closeMenu} // Menutup menu saat link diklik
+                      >
+                        {getIcon(item.label)}
+                        {item.label}
                       </Link>
 
                       <span
-                        className={`${pathname === items.href ? "flex" : "hidden"} absolute top-full h-px w-full bg-main-font`}
+                        className={`${
+                          pathname === item.href ? "flex" : "hidden"
+                        } absolute top-full h-px w-full bg-main-font`}
                       ></span>
                     </li>
                   );

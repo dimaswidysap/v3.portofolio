@@ -40,7 +40,7 @@ const HeaderFrontEndComponent = () => {
                     <Image
                       loading="eager"
                       priority
-                      className="object-cover group-hover:scale-150 group-hover:rotate-10 duration-200 ease-in-out"
+                      className="object-cover group-hover:scale-110 group-hover:rotate-10 duration-200 ease-in-out"
                       src={`/asset/pageFrontend/${icon.name}`}
                       alt={icon.alt}
                       fill
