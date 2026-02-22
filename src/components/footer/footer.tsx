@@ -28,30 +28,9 @@ const Footer = () => {
     },
     {
       linkIcon: "https://cdn.simpleicons.org/tiktok/ffff",
-      href: "https://www.tiktok.com/@segogotol",
+      href: "https://www.tiktok.com/@dimaswidysap",
     },
   ];
-  //   {
-  //     label: "github",
-  //     href: "https://github.com/dimaswidysap",
-  //     linkIcon: "/asset/icon/github.svg",
-  //   },
-  //   {
-  //     label: "instagram",
-  //     href: "https://www.instagram.com/dimaswidysaputraa/",
-  //     linkIcon: "/asset/icon/instagram.svg",
-  //   },
-  //   {
-  //     label: "facebook",
-  //     href: "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
-  //     linkIcon: "/asset/icon/github.png",
-  //   },
-  //   {
-  //     label: "tiktok",
-  //     href: "https://www.tiktok.com/@segogotol",
-  //     linkIcon: "/asset/icon/github.png",
-  //   },
-  // ];
 
   return (
     <footer className={`${Style.containerFooter} w-full z-20 relative`}>
