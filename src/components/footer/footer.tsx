@@ -1,13 +1,19 @@
 "use client";
-import style from "./footer.module.css";
-import font from "@/app/my-css.module.css";
+import Style from "./footer.module.css";
 import Link from "next/link";
-import IconSosmed from "@/components/iconSosmed/IconSosmed";
 import Image from "next/image";
-import DotGrid from "@/components/ReacbitsComponents/DotGrid/DotGrid";
+import IconSosmed from "../iconSosmed/IconSosmed";
 
 const Footer = () => {
-  const linkIcons = [
+  const navItems = [
+    { label: "Beranda", href: "/", extraClass: "menuActive", icon: "<Home />" },
+    { label: "iLLustrator", href: "/iLLustrator" },
+    { label: "Front-End", href: "/front-end" },
+    { label: "Tentang saya", href: "/about" },
+    { label: "Kontak", href: "/contact" },
+  ];
+
+  const sosmed = [
     {
       linkIcon: "https://cdn.simpleicons.org/github/ffff",
       href: "https://github.com/dimaswidysap",
@@ -25,66 +31,89 @@ const Footer = () => {
       href: "https://www.tiktok.com/@segogotol",
     },
   ];
+  //   {
+  //     label: "github",
+  //     href: "https://github.com/dimaswidysap",
+  //     linkIcon: "/asset/icon/github.svg",
+  //   },
+  //   {
+  //     label: "instagram",
+  //     href: "https://www.instagram.com/dimaswidysaputraa/",
+  //     linkIcon: "/asset/icon/instagram.svg",
+  //   },
+  //   {
+  //     label: "facebook",
+  //     href: "https://www.facebook.com/dimaswidysaputra.dimaswidysaputra",
+  //     linkIcon: "/asset/icon/github.png",
+  //   },
+  //   {
+  //     label: "tiktok",
+  //     href: "https://www.tiktok.com/@segogotol",
+  //     linkIcon: "/asset/icon/github.png",
+  //   },
+  // ];
 
   return (
-    <footer className={`${style.containerFooter} w-full z-20 relative`}>
-      <section className="w-full h-120 relative">
-        {/* background */}
-        <div style={{ width: "100%", height: "100%", position: "relative" }}>
-          <DotGrid
-            dotSize={5}
-            gap={15}
-            baseColor="#271E37"
-            activeColor="#5227FF"
-            proximity={120}
-            shockRadius={250}
-            shockStrength={5}
-            resistance={750}
-            returnDuration={1.5}
-          />
-        </div>
-        {/* konten */}
-        <div className="absolute max-width-custom  m-auto h-full w-full inset-0  z-20 flex flex-col">
-          <section className="w-full flex flex-1 md:flex-row">
-            <div className="w-full flex flex-col gap-7 h-full md:w-[70%] pl-2">
-              <h1 className="text-[3em] md:text-[4em] font-extrabold main-font montserrat">
-                Ayo kita bahas proyek anda 🚀
-              </h1>
-              <Link href="/contact" className="globalButton">
-                Kontak Saya
-              </Link>
-              {/* container icon sosmed */}
-              <div className="flex gap-3 h-full">
-                {linkIcons.map((item, index) => (
-                  <IconSosmed
-                    key={`sosmed-${index}`} // Menggunakan prefix agar key lebih unik
-                    linkIcon={item.linkIcon}
-                    linkSosmed={item.href}
+    <footer className={`${Style.containerFooter} w-full z-20 relative`}>
+      {/* background */}
+      <section className="w-full h-full absolute inset-0 overflow-hidden flex justify-center items-end">
+        <span className="font-black text-shadow-black -translate-y-[30%] md:translate-y-[40%] scale-200 text-7xl md:text-9xl opacity-10">
+          WIDY
+        </span>
+      </section>
+      {/* konten */}
+      <section className={`${Style.konten} absolute inset-0 w-full h-full`}>
+        <div className="w-[90%] h-[70%] bg-primary rounded-2xl md:rounded-4xl m-auto mt-6 px-3 md:px-10">
+          <div className="h-[80%] w-full flex flex-col md:flex-row">
+            <div className="w-full h-[60%] md:h-full md:w-[80%] pt-4 ">
+              <div className="flex items-center">
+                <div className="h-12 aspect-square relative">
+                  <Image
+                    className="object-cover"
+                    src="/asset/logo/logo.svg"
+                    alt="Foto Profil"
+                    loading="lazy"
+                    fill
                   />
-                ))}
+                </div>
+                <span className="font-black text-[1.2em] main-font">WIDY</span>
+              </div>
+              <p className="flex flex-col">
+                <span className="text-[1.5em] font-black">
+                  Ayo kita bahas proyek anda🚀
+                </span>
+                <span className="text-[0.9em]">Illustrator atau Web</span>
+              </p>
+              <div className="flex gap-3 mt-4">
+                {sosmed.map((items, index) => {
+                  return (
+                    <IconSosmed
+                      key={`sosmed-${index}`}
+                      linkIcon={items.linkIcon}
+                      linkSosmed={items.href}
+                    />
+                  );
+                })}
               </div>
             </div>
-            <div className="hidden md:flex w-[30%] h-full md:flex-col md:items-center md:gap-6 pt-12">
-              {/* konten logo */}
-              <div className="w-full relative aspect-square">
-                <Image
-                  className="opacity-60"
-                  src="/asset/logo/logo.svg"
-                  alt="Foto Profil"
-                  loading="lazy"
-                  fill
-                />
-              </div>
+            <div className="w-full h-[40%] md:h-full md:w-[20%] pt-4">
+              <h2 className="font-black main-font text-[1.2em]">MENU</h2>
+              <ul className="w-full">
+                {navItems.map((items) => {
+                  return (
+                    <li key={items.label}>
+                      <Link href={items.href}>{items.label}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </section>
-          {/* copy right */}
-          <section className="w-full flex justify-center py-1">
-            <span
-              className={`${font.montserrat} text-[0.7em] md:text-[1em] font-bold text-slate-300`}
-            >
-              Dimas Widy Saputra © 2026
-            </span>
-          </section>
+          </div>
+          <div
+            className={`${Style.copyright} h-[20%] w-full flex items-center `}
+          >
+            <span className="text-[0.8em]">Dimas Widy Saputra © 2026</span>
+          </div>
         </div>
       </section>
     </footer>

@@ -1,4 +1,19 @@
 .containerFooter {
   background-color: var(--footer);
   height: 30rem;
+  box-shadow: 0px -5px 50px rgba(0, 0, 0, 0.648);
+}
+
+@media (max-width: 640px) {
+  .containerFooter {
+    height: 50rem;
+  }
+}
+
+.copyright {
+  border-top: 1px solid var(--footer);
+}
+
+.konten {
+  color: rgb(159, 159, 159);
 }

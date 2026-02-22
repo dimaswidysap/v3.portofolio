@@ -13,7 +13,7 @@ const IconSosmed = ({
       <Link
         target="_blank"
         rel="noopener noreferrer"
-        className="relative block w-12 aspect-square bg-secondary rounded-full overflow-hidden shadow-2xl"
+        className="relative block w-10 aspect-square bg-secondary rounded-full overflow-hidden shadow-2xl"
         href={linkSosmed}
       >
         <Image
