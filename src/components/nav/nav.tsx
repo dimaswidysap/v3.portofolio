@@ -35,13 +35,10 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Fungsi untuk menutup menu
   const closeMenu = () => setIsOpen(false);
 
-  // Effect untuk menangani klik di luar
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Jika menu terbuka DAN klik terjadi di luar elemen yang direferensikan (navRef)
       if (
         isOpen &&
         navRef.current &&

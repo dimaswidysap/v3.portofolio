@@ -1,5 +1,5 @@
 import style from "@/app/my-css.module.css";
-
+import NavbarComponent from "@/components/nav/nav";
 import IllustratorHeader from "@/components/headers/IllustratorHeader/IllustratorHeader";
 import ContainerProjectGrid from "@/components/contents/illustrator/ProjectIllustratorGrid/ProjectiLLustratorGrid";
 import DisplayProject1 from "@/components/contents/illustrator/project1/project1";
@@ -9,6 +9,7 @@ import DisplayProject3 from "@/components/contents/illustrator/project3/project3
 const iLLustratorPage = () => {
   return (
     <main className={`${style.backgroundBody}`}>
+      <NavbarComponent />
       <IllustratorHeader />
       <ContainerProjectGrid />
       <DisplayProject1 />
