@@ -1,8 +1,8 @@
 "use client";
-import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
+import Nav from "../nav";
 import Link from "next/link";
 import style from "./certificate.module.css";
-import { ArrowLeft, Calendar, BookOpen, ExternalLink } from "lucide-react";
+import { Calendar, BookOpen, ExternalLink } from "lucide-react";
 
 const cards = [
   {
@@ -37,26 +37,11 @@ const cards = [
 
 const CertificatePage = () => {
   return (
-    <main className="w-full pb-60 h-max  bg-primary">
-      <section className="max-width-custom   m-auto">
-        <header className="py-4 flex justify-between w-full px-3">
-          <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link href="/about#story">
-              <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em]">
-                <ArrowLeft className="md:text-[2em]" />
-                Kembali<span className="text-blue-700">.</span>
-              </span>
-            </Link>
-          </Magnet>
-          <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <h1 className="main-font montserrat text-[1.3em] font-black md:text-[3em]">
-              Sertifikat
-            </h1>
-          </Magnet>
-        </header>
-
+    <main className="w-full py-60 h-max  bg-primary">
+      <Nav />
+      <section className="max-width-custom pb-60 m-auto">
         {/* container card */}
-        <section className="w-full  mt-40 flex flex-wrap justify-center gap-10">
+        <section className="w-full  flex flex-wrap justify-center gap-10">
           {cards.map((items) => {
             return (
               <article

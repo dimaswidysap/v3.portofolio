@@ -1,29 +1,10 @@
-"use client";
-import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
-import Link from "next/link";
-// import Image from "next/image";
-import { ArrowLeft } from "lucide-react";
+import Nav from "../nav";
 
-const EducatioPage = () => {
+const education = () => {
   return (
     <main id="education" className="w-full relative bg-primary">
+      <Nav />
       <section className="max-width-custom m-auto flex flex-col items-center pb-60 ">
-        <header className="py-4 flex justify-between w-full px-3">
-          <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <Link href="/about#story">
-              <span className="inline-flex gap-2 montserrat font-black main-font md:text-[2em] cursor-pointer">
-                <ArrowLeft className="md:text-[2em]" />
-                Kembali<span className="text-blue-700">.</span>
-              </span>
-            </Link>
-          </Magnet>
-          <Magnet padding={50} disabled={false} magnetStrength={5}>
-            <h1 className="main-font montserrat text-[1.3em] font-black md:text-[3em]">
-              Pendidikan
-            </h1>
-          </Magnet>
-        </header>
-
         {/* konten */}
         <section className="flex  flex-col gap-8 w-[80%] md:w-[75%] lg:w-[70%] items-center mt-40 relative">
           {/* line kiri */}
@@ -115,5 +96,4 @@ const EducatioPage = () => {
     </main>
   );
 };
-
-export default EducatioPage;
+export default education;

@@ -104,7 +104,7 @@ const AboutHeroSection = () => {
             <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
                 className="flex items-center gap-1 font-semibold text-[0.9em] md:text-[1.2em]"
-                href="/education"
+                href="/about/education"
               >
                 <GraduationCap className="text-blue-700" />
                 Pendidikan
@@ -114,7 +114,7 @@ const AboutHeroSection = () => {
             <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
                 className="flex items-center gap-1 font-semibold  text-[0.9em] md:text-[1.2em]"
-                href="/experiences"
+                href="/about/experiences"
                 // href="/education"
               >
                 <Briefcase className="text-blue-700" />
@@ -125,7 +125,7 @@ const AboutHeroSection = () => {
             <Magnet padding={50} disabled={false} magnetStrength={25}>
               <Link
                 className="flex items-center gap-1 font-semibold  text-[0.9em] md:text-[1.2em]"
-                href="/certificate"
+                href="/about/certificate"
               >
                 <Award className="text-blue-700" />
                 Sertifikat
