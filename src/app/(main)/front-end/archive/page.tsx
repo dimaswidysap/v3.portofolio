@@ -9,7 +9,7 @@ const archive = () => {
       <header className="max-width-custom m-auto px-4">
         <Link className="flex main-font" href="/front-end">
           <ArrowLeft />
-          <span className="text-[2em] font-black">
+          <span className="text-[1em] py-4 md:text-[2em] font-black">
             Kembali<span className="text-blue-700">.</span>{" "}
           </span>
         </Link>
