@@ -3,11 +3,12 @@ import { useState } from "react";
 import style from "./FrontEndHeroSection.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { Globe, Github, Archive, Layout } from "lucide-react";
+import { Globe, Github, Book, Archive, Layout } from "lucide-react";
 import Magnet from "../../ReacbitsComponents/Magnet/Magnet";
 import { projects } from "@/dataProjects/front-end/projects";
 
 const display = projects.filter((items) => items.id === "PJ001");
+const cardProject = projects.filter((items) => items.id !== "PJ001");
 
 const FrontEndHeroSection = () => {
   return (
@@ -54,12 +55,15 @@ const FrontEndHeroSection = () => {
 
               {display.map((item) => (
                 <div className="flex gap-4 main-font" key={item.id}>
-                  <Link target="_blank" className="flex" href={item.linkRep}>
-                    <Github /> <span>Repositori</span>
+                  <Link
+                    className="flex hover:bg-slate-800 py-2 px-3 rounded-md"
+                    href="/front-end/getphone"
+                  >
+                    <Book /> <span>More</span>
                   </Link>
 
                   <Link
-                    className="text-blue-700 flex"
+                    className="text-blue-700 flex hover:bg-slate-800 py-2 px-3 rounded-md"
                     target="_blank"
                     href={item.linkDemo}
                   >
@@ -70,16 +74,36 @@ const FrontEndHeroSection = () => {
             </div>
           </div>
           {/*  */}
-          <div className="w-full h-screen px-4 mt-14 md:mt-40"></div>
+          <div className="w-full  pt-20 md:pt-40 px-4 mt-14 md:mt-40">
+            <h2 className="relative main-font max-w font-black  w-max text-[1.5em] md:text-[2em] ">
+              Project lainya
+              <span className="absolute w-full h-0.5 left-0 bottom-0 bg-blue-700"></span>
+              <span className="absolute w-1/2 h-0.5 top-full left-0 mt-2 bottom-0 bg-blue-700"></span>
+            </h2>
+
+            <section className="hidden flex-col md:flex-row w-full justify-center items-center gap-10 flex-wrap pt-32">
+              {cardProject.map((items) => {
+                return (
+                  <figure
+                    key={items.id}
+                    className="w-[90%] aspect-16/10 bg-amber-100 md:w-[40%]"
+                  ></figure>
+                );
+              })}
+            </section>
+          </div>
         </div>
         {/* container-arsip */}
         <div className="w-full flex justify-center">
           <Link
-            className="px-2 py-1 rounded-md bg-primary main-font font-black mt-20 mb-32"
+            className="hidden px-2 py-1 rounded-md bg-primary main-font font-black mt-20 mb-32"
             href="/front-end/archive"
           >
             Lihat dirsip
           </Link>
+          <h2 className="main-font py-60 text-[2em] font-black">
+            Segera Hadir
+          </h2>
         </div>
       </section>
     </section>

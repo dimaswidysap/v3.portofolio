@@ -2,7 +2,7 @@ export const projects = [
   {
     id: "PJ001",
     year: "2025",
-    title: "Webiste Rekomendasi Smartphone",
+    title: "GetPhone",
     tecnology: "HTML, CSS, Javascript",
     image: ["display1.png", "display2.png", "display3.png"],
     desc: "Sebuah website yang menyediakan layanan rekomendasi hp berdasarkan kriteria yang dimasuka pengguna.",
