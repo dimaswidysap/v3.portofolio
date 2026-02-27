@@ -4,15 +4,9 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import style from "./HomeHeroSection.module.css";
 import Image from "next/image";
-import Terminal from "./terminal/Terminal";
-import FinderComponent from "./finder/finder";
-
-// import { Oswald } from "next/font/google";
-
-// const oswald = Oswald({
-//   subsets: ["latin"],
-//   variable: "--font-oswald",
-// });
+// import Terminal from "./terminal/Terminal";
+// import FinderComponent from "./finder/finder";
+import Technology from "./technology/technology";
 
 const HomeHeroSection = () => {
   const targetRef = useRef<HTMLElement>(null);
@@ -24,6 +18,16 @@ const HomeHeroSection = () => {
 
   const garuda = useSpring(
     useTransform(scrollYProgress, [0, 0.6], ["0", "-50%"]),
+    { stiffness: 50, damping: 20 },
+  );
+
+  const rotateLeft = useSpring(
+    useTransform(scrollYProgress, [0, 0.6], [0, -35]),
+    { stiffness: 50, damping: 20 },
+  );
+
+  const rotateRight = useSpring(
+    useTransform(scrollYProgress, [0, 0.6], [0, 35]),
     { stiffness: 50, damping: 20 },
   );
 
@@ -101,18 +105,34 @@ const HomeHeroSection = () => {
             style={{ y: garuda }}
             className="h-full w-full relative flex justify-center"
           >
-            {karakterGaruda.map((items) => (
-              <div key={items.name} className="absolute inset-0">
-                <Image
-                  loading="lazy"
-                  className="object-cover"
-                  src={items.href}
-                  alt="part-of-garuda"
-                  fill
-                  unoptimized
-                />
-              </div>
-            ))}
+            {karakterGaruda.map((items, index) => {
+              let style = {};
+
+              if (index === 1) {
+                style = { rotate: rotateLeft };
+              }
+
+              if (index === 2) {
+                style = { rotate: rotateRight };
+              }
+
+              return (
+                <motion.div
+                  key={items.name}
+                  style={style}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    loading="lazy"
+                    className="object-cover"
+                    src={items.href}
+                    alt="part-of-garuda"
+                    fill
+                    unoptimized
+                  />
+                </motion.div>
+              );
+            })}
             <span className="absolute top-[50%] w-full flex flex-col items-center">
               <span className="relative inline-flex w-full justify-center z-20">
                 <p
@@ -144,9 +164,8 @@ const HomeHeroSection = () => {
           <section className="absolute  inset-0 w-full aspect-square rounded-full translate-y-[20%] bg-secondary scale-x-150"></section>
         </section>
         {/* konten front end */}
-        <section className="absolute max-width-custom bottom-0 w-full h-[50%] ">
-          <Terminal />
-          <FinderComponent />
+        <section className="absolute max-width-custom bottom-0 w-full h-[50%]">
+          <Technology />
         </section>
       </section>
     </section>
