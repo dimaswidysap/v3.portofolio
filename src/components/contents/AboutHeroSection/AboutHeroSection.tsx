@@ -144,7 +144,7 @@ const AboutHeroSection = () => {
             </h1>
           </header>
           {/*  */}
-          <div className="w-full h-160  flex flex-col items-center  md:w-[50%]">
+          <div className="w-full h-120 flex flex-col items-center  md:w-[50%]">
             <header className="relative flex justify-center">
               <div className="h-80 aspect-square  relative">
                 <Image
@@ -157,6 +157,9 @@ const AboutHeroSection = () => {
               </div>
               <h1 className="absolute flex gap-2 bottom-0 text-[3em] font-black montserrat mb-[10%]  main-font bg-secondary rounded-2xl px-3">
                 iLLustrator <span className="font-accen-first">.</span>
+                <span className="absolute -bottom-1/2 -translate-y-[50%] left-0 text-[0.3em] bg-accen-first font-secondary py-1 px-2.5 rounded-md">
+                  Alat Tempur
+                </span>
               </h1>
             </header>
             <div className="w-[90%]  flex flex-col gap-6 ">
@@ -191,6 +194,9 @@ const AboutHeroSection = () => {
               </div>
               <h1 className="absolute bottom-0 text-[3em] font-black montserrat mb-[10%]  main-font bg-secondary rounded-2xl px-3">
                 Front-End <span className="font-accen-first">.</span>
+                <span className="absolute -bottom-1/2 -translate-y-[50%] left-0 text-[0.3em] bg-accen-first font-secondary py-1 px-2.5 rounded-md">
+                  Alat Tempur
+                </span>
               </h1>
             </header>
             <div className="w-[90%] flex flex-wrap gap-6 ">
