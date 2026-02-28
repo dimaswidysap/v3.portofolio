@@ -103,7 +103,7 @@ const ContactHeroSection = () => {
                     Kontak saya lewat WhatsApp
                   </span>
                   <Link target="_blanks" href="https://wa.me/+6287861402103">
-                    +62 812 529 665 57
+                    +6287861402103
                   </Link>
                 </header>
               </section>
