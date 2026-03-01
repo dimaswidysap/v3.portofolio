@@ -92,18 +92,24 @@ const Navbar = () => {
         <div className="h-full">
           <div className="flex gap-4 h-full items-center">
             <Link
-              className="hidden md:flex gap-0.5 items-center"
+              className="hidden md:flex gap-0.5 items-center relative"
               href="/iLLustrator"
             >
               <PenTool size={15} />
               <p>Illustrator</p>
+              <span
+                className={`${pathname === "/iLLustrator" ? "inline-flex" : "hidden"} w-full h-px bg-main-font absolute top-full rounded-md`}
+              ></span>
             </Link>
             <Link
-              className="hidden md:flex gap-0.5 items-center"
+              className="hidden md:flex gap-0.5 items-center relative"
               href="/front-end"
             >
               <Laptop size={15} />
               <p> Front-End</p>
+              <span
+                className={`${pathname === "/front-end" ? "inline-flex" : "hidden"} w-full h-px bg-main-font absolute top-full rounded-md`}
+              ></span>
             </Link>
 
             {/* Bungkus area toggle dengan Ref */}
