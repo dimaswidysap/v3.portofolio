@@ -1,12 +1,7 @@
-.card {
-  outline: 1px solid transparent;
-  box-shadow: transparent;
-  transition: all 0.3s ease-in-out;
-}
-
-.card:hover {
-  outline: 0.05rem solid var(--accen-first);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.outlineCard {
+  /* outline: 2px solid var(--accen-first); */
+  outline: 2px solid var(--font);
+  border-radius: 10px;
 }
 
 .focus {
