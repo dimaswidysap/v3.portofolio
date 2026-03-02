@@ -25,6 +25,15 @@ const cards = [
     focus: ["HTML", "CSS"],
   },
   {
+    title: "Fundamental Javascript",
+    location: "Dicoding Academy",
+    year: "2026",
+    desc: "Mempelajari dasar dasar javascript, function, tipe data, Object-Oriented Programming, menggunakan javascript sebagai module",
+    linkDrive:
+      "https://drive.google.com/file/d/1Bize35RNYlFoEY79wMA-spFRllOO0fsP/view?usp=drive_link",
+    focus: ["Javascript"],
+  },
+  {
     title: "Front-End Web untuk Pemula",
     location: "Dicoding Academy",
     year: "2026",
