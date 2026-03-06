@@ -106,6 +106,13 @@ const FrontEndHeroSection = () => {
           </h2>
         </div>
       </section>
+      {/* background */}
+      <section className="w-full h-full absolute inset-0">
+        <section className="w-full h-screen relative">
+          <span className="blur-[50px] md:scale-110 opacity-20 lg:scale-150  inline-flex h-[50%] aspect-square rounded-full bg-blue-700 absolute bottom-0 translate-y-1/2 translate-x-1/2 right-0"></span>
+          <span className="blur-[50px] md:scale-110 opacity-20 lg:scale-150  inline-flex h-[50%] aspect-square rounded-full bg-blue-700 absolute top-0 -translate-y-1/2 -translate-x-1/2 left-0"></span>
+        </section>
+      </section>
     </section>
   );
 };

@@ -27,7 +27,7 @@ const ContactHeroSection = () => {
           </header>
         </div>
         <div className="w-full h-[50%] bg-secondary relative z-20">
-          <div className="max-width-custom h-full m-auto">
+          <div className="max-width-custom h-full relative z-10 m-auto">
             <div className="flex flex-col xl:flex-row gap-4 w-full items-center justify-center px-4">
               {/* card */}
               <section className="w-[90%] max-w-120 border-2 border-slate-700 h-40 bg-primary -translate-y-8 rounded-2xl shadow-2xl">
@@ -108,6 +108,11 @@ const ContactHeroSection = () => {
                 </header>
               </section>
             </div>
+          </div>
+          {/* background */}
+          <div className="absolute inset-0 h-full w-full">
+            <span className="translate-y-1/2 -translate-x-1/2 blur-[50px] opacity-25 absolute h-full aspect-square bg-main-font rounded-full"></span>
+            <span className="right-0 bottom-0 translate-y-1/2 translate-x-1/2 blur-[50px] opacity-55 absolute h-1/2 aspect-square bg-main-font rounded-full"></span>
           </div>
         </div>
       </section>
