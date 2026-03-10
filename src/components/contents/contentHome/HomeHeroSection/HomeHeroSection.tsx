@@ -4,8 +4,6 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import style from "./HomeHeroSection.module.css";
 import Image from "next/image";
-// import Terminal from "./terminal/Terminal";
-// import FinderComponent from "./finder/finder";
 import Technology from "./technology/technology";
 
 const HomeHeroSection = () => {
@@ -66,7 +64,7 @@ const HomeHeroSection = () => {
   return (
     <section
       ref={targetRef}
-      className={`relative z-20 h-200 w-full justify-center items-center hidden md:flex`}
+      className={`relative z-20 h-200 w-full justify-center items-center hidden lg:flex`}
     >
       <section className="absolute h-full w-full">
         <section className="absolute h-full w-full bg-secondary z-20"></section>
@@ -136,24 +134,24 @@ const HomeHeroSection = () => {
             <span className="absolute top-[50%] w-full flex flex-col items-center">
               <span className="relative inline-flex w-full justify-center z-20">
                 <p
-                  className={`${style.textShadow} font-accen-first font-black  px-4 text-[1em] lg:text-[1.5em]`}
+                  className={`${style.textShadow} main-font font-black  px-4 text-[1em] lg:text-[1.5em]`}
                 >
                   SAYA HEBAT DALAM
                 </p>
                 <p
-                  className={`${style.textShadow} absolute md:top-3 lg:top-5 font-accen-first font-black  px-4 text-[2em] lg:text-[2.5em]`}
+                  className={`${style.textShadow} absolute md:top-3 lg:top-5 main-font font-black  px-4 text-[2em] lg:text-[2.5em]`}
                 >
                   ILLUSTRATOR
                 </p>
               </span>
               <span className="relative inline-flex w-full justify-center md:mt-7 lg:mt-6 z-20">
                 <p
-                  className={`${style.textShadow} font-accen-first font-black  px-4 text-[1em] lg:text-[1.5em]`}
+                  className={`${style.textShadow} main-font font-black  px-4 text-[1em] lg:text-[1.5em]`}
                 >
                   DAN
                 </p>
                 <p
-                  className={`${style.textShadow} absolute md:top-3 lg:top-5 font-accen-first font-black  px-4 text-[2em] lg:text-[2.5em]`}
+                  className={`${style.textShadow} absolute md:top-3 lg:top-5 main-font font-black  px-4 text-[2em] lg:text-[2.5em]`}
                 >
                   FRONT-END DEVOLOPER
                 </p>
