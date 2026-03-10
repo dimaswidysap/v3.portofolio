@@ -31,6 +31,10 @@ const PROJECTS = [
     title: "Ibu Keraton",
     src: "/asset/pageIllustrator/projects/ibukeraton.webp",
   },
+  {
+    title: "Ibu Keraton",
+    src: "/asset/pageIllustrator/projects/kartun1.jpg",
+  },
 ];
 
 const ProjectGrid = () => {
