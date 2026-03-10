@@ -65,7 +65,7 @@ const DisplayProject1 = () => {
           <Image
             loading="lazy"
             className="object-cover drop-shadow-2xl"
-            src="/asset/pageIllustrator/displayProjects/project1/godzilla.webp"
+            src="/asset/pageIllustrator/displayProjects/project1/godzillav2.webp"
             alt="godzilla"
             fill
             unoptimized
