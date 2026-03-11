@@ -20,4 +20,9 @@ const galeriBawah = [
   { id: "PICB005" },
 ];
 
+export const iconFontend = [
+  { icon: "/asset/icon/vscode.svg", alt: "vscode" },
+  { icon: "/asset/icon/github.png", alt: "github" },
+];
+
 export { galeriAtas, galeriTengah, galeriBawah };

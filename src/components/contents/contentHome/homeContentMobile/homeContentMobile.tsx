@@ -1,9 +1,11 @@
 "use client";
 import Image from "next/image";
 import Style from "./homeContent.module.css";
+import { iconFontend, iconIll, displayProgres } from "./main";
 import { galeriAtas, galeriTengah, galeriBawah } from "./front-end-gallery";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+
 const HomeContentMobile = () => {
   const containerRef = useRef(null);
 
@@ -22,7 +24,7 @@ const HomeContentMobile = () => {
   return (
     <section
       ref={containerRef}
-      className="relative flex flex-col lg:hidden w-full"
+      className="relative flex flex-col lg:hidden w-full bg-primary"
     >
       <div className="absolute w-full h-20  inset-0">
         <span
@@ -30,12 +32,48 @@ const HomeContentMobile = () => {
         ></span>
       </div>
 
-      <section className="relative w-full max-width-cutom  h-screen bg-primary">
-        <header className="p-10">
-          <h1 className="text-2xl md:text-[3em] font-black main-font">
+      <section className="w-full">
+        <h1 className="main-font text-2xl font-black p-2">
+          Apa yang Saya Kerjakan?
+        </h1>
+        <div className="w-full flex flex-col gap-3">
+          <span className="w-1/2 h-px bg-accen-first"></span>
+          <span className="w-[25%] h-px bg-accen-first"></span>
+        </div>
+      </section>
+
+      {/* font end */}
+
+      <section className="relative w-full mt-20 bg-primary">
+        <header className="p-2">
+          <h1 className="text-2xl mb-8 md:mb-9 md:text-[3em] font-black main-font">
             Front-End Devoloper
           </h1>
-          <p className="main-font md:text-xl">Hallo </p>
+          <div className="w-[15%] md:w-[10%] aspect-square relative">
+            {iconFontend.map((items) => {
+              return (
+                <figure
+                  style={items.style}
+                  key={items.alt}
+                  className="w-full h-full absolute inset-0"
+                >
+                  <Image
+                    className="object-cover"
+                    src={items.icon}
+                    alt="person"
+                    fill
+                    unoptimized
+                  />
+                </figure>
+              );
+            })}
+          </div>
+          <p className="main-font mt-5 md:text-xl text-balance">
+            Saya adalah seorang Front-End Developer berpengalaman yang memiliki
+            keahlian teknis dalam HTML, CSS, Tailwind CSS, JavaScript, dan
+            Next.js, serta didukung dengan pemahaman pada sisi backend
+            menggunakan PHP dan MySQL.
+          </p>
         </header>
         <div className="w-full h-100 md:h-150 flex gap-4 flex-col justify-center items-center overflow-hidden">
           <div className={`${Style.ajsneu} `}>
@@ -99,6 +137,58 @@ const HomeContentMobile = () => {
               })}
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* illustrator */}
+
+      <section className="relative w-full pb-10 bg-primary">
+        <header className="p-2">
+          <h1 className="text-2xl mb-8 md:mb-9 md:text-[3em] font-black main-font">
+            illustrator
+          </h1>
+          <div className="w-[15%] md:w-[10%] aspect-square relative">
+            {iconIll.map((items) => {
+              return (
+                <figure
+                  style={items.style}
+                  key={items.alt}
+                  className="w-full h-full absolute inset-0"
+                >
+                  <Image
+                    className="object-cover"
+                    src={items.icon}
+                    alt="person"
+                    fill
+                    unoptimized
+                  />
+                </figure>
+              );
+            })}
+          </div>
+          <p className="main-font mt-5 md:text-xl">
+            Saya juga bisa menggambar, saya memiliki kemahiran dalam membuat
+            ilustrasi digital menggunakan Adobe Illustrator.
+          </p>
+        </header>
+        <div className="w-full h-80 overflow-hidden flex justify-center gap-3 relative">
+          {displayProgres.map((items) => {
+            return (
+              <figure
+                style={items.style}
+                key={items.pic}
+                className="h-full aspect-square  absolute"
+              >
+                <Image
+                  className="object-cover"
+                  src={items.pic}
+                  alt="person"
+                  fill
+                  unoptimized
+                />
+              </figure>
+            );
+          })}
         </div>
       </section>
     </section>
