@@ -36,7 +36,7 @@ export const displayProgres = [
   {
     pic: "/asset/pageIndex/display1.png",
     style: {
-      transform: "translateX(-50%) rotate(-12deg)",
+      transform: "translateX(-40%) rotate(-12deg)",
     },
   },
   {
@@ -49,7 +49,7 @@ export const displayProgres = [
   {
     pic: "/asset/pageIndex/display3.png",
     style: {
-      transform: "translateX(50%) rotate(12deg)",
+      transform: "translateX(40%) rotate(12deg)",
     },
   },
 ];

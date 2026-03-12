@@ -1,0 +1,16 @@
+.dropShadow {
+  filter: drop-shadow(20px 10px 2px rgba(0, 0, 0, 0.637));
+}
+
+.roundedkiri {
+  /* background-color: red !important; */
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 10px 5px 0px rgba(0, 0, 0, 0.685);
+}
+.roundedkanan {
+  /* background-color: red !important; */
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 10px;
+  box-shadow: -10px 5px 0px rgba(0, 0, 0, 0.685);
+}

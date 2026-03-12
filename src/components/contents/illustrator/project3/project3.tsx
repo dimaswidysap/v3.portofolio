@@ -79,7 +79,8 @@ const DisplayProject3 = () => {
         <section className="w-full h-full absolute inset-0 md:py-[15%] lg:py-[5%] flex justify-between flex-col z-20">
           <div className="w-full px-4 relative z-100 ">
             <span className="md:text-[2em] xl:text-[3em] montserrat main-font font-black ">
-              INDONESIA
+              <p className="text-[0.4em]">Berada di</p>
+              <p>INDONESIA</p>
             </span>
             <div className="h-36 aspect-16/7 relative">
               <Image
@@ -91,11 +92,6 @@ const DisplayProject3 = () => {
                 unoptimized
               />
             </div>
-          </div>
-          <div className="w-full px-4 relative z-100 flex justify-end">
-            <span className="md:text-[2em] xl:text-[3em] montserrat text-red-800 font-black ">
-              NKRI
-            </span>
           </div>
         </section>
       </section>

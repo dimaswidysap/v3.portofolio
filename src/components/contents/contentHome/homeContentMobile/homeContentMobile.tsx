@@ -55,7 +55,7 @@ const HomeContentMobile = () => {
                 <figure
                   style={items.style}
                   key={items.alt}
-                  className="w-full h-full absolute inset-0"
+                  className="w-full h-full absolute inset-0  drop-shadow-2xl"
                 >
                   <Image
                     className="object-cover"
@@ -68,7 +68,7 @@ const HomeContentMobile = () => {
               );
             })}
           </div>
-          <p className="main-font mt-5 md:text-xl text-balance">
+          <p className="main-font mt-5 md:text-xl text-balance font-bold">
             Saya adalah seorang Front-End Developer berpengalaman yang memiliki
             keahlian teknis dalam HTML, CSS, Tailwind CSS, JavaScript, dan
             Next.js, serta didukung dengan pemahaman pada sisi backend
@@ -166,7 +166,7 @@ const HomeContentMobile = () => {
               );
             })}
           </div>
-          <p className="main-font mt-5 md:text-xl">
+          <p className="main-font mt-5 md:text-xl font-bold">
             Saya juga bisa menggambar, saya memiliki kemahiran dalam membuat
             ilustrasi digital menggunakan Adobe Illustrator.
           </p>
