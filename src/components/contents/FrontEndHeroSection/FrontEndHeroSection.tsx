@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Globe, Github, Book, Archive, Layout } from "lucide-react";
 import Magnet from "../../ReacbitsComponents/Magnet/Magnet";
 import { projects } from "@/dataProjects/front-end/projects";
+import { section } from "framer-motion/client";
 
 const display = projects.filter((items) => items.id === "PJ001");
 const cardProject = projects.filter((items) => items.id !== "PJ001");
@@ -94,16 +95,37 @@ const FrontEndHeroSection = () => {
           </div>
         </div>
         {/* container-arsip */}
-        <div className="w-full flex justify-center">
+        <div className="w-full flex flex-wrap pb-40 flex-col md:flex-row items-center gap-5 justify-center">
+          {cardProject.map((items) => {
+            const displayPic = items.image.at(0);
+
+            return (
+              <section
+                key={items.id}
+                className="w-[90%] flex flex-col aspect-10/16 bg-red-400"
+              >
+                <figure className="w-full aspect-video bg-yellow-300 relative">
+                  <Image
+                    className="object-cover"
+                    src={`./asset/pageFrontend/imageProjects/${displayPic}`}
+                    alt="person"
+                    fill
+                    unoptimized
+                  />
+                </figure>
+                <span>{items.year}</span>
+                <span>{items.title}</span>
+                <p>{items.desc}</p>
+                <Link href={items.page}>Lihat dirsip</Link>
+              </section>
+            );
+          })}
           <Link
             className="hidden px-2 py-1 rounded-md bg-primary main-font font-black mt-20 mb-32"
             href="/front-end/archive"
           >
             Lihat dirsip
           </Link>
-          <h2 className="main-font py-60 text-[2em] font-black">
-            Segera Hadir
-          </h2>
         </div>
       </section>
       {/* background */}

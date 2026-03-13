@@ -17,3 +17,12 @@
 .myTable tbody tr:hover {
   background-color: var(--primary-background);
 }
+
+.shadowCard {
+  box-shadow: rgba(0, 0, 0, 0.777) 0px 3px 8px;
+}
+
+.cardProject section div:nth-child(1) {
+  backdrop-filter: blur(10px);
+  /* background-color: red; */
+}
