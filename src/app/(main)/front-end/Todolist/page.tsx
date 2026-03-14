@@ -4,7 +4,7 @@ import { ExternalLink } from "lucide-react";
 import NavProject from "../navProject";
 import { projects } from "@/dataProjects/front-end/projects";
 
-const project = projects.find((items) => items.id === "PJ002");
+const project = projects.find((items) => items.id === "PJ003");
 const images = project?.image as string[];
 
 const getphonePage = () => {

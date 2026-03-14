@@ -6,7 +6,8 @@ import Link from "next/link";
 import { Globe, Github, Book, Archive, Layout } from "lucide-react";
 import Magnet from "../../ReacbitsComponents/Magnet/Magnet";
 import { projects } from "@/dataProjects/front-end/projects";
-import { section } from "framer-motion/client";
+
+import { SquareArrowOutUpRight } from "lucide-react";
 
 const display = projects.filter((items) => items.id === "PJ001");
 const cardProject = projects.filter((items) => items.id !== "PJ001");
@@ -74,7 +75,7 @@ const FrontEndHeroSection = () => {
               ))}
             </div>
           </div>
-          {/*  */}
+          {/* conatiner-arsip */}
           <div className="w-full  pt-20 md:pt-40 px-4 mt-14 md:mt-40">
             <h2 className="relative main-font max-w font-black  w-max text-[1.5em] md:text-[2em] ">
               Project lainya
@@ -94,29 +95,84 @@ const FrontEndHeroSection = () => {
             </section>
           </div>
         </div>
-        {/* container-arsip */}
-        <div className="w-full flex flex-wrap pb-40 flex-col md:flex-row items-center gap-5 justify-center">
+        {/* container-card */}
+        <div className="w-full flex flex-wrap pb-40 flex-col md:flex-row items-center gap-20 justify-center">
           {cardProject.map((items) => {
             const displayPic = items.image.at(0);
-
             return (
               <section
                 key={items.id}
-                className="w-[90%] flex flex-col aspect-10/16 bg-red-400"
+                className="shadow-2xl w-[90%] max-w-[20rem] rounded-2xl overflow-hidden"
               >
-                <figure className="w-full aspect-video bg-yellow-300 relative">
+                {/* Header berwarna dengan gambar */}
+                <figure className="w-full aspect-video relative ">
                   <Image
                     className="object-cover"
                     src={`./asset/pageFrontend/imageProjects/${displayPic}`}
-                    alt="person"
+                    alt={items.title}
                     fill
                     unoptimized
                   />
+                  {/* Badge kategori/tipe di atas gambar */}
+                  <div className="absolute bottom-3 left-3">
+                    <span className="py-1 px-3 bg-main-font text-blue-700 rounded-full text-xs font-bold shadow">
+                      {items.reasonProject}
+                    </span>
+                  </div>
                 </figure>
-                <span>{items.year}</span>
-                <span>{items.title}</span>
-                <p>{items.desc}</p>
-                <Link href={items.page}>Lihat dirsip</Link>
+
+                {/* Konten putih di bawah */}
+                <div className="flex flex-col p-4 gap-3 bg-main-font">
+                  {/* Author & Tahun */}
+                  <div className="flex items-center gap-2 text-xs font-bold tracking-widest text-blue-700 uppercase">
+                    <span>{items.team}</span>
+                    <span className="font-accen-first">•</span>
+                    <span>{items.year}</span>
+                  </div>
+
+                  {/* Judul */}
+                  <h2 className="font-bold font-primary text-base leading-snug">
+                    {items.title}
+                  </h2>
+
+                  {/* Deskripsi */}
+                  <p className="font-primary opacity-80 text-sm leading-relaxed line-clamp-3">
+                    {items.desc}
+                  </p>
+
+                  {/* Statistik — sesuaikan field dengan data kamu */}
+                  <div className=" gap-5 pt-1 hidden">
+                    <div className="flex flex-col">
+                      <span className="font-bold text-gray-900 text-base">
+                        17+
+                      </span>
+                      <span className="text-gray-400 text-xs">Weeks</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-bold text-gray-900 text-base">
+                        5
+                      </span>
+                      <span className="text-gray-400 text-xs">
+                        Design Processes
+                      </span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="font-bold text-gray-900 text-base">
+                        65+
+                      </span>
+                      <span className="text-gray-400 text-xs">Screens</span>
+                    </div>
+                  </div>
+
+                  {/* Tombol */}
+                  <Link
+                    href={items.page}
+                    className="w-full py-3 mt-1 items-center gap-2 font-bold text-sm text-white rounded-xl bg-blue-500 hover:bg-blue-600 transition-colors shadow flex justify-center"
+                  >
+                    <span>Lihat Proyek</span>
+                    <SquareArrowOutUpRight size={16} />
+                  </Link>
+                </div>
               </section>
             );
           })}
