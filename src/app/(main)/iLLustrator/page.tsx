@@ -5,6 +5,7 @@ import MobileVersion from "@/components/contents/illustrator/mobileVersion/mobil
 import DisplayProject1 from "@/components/contents/illustrator/project1/project1";
 import DisplayProject2 from "@/components/contents/illustrator/project2/project2";
 import DisplayProject3 from "@/components/contents/illustrator/project3/project3";
+import DisplayProject4 from "@/components/contents/illustrator/project4/project4";
 
 const iLLustratorPage = () => {
   return (
@@ -15,6 +16,7 @@ const iLLustratorPage = () => {
       <DisplayProject1 />
       <DisplayProject2 />
       <DisplayProject3 />
+      <DisplayProject4 />
     </main>
   );
 };
