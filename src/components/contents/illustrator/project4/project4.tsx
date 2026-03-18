@@ -29,7 +29,7 @@ const DisplayProject4 = () => {
           loading="eager"
           priority
           className="object-cover opacity-60"
-          src="/asset/pageIllustrator/displayProjects/project4/background.webp"
+          src="/asset/pageIllustrator/displayProjects/project4/backgroundv2.webp"
           alt="background"
           fill
           unoptimized
@@ -63,10 +63,6 @@ const DisplayProject4 = () => {
               <span>Aksi Illustrasi</span>
               <span className="font-accen-first">.</span>
             </h1>
-          </div>
-
-          <div className="absolute w-full inset-0  h-screen overflow-hidden ">
-            <span className="inline-flex h-full aspect-square rounded-full bg-main-font -translate-x-1/2 -translate-y-1/2 blur-[50px] opacity-50"></span>
           </div>
         </section>
       </motion.section>
