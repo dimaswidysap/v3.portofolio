@@ -126,28 +126,18 @@ const DisplayProject2 = () => {
       {/* Main content section with image */}
       <section className="relative z-50 w-full lg:aspect-video md:aspect-3/4">
         <section className="h-full w-full flex items-center relative">
-          <figure className="relative z-20 lg:w-[50%] md:w-[70%] aspect-square overflow-hidden">
-            <Image
-              loading="lazy"
-              className="object-cover"
-              src="/asset/pageIllustrator/displayProjects/project2/zombie.webp"
-              alt="background"
-              fill
-              unoptimized
-            />
-          </figure>
-          <figure
-            data-aos="fade-right"
-            className="absolute inset-0 lg:w-[50%] md:w-[70%] aspect-square  scale-125 translate-y-[5%] -translate-x-[10%]"
-          >
-            <Image
-              loading="lazy"
-              className="object-cover opacity-15"
-              src="/asset/pageIllustrator/displayProjects/project2/zombie.webp"
-              alt="background"
-              fill
-              unoptimized
-            />
+          {/* container imgae slide */}
+          <figure className="relative bg-red-300 z-20 lg:w-[50%] md:w-[70%] aspect-square overflow-hidden">
+            <div>
+              <Image
+                loading="lazy"
+                className="object-cover"
+                src="/asset/pageIllustrator/displayProjects/project2/zombie.webp"
+                alt="background"
+                fill
+                unoptimized
+              />
+            </div>
           </figure>
         </section>
       </section>
