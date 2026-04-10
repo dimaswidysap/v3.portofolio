@@ -76,7 +76,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`${style.shadow} w-full z-100 fixed top-0 left-0 right-0 flex justify-center h-14 bg-white`}
+      className={`w-full z-100 fixed top-0 left-0 right-0 flex justify-center h-14 bg-secondary-background`}
     >
       <nav className="w-[90%] h-full text-[0.8em] md:text-[0.9em] flex justify-between items-center main-font montserrat font-black">
         <div>

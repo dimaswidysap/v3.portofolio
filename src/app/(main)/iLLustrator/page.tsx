@@ -1,5 +1,4 @@
-import style from "@/app/my-css.module.css";
-import NavbarComponent from "@/components/nav/nav";
+import NavbarComponent from "@/components/NavBar/nav";
 import IllustratorHeader from "@/components/headers/IllustratorHeader/IllustratorHeader";
 import MobileVersion from "@/components/contents/illustrator/mobileVersion/mobileVersion";
 import DisplayProject1 from "@/components/contents/illustrator/project1/project1";
@@ -9,7 +8,7 @@ import DisplayProject4 from "@/components/contents/illustrator/project4/project4
 
 const iLLustratorPage = () => {
   return (
-    <main className={`${style.backgroundBody}`}>
+    <main className={``}>
       <NavbarComponent />
       <IllustratorHeader />
       <MobileVersion />

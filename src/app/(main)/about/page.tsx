@@ -1,4 +1,4 @@
-import NavbarComponent from "@/components/nav/nav";
+import NavbarComponent from "@/components/NavBar/nav";
 import AboutHeaderComponent from "@/components/headers/AboutHeader/AboutHeader";
 import AboutHeroSection from "@/components/contents/AboutHeroSection/AboutHeroSection";
 

@@ -1,5 +1,5 @@
 // import FrontEndHeaderComponent from "@/components/headers/FrontEndHeader/FrontEndHeaderComponent";
-import NavbarComponent from "@/components/nav/nav";
+import NavbarComponent from "@/components/NavBar/nav";
 import FrontEndHeroSection from "@/components/contents/FrontEndHeroSection/FrontEndHeroSection";
 const FrontEndPage = () => {
   console.log("testing");

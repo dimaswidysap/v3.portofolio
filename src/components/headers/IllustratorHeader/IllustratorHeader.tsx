@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import style from "../../../app/my-css.module.css";
+
 import hero from "./IllustratorHeader.module.css";
 import { motion, useScroll, useTransform } from "framer-motion";
 // import { Moon } from "lucide-react";
@@ -23,7 +23,7 @@ const HerosectionComponent = () => {
       <section className="relative z-20 m-auto max-width-custom h-screen flex justify-center">
         <motion.p
           style={{ opacity }}
-          className={`${style.montserrat} ${hero.font} mt-[30%] lg:mt-[20%]
+          className={` ${hero.font} mt-[30%] lg:mt-[20%]
           flex flex-col items-center text-[2.5em] md:text-[3em] font-black  h-max relative`}
         >
           <span className="absolute bottom-[60%]">Proyek</span>

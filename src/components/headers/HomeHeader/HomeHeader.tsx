@@ -1,6 +1,6 @@
 "use client";
 import style from "./HomeHeader.module.css";
-import font from "@/app/my-css.module.css";
+
 import Magnet from "@/components/ReacbitsComponents/Magnet/Magnet";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,9 +31,7 @@ const HomeHeader = () => {
           <div className="absolute flex flex-col justify-center w-max h-screen inset-0 left-[40%] translate-x-[-50%]">
             <Magnet padding={50} disabled={false} magnetStrength={5}>
               <p className="flex">
-                <span
-                  className={`${font.montserrat} ${style.font}  flex flex-col relative`}
-                >
+                <span className={` ${style.font}  flex flex-col relative`}>
                   <span className="absolute bottom-[170%] font-bold  md:font-secondary">
                     Hallo 👋, Nama saya
                   </span>
